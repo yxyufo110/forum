@@ -1,0 +1,11 @@
+<view class="box">
+  <view>
+    <view class="title">{{ title }}</view>
+    <image class="star" wx:for="{{[1,2,3,4,5]}}" src="../../static/images/gstar.png"></image>
+    <text class="content">
+      <text class="current">0</text><text class="all">/200</text>
+    </text>
+  </view>
+  <view class="arrow">></view>
+
+</view>

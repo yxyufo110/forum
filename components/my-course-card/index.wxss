@@ -1,0 +1,65 @@
+.box {
+  display: flex;
+  /* justify-content: space-between; */
+  padding: 13pt 6pt;
+  box-shadow: 0px 0px 12px 1px rgba(181, 197, 229, 0.5);
+  border-radius: 5pt;
+  flex-wrap: nowrap;
+  margin-bottom: 12pt;
+}
+.leftImg {
+  width: 105pt;
+  height: 80pt;
+  border-radius: 5pt;
+}
+.r1 {
+  display: flex;
+  justify-content: space-between;
+}
+.right {
+  width: 100%;
+  padding-left: 14pt;
+  padding-right: 5pt;
+}
+.title {
+  font-size: 15pt;
+  color: #000000;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* 行数*/
+  -webkit-box-orient: vertical;
+}
+.arrow {
+  color: #999999;
+  font-size: 15pt;
+}
+.teacher {
+  margin-top: 8pt;
+  font-size: 12pt;
+  color: #999999;
+}
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10pt;
+}
+.time {
+  color: #999999;
+  font-size: 10pt;
+}
+.cardIcon {
+  width: 13pt;
+  height: 13pt;
+}
+.count {
+  font-size: 9pt;
+  color: #fe424f;
+  margin-left: 3pt;
+  float: right;
+  margin-top: 2pt;
+}
+.opt {
+  padding-top: 10pt;
+}

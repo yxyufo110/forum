@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "my-nav-bar": "../../components/my-nav-bar/index",
+    "my-course-card": "../../components/my-course-card/index"
+  }
+}

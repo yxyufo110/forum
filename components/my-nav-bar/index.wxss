@@ -1,0 +1,10 @@
+.van-tab--active {
+  color: #3875f4 !important;
+}
+.van-nav-bar__left {
+  height: 44px !important;
+}
+.navBarIcon {
+  font-size: 19pt;
+  margin-right: 14pt;
+}

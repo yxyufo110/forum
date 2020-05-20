@@ -1,0 +1,44 @@
+.swiper {
+  width: 96%;
+  margin-left: 2%;
+  margin-top: 20pt;
+  border-radius: 5pt;
+  transform: translateY(0);
+  overflow: hidden;
+  height: 113pt;
+}
+.banner {
+  width: 100%;
+  height: 100%;
+}
+.panel {
+  width: 96%;
+  margin-left: 2%;
+  margin-top: 19pt;
+}
+.panelImg {
+  width: 100%;
+  /* height: 80pt; */
+  border-radius: 5pt;
+  position: relative;
+}
+.panelItem {
+  position: relative;
+}
+.coverText {
+  position: absolute;
+  font-size: 15pt;
+  color: #ffffff;
+  width: 65pt;
+  top: 32%;
+  right: 7pt;
+}
+.title {
+  font-size: 17pt;
+  font-weight: 500;
+  margin: 29pt 0 19pt 15pt;
+}
+.myCourseBox {
+  width: 92%;
+  margin-left: 4%;
+}

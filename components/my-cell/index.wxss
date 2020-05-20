@@ -1,0 +1,33 @@
+.star {
+  width: 12pt;
+  height: 12pt;
+  margin-right: 6pt;
+  float: left;
+}
+.title {
+  font-size: 15pt;
+  color: #000000;
+  font-weight: 500;
+  margin-bottom: 10pt;
+}
+.box {
+  display: flex;
+  justify-content: space-between;
+  padding: 20pt 13pt 2pt 15pt;
+}
+.current {
+  color: #3875f4;
+  font-size: 10pt;
+  margin-left: 19pt;
+}
+.all {
+  color: #999999;
+  font-size: 10pt;
+}
+.arrow {
+  color: #999999;
+  font-size: 15pt;
+}
+.content {
+  float: left;
+}

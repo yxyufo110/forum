@@ -1,0 +1,6 @@
+<van-tabbar active="{{ active }}" bind:change="onChange" inactive-color="#d7d7d7" active-color="#3875F4">
+  <van-tabbar-item icon="icon iconfont icontiku1">题库</van-tabbar-item>
+  <van-tabbar-item icon="icon iconfont iconkecheng1">课程</van-tabbar-item>
+  <van-tabbar-item icon="icon iconfont iconkefu1">客服</van-tabbar-item>
+  <van-tabbar-item icon="icon iconfont icongeren1">个人</van-tabbar-item>
+</van-tabbar>
