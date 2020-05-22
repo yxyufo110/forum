@@ -4,22 +4,34 @@ const app = getApp();
 
 Page({
   data: {
+    userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    isIPX:false
   },
   onLoad: function () {
+    if (app.globalData.isIPX) {
+      this.setData({
+        isIPX: true,
+      });
+    }
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({
+        active: 3,
+      });
+    }
     if (app.globalData.userInfo) {
-      // 此前已授权
-      wx.switchTab({
-        url: `/pages/testBank/index`,
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true,
       });
     } else if (this.data.canIUse) {
-      // 按钮调起可用，未获得用户信息
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = (res) => {
-        wx.switchTab({
-          url: `/pages/testBank/index`,
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true,
         });
       };
     } else {
@@ -27,8 +39,9 @@ Page({
       wx.getUserInfo({
         success: (res) => {
           app.globalData.userInfo = res.userInfo;
-          wx.switchTab({
-            url: `/pages/testBank/index`,
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true,
           });
         },
       });
@@ -36,11 +49,10 @@ Page({
   },
   getUserInfo: function (e) {
     console.log(e);
-    if (e.detail.userInfo) {
-      app.globalData.userInfo = e.detail.userInfo;
-      wx.switchTab({
-        url: `/pages/testBank/index`,
-      });
-    }
+    app.globalData.userInfo = e.detail.userInfo;
+    this.setData({
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true,
+    });
   },
 });

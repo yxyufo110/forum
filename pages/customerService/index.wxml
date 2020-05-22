@@ -1,0 +1,18 @@
+<my-nav-bar title="客服" showLeft="{{false}}" showTabs="{{false}}"></my-nav-bar>
+<scroll-view scroll-y="true" style="height:{{isIPX ? 'calc(100vh - 158px - 44pt)' : 'calc(100vh - 158px)'}}">
+  <view style="content: ''; overflow: hidden;"></view>
+  <view class="customerBox">
+    <view class="item">
+      <image class="itemImg" src="../../static/images/service.png"></image>
+      <text class="title">在线咨询</text>
+    </view>
+    <view class="item">
+      <image class="itemImg" src="../../static/images/tel.png"></image>
+      <text class="title">联系电话</text>
+    </view>
+    <view class="item">
+      <image class="itemImg" src="../../static/images/goon.png"></image>
+      <text class="title">问题反馈</text>
+    </view>
+  </view>
+</scroll-view>

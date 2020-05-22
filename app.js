@@ -1,10 +1,15 @@
 //app.js
 App({
   onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || [];
-    logs.unshift(Date.now());
-    wx.setStorageSync('logs', logs);
+    // 判断设备是不是ipx
+    wx.getSystemInfo({
+      success: (res) => {
+        if (res.model.search('iPhone X') != -1) {
+          this.globalData.isIPX = true;
+        }
+      },
+    });
+
 
     // 登录
     wx.login({
@@ -28,11 +33,12 @@ App({
               }
             },
           });
-        }
+        } 
       },
     });
   },
   globalData: {
     userInfo: null,
+    isIPX: false,
   },
 });

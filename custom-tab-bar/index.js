@@ -8,12 +8,22 @@ Component({
       switch (event.detail) {
         case 0:
           wx.switchTab({
-            url: `/pages/index/index`,
+            url: `/pages/testBank/index`,
           });
           break;
         case 1:
           wx.switchTab({
             url: `/pages/course/index`,
+          });
+          break;
+        case 2:
+          wx.switchTab({
+            url: `/pages/customerService/index`,
+          });
+          break;
+        case 3:
+          wx.switchTab({
+            url: `/pages/user/index`,
           });
           break;
         default:

@@ -1,5 +1,5 @@
 <my-nav-bar></my-nav-bar>
-<scroll-view scroll-y="true" style="height:{{isIPX?'calc(100vh - 158px - 40pt)' : 'calc(100vh - 158px)'}}">
+<scroll-view scroll-y="true" style="height:{{isIPX?'calc(100vh - 158px - 44pt)' : 'calc(100vh - 158px)'}}">
   <swiper class="swiper" indicator-dots="true" indicator-color="rgba(255,255,255,0.4)"
     indicator-active-color="rgba(255,255,255,1)" autoplay="true">
     <swiper-item>
@@ -44,7 +44,7 @@
     </view>
   </view>
 
-  <view style="margin-bottom: 20px;">
+  <view style="padding-bottom: 20px;">
     <view class="title">猜你喜欢</view>
     <view class="myCourseBox">
       <my-course-card title="高等考前精讲" teacher="张三" time="2020/03/25" count="4500"></my-course-card>

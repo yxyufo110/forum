@@ -1,0 +1,28 @@
+.customerBox {
+  width: 92%;
+  margin-left: 4%;
+  -moz-box-shadow: 0px 0px 12px 1px rgba(181, 197, 229, 0.5);
+  -webkit-box-shadow: 0px 0px 12px 1px rgba(181, 197, 229, 0.5);
+  box-shadow: 0px 0px 12px 1px rgba(181, 197, 229, 0.5);
+  margin-top: 41pt;
+  border-radius: 5pt;
+}
+.item {
+  height: 67pt;
+  border-bottom: 1px solid #f6f5f8;
+  line-height: 67pt;
+}
+.item:last-child {
+  border-bottom: none;
+}
+.itemImg {
+  float: left;
+  width: 22pt;
+  height: 22pt;
+  margin: 22.5pt 12pt 0 37pt;
+}
+.title {
+  color: #121212;
+  font-size: 15pt;
+  float: left;
+}

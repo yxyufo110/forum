@@ -1,5 +1,11 @@
 {
-  "pages": ["pages/index/index", "pages/course/index"],
+  "pages": [
+    "pages/index/index",
+    "pages/testBank/index",
+    "pages/course/index",
+    "pages/customerService/index",
+    "pages/user/index"
+  ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
@@ -14,12 +20,20 @@
     "backgroundColor": "#000000",
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/testBank/index",
         "text": "题库"
       },
       {
         "pagePath": "pages/course/index",
         "text": "课程"
+      },
+      {
+        "pagePath": "pages/customerService/index",
+        "text": "客服"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "个人"
       }
     ]
   },
@@ -31,7 +45,8 @@
     "van-tabs": "@vant/weapp/tabs/index",
     "van-nav-bar": "@vant/weapp/nav-bar/index",
     "van-row": "@vant/weapp/row/index",
-    "van-col": "@vant/weapp/col/index"
+    "van-col": "@vant/weapp/col/index",
+    "my-nav-bar": "/components/my-nav-bar/index"
   },
   "sitemapLocation": "sitemap.json"
 }
