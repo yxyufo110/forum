@@ -1,11 +1,87 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
+<my-nav-bar title="个人" showLeft="{{false}}" showTabs="{{false}}" />
+<scroll-view scroll-y="true" style="height:{{isIPX ? 'calc(100vh - 114px - 44pt)' : 'calc(100vh - 158px)'}}">
+	<view style="content: '';height:1px; overflow: hidden;" />
+	<view class="userBox">
+		<view class="userinfo">
+			<image class="avatar" src="{{userInfo.avatarUrl}}" mode="cover" />
+			<view class="nameBox">
+				<text class="nickname">{{userInfo.nickName}}</text>
+				<text class="tips">每天进步多一点， 越努力，越幸运</text>
+			</view>
+		</view>
 
-</view>
+		<view class="itemBox">
+			<view class="item">
+				<image src="../../static/images/my2.png" class="itemImg" />
+				<view class="itemTitle">
+					个人资料
+				</view>
+				<view class="itemArrow">
+					>
+				</view>
+			</view>
+			<view class="item">
+				<image src="../../static/images/my1.png" class="itemImg" />
+				<view class="itemTitle">
+					学习记录
+				</view>
+				<view class="itemArrow">
+					>
+				</view>
+			</view>
+		</view>
+
+		<view class="itemBox">
+			<view class="item">
+				<image src="../../static/images/my7.png" class="itemImg" />
+				<view class="itemTitle">
+					我的订单
+				</view>
+				<view class="itemArrow">
+					>
+				</view>
+			</view>
+			<view class="item">
+				<image src="../../static/images/my5.png" class="itemImg" />
+				<view class="itemTitle">
+					我的钱包
+				</view>
+				<view class="itemArrow">
+					>
+				</view>
+			</view>
+		</view>
+
+		<view class="itemBox">
+			<view class="item">
+				<image src="../../static/images/my6.png" class="itemImg" />
+				<view class="itemTitle">
+					我的分享
+				</view>
+				<view class="itemArrow">
+					>
+				</view>
+			</view>
+			<view class="item">
+				<image src="../../static/images/my4.png" class="itemImg" />
+				<view class="itemTitle">
+					我的收藏
+				</view>
+				<view class="itemArrow">
+					>
+				</view>
+			</view>
+			<view class="item">
+				<image src="../../static/images/my3.png" class="itemImg" />
+				<view class="itemTitle">
+					我的消息
+				</view>
+				<view class="itemArrow">
+					>
+				</view>
+			</view>
+		</view>
+
+	</view>
+</scroll-view>
+

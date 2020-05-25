@@ -1,1 +1,59 @@
 /* pages/user/index.wxss */
+.userBox {
+  margin-top: 16pt;
+  width: 92%;
+  margin-left: 4%;
+}
+.userinfo {
+  display: flex;
+  flex-direction: row;
+}
+.avatar {
+  width: 48pt;
+  height: 48pt;
+  border-radius: 100%;
+}
+.nameBox {
+  display: flex;
+  flex-direction: column;
+  margin-left: 8pt;
+  margin-bottom: 27pt;
+}
+.nickname {
+  color: #000000;
+  font-size: 15pt;
+  font-weight: bold;
+  margin-top: 14pt;
+  margin-bottom: 5pt;
+}
+.tips {
+  color: #bdbdbd;
+  font-size: 9pt;
+}
+.itemBox {
+  -moz-box-shadow: 0px 0px 12px 0px rgba(102, 167, 204, 0.2);
+  -webkit-box-shadow: 0px 0px 12px 0px rgba(102, 167, 204, 0.2);
+  box-shadow: 0px 0px 12px 0px rgba(102, 167, 204, 0.2);
+  border-radius: 5pt;
+  margin-bottom: 10pt;
+}
+.item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20pt 13pt 12pt 12pt;
+}
+.itemImg {
+  width: 17pt;
+  height: 17pt;
+  margin-right: 8pt;
+}
+.itemTitle {
+  color: #000000;
+  font-size: 15pt;
+}
+.itemArrow {
+  font-size: 15pt;
+  color: #b0b0b0;
+  margin-left: auto;
+}

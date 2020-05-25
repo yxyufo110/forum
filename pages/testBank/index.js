@@ -14,5 +14,17 @@ Page({
         active: 0,
       });
     }
+    // 显示分享按钮
+    wx.showShareMenu({
+      withShareTicket: true,
+    });
+  },
+  onshowShareMenu(res) {
+    console.log('分享');
+    return {
+      title: '分享',
+      desc: '远东教育小程序!',
+      path: '/page/course?id=123',
+    };
   },
 });

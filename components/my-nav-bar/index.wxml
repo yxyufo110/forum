@@ -1,13 +1,37 @@
-<van-nav-bar title="{{title}}" bind:click-left="onClickLeft" bind:click-right="onClickRight" class="navbar">
+<van-nav-bar
+ title="{{title}}"
+ bind:click-left="onClickLeft"
+ bind:click-right="onClickRight"
+ class="navbar"
+ border="{{false}}"
+>
 
-  <van-icon wx:if="{{showLeft}}" name="icon iconfont iconkecheng" slot="left" class="navBarIcon" />
-  <van-icon wx:if="{{showLeft}}" name="search" slot="left" class="navBarIcon" />
+	<van-icon
+	 wx:if="{{showLeft}}"
+	 name="icon iconfont iconkecheng"
+	 slot="left"
+	 class="navBarIcon"
+	/>
+	<van-icon
+	 wx:if="{{showLeft}}"
+	 name="search"
+	 slot="left"
+	 class="navBarIcon"
+	/>
 </van-nav-bar>
-<van-tabs wx:if="{{showTabs}}" line-width="{{false}}"  color active="{{ active }}" color="#999999" border="{{false}}">
-  <van-tab title="理工类"></van-tab>
-  <van-tab title="文法类"></van-tab>
-  <van-tab title="管理类"></van-tab>
-  <van-tab title="法学类"></van-tab>
-  <van-tab title="文史类"></van-tab>
-  <van-tab title="农学类"></van-tab>
+<van-tabs
+ wx:if="{{showTabs}}"
+ line-width="{{false}}"
+ color
+ active="{{ active }}"
+ color="#999999"
+ border="{{false}}"
+>
+	<van-tab title="理工类" />
+	<van-tab title="文法类" />
+	<van-tab title="管理类" />
+	<van-tab title="法学类" />
+	<van-tab title="文史类" />
+	<van-tab title="农学类" />
 </van-tabs>
+
