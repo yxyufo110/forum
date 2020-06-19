@@ -1,18 +1,18 @@
 .box {
   display: flex;
   /* justify-content: space-between; */
-  padding: 13pt 6pt;
+  padding: 13px 6px;
   -moz-box-shadow: 0px 0px 12px 1px rgba(181, 197, 229, 0.5);
   -webkit-box-shadow: 0px 0px 12px 1px rgba(181, 197, 229, 0.5);
   box-shadow: 0px 0px 12px 1px rgba(181, 197, 229, 0.5);
-  border-radius: 5pt;
+  border-radius: 5px;
   flex-wrap: nowrap;
-  margin-bottom: 12pt;
+  margin-bottom: 12px;
 }
 .leftImg {
-  width: 105pt;
-  height: 80pt;
-  border-radius: 5pt;
+  width: 105px;
+  height: 80px;
+  border-radius: 5px;
 }
 .r1 {
   display: flex;
@@ -20,11 +20,11 @@
 }
 .right {
   width: 100%;
-  padding-left: 14pt;
-  padding-right: 5pt;
+  padding-left: 14px;
+  padding-right: 5px;
 }
 .title {
-  font-size: 15pt;
+  font-size: 15px;
   color: #000000;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -35,33 +35,33 @@
 }
 .arrow {
   color: #999999;
-  font-size: 15pt;
+  font-size: 15px;
 }
 .teacher {
-  margin-top: 8pt;
-  font-size: 12pt;
+  margin-top: 8px;
+  font-size: 12px;
   color: #999999;
 }
 .bottom {
   display: flex;
   justify-content: space-between;
-  margin-top: 10pt;
+  margin-top: 10px;
 }
 .time {
   color: #999999;
-  font-size: 10pt;
+  font-size: 10px;
 }
 .cardIcon {
-  width: 13pt;
-  height: 13pt;
+  width: 13px;
+  height: 13px;
 }
 .count {
-  font-size: 9pt;
+  font-size: 9px;
   color: #fe424f;
-  margin-left: 3pt;
+  margin-left: 3px;
   float: right;
-  margin-top: 2pt;
+  margin-top: 2px;
 }
 .opt {
-  padding-top: 10pt;
+  padding-top: 10px;
 }

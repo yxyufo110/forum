@@ -1,83 +1,71 @@
-<my-nav-bar></my-nav-bar>
+<my-nav-bar/>
 <scroll-view scroll-y="true" style="height:{{isIPX ? 'calc(100vh - 158px - 44pt)' : 'calc(100vh - 158px)'}}">
-  <swiper class="swiper" indicator-dots="true" indicator-color="rgba(255,255,255,0.4)"
-    indicator-active-color="rgba(255,255,255,1)" autoplay="true">
-    <swiper-item>
-      <image class="banner" src="../../static/images/banner.jpg" />
-    </swiper-item>
-    <swiper-item>
-      <image class="banner" src="../../static/images/banner.jpg" />
-    </swiper-item>
-    <swiper-item>
-      <image class="banner" src="../../static/images/banner.jpg" />
-    </swiper-item>
-    <swiper-item>
-      <image class="banner" src="../../static/images/banner.jpg" />
-    </swiper-item>
-  </swiper>
+	<view class="swiperBox">
+		<swiper
+		 class="swiper"
+		 indicator-dots="true"
+		 indicator-color="rgba(255,255,255,0.4)"
+		 indicator-active-color="rgba(255,255,255,1)"
+		 autoplay="true"
+		>
+			<swiper-item>
+				<image class="banner" src="../../static/images/banner.jpg" />
+			</swiper-item>
+			<swiper-item>
+				<image class="banner" src="../../static/images/banner.jpg" />
+			</swiper-item>
+			<swiper-item>
+				<image class="banner" src="../../static/images/banner.jpg" />
+			</swiper-item>
+			<swiper-item>
+				<image class="banner" src="../../static/images/banner.jpg" />
+			</swiper-item>
+		</swiper>
 
-  <view>
-    <view class="title">我的学习</view>
-    <view class="gridBox">
-      <van-grid column-num="2" clickable="true">
-        <van-grid-item use-slot>
-          <view>
-            <image class="gridImg" src="../../static/images/1.png" />
-            <text class="gridText">模块练习</text>
-          </view>
-        </van-grid-item>
-        <van-grid-item use-slot>
-          <view>
-            <image class="gridImg" src="../../static/images/2.png" />
-            <text class="gridText">顺序练习</text>
-          </view>
-        </van-grid-item>
-        <van-grid-item use-slot>
-          <view>
-            <image class="gridImg" src="../../static/images/3.png" />
-            <text class="gridText">模拟考试</text>
-          </view>
-        </van-grid-item>
-        <van-grid-item use-slot>
-          <view>
-            <image class="gridImg" src="../../static/images/4.png" />
-            <text decode="{{true}}" class="gridText">在线&nbsp;PK&nbsp;</text>
-          </view>
-        </van-grid-item>
-        <van-grid-item use-slot>
-          <view>
-            <image class="gridImg" src="../../static/images/5.png" />
-            <text class="gridText">终极考试</text>
-          </view>
-        </van-grid-item>
-        <van-grid-item use-slot>
-          <view>
-            <image class="gridImg" src="../../static/images/6.png" />
-            <text class="gridText">错题集锦</text>
-          </view>
-        </van-grid-item>
-        <van-grid-item use-slot>
-          <view>
-            <image class="gridImg" src="../../static/images/7.png" />
-            <text class="gridText">测试报告</text>
-          </view>
-        </van-grid-item>
-        <van-grid-item use-slot>
-          <view>
-            <image class="gridImg" src="../../static/images/8.png" />
-            <text class="gridText">其他题库</text>
-          </view>
-        </van-grid-item>
-      </van-grid>
-    </view>
-  </view>
-  <view style="padding-bottom: 20px;">
-    <view class="title">我的学习</view>
-    <view class="myCell">
-      <my-cell title="高等数学（一）"></my-cell>
-      <my-cell title="高等数学（一）"></my-cell>
-      <my-cell title="高等数学（一）"></my-cell>
-      <my-cell title="高等数学（一）"></my-cell>
-    </view>
-  </view>
+		<van-grid column-num="4" border="{{ false }}">
+			<van-grid-item use-slot>
+				<image class="cellImg" src="../../static/images/1.png" />
+				<text class="cellText">模块练习</text>
+			</van-grid-item>
+			<van-grid-item use-slot>
+				<image class="cellImg" src="../../static/images/2.png" />
+				<text class="cellText">顺序练习</text>
+			</van-grid-item>
+			<van-grid-item use-slot>
+				<image class="cellImg" src="../../static/images/3.png" />
+				<text class="cellText">模拟考试</text>
+			</van-grid-item>
+			<van-grid-item use-slot>
+				<image class="cellImg" src="../../static/images/4.png" />
+				<text class="cellText">在线 PK </text>
+			</van-grid-item>
+			<van-grid-item use-slot>
+				<image class="cellImg" src="../../static/images/5.png" />
+				<text class="cellText">终极考试</text>
+			</van-grid-item>
+			<van-grid-item use-slot>
+				<image class="cellImg" src="../../static/images/6.png" />
+				<text class="cellText">错题集锦</text>
+			</van-grid-item>
+			<van-grid-item use-slot>
+				<image class="cellImg" src="../../static/images/7.png" />
+				<text class="cellText">测试报告</text>
+			</van-grid-item>
+			<van-grid-item use-slot>
+				<image class="cellImg" src="../../static/images/8.png" />
+				<text class="cellText">其他题库</text>
+			</van-grid-item>
+		</van-grid>
+	</view>
+
+	<view style="padding-bottom: 20px;">
+		<view class="title">专业考题</view>
+		<view class="myCell">
+			<my-cell title="高等数学（一）" />
+			<my-cell title="高等数学（一）" />
+			<my-cell title="高等数学（一）" />
+			<my-cell title="高等数学（一）" />
+		</view>
+	</view>
 </scroll-view>
+

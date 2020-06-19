@@ -1,11 +1,26 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/course/detail/index",
     "pages/testBank/index",
+    "pages/index/index",
+    "pages/topic/radio/index",
+    "pages/getPhone/index",
+    "pages/professionRadio/index",
+    "pages/searchProfession/index",
+    "pages/checkProfession/index",
+    "pages/checkType/index",
     "pages/course/index",
     "pages/customerService/index",
-    "pages/user/index"
+    "pages/user/index",
+    "pages/checkLevel/index",
+    "pages/checkDirection/index",
+    "pages/getLocation/checkCity"
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于快速定位当前城市"
+    }
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
@@ -46,7 +61,8 @@
     "van-nav-bar": "@vant/weapp/nav-bar/index",
     "van-row": "@vant/weapp/row/index",
     "van-col": "@vant/weapp/col/index",
-    "my-nav-bar": "/components/my-nav-bar/index"
+    "my-nav-bar": "/components/my-nav-bar/index",
+    "van-button": "@vant/weapp/button/index"
   },
   "sitemapLocation": "sitemap.json"
 }

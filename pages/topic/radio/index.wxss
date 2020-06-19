@@ -1,0 +1,57 @@
+.title {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 13px 26px 7px;
+  font-size: 14px;
+  color: #999999;
+}
+.underway {
+  margin-right: 6px;
+}
+.timer {
+  color: #f4ab38;
+  display: flex;
+}
+.now {
+  color: #3875f4;
+  margin-left: 11px;
+}
+.titleRight {
+  display: flex;
+}
+.topicBox {
+  padding: 0 16px;
+}
+.topic {
+  font-size: 15px;
+  color: #000000;
+}
+.van-radio {
+  margin-top: 44px;
+}
+.options {
+  font-size: 14px;
+  color: #000000;
+}
+.radioIcon {
+  width: 31px;
+  height: 31px;
+  border-radius: 31px;
+  border: 1px solid #3875f4;
+  color: #3875f4;
+  font-size: 14px;
+  text-align: center;
+  line-height: 31px;
+  background: #ffffff;
+}
+.checked {
+  color: #ffffff;
+  background: #3875f4;
+}
+.btnBox {
+  margin-top: 60px;
+  text-align: center;
+}
+.btn {
+  width: 120px;
+}

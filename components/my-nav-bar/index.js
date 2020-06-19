@@ -3,25 +3,26 @@ Component({
     styleIsolation: 'shared',
   },
   properties: {
-    title: { // 属性名
+    title: {
+      // 属性名
       type: String,
-      value: '考粉驿站'
+      value: '考粉驿站',
     },
-    showLeft: { // 属性名
+    showLeft: {
+      // 属性名
       type: Boolean,
-      value: true
+      value: true,
     },
-    showTabs: { // 属性名
+    showHome: {
+      // 属性名
       type: Boolean,
-      value: true
+      value: false,
+    },
+    showTabs: {
+      // 属性名
+      type: Boolean,
+      value: true,
     },
   },
-  methods: {
-    onClickLeft() {
-      wx.showToast({ title: '点击返回', icon: 'none' });
-    },
-    onClickRight() {
-      wx.showToast({ title: '点击按钮', icon: 'none' });
-    },
-  },
+  methods: {},
 });

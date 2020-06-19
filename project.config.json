@@ -21,8 +21,8 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.10.4",
-	"appid": "wx015a05f40e4bc2d1",
+	"libVersion": "2.11.1",
+	"appid": "wxbd314555cc996ee9",
 	"projectname": "kaofeng-miniprogram",
 	"debugOptions": {
 		"hidedInDevtools": []

@@ -1,0 +1,42 @@
+<my-home-nav-bar/>
+<view class="content">
+	<view class="title">
+		<text>（单选题）高等数学第一章</text>
+		<view class="titleRight">
+			<view class="timer">
+				<van-icon class="underway" size="22px" name="underway-o" />
+				<text>23:26</text>
+			</view>
+			<view class="pross">
+				<text class="now">5</text>
+				/30
+			</view>
+		</view>
+	</view>
+	<view class="topicBox">
+		<view class="topic">
+			教学题目1+1=？
+		</view>
+		<view class="options">
+			<van-radio-group value="{{ radio }}" bind:change="onChange">
+				<van-radio use-icon-slot name="1">1
+					<view class="radioIcon {{radio === '1' ? 'checked' :''}}" slot="icon">A</view>
+				</van-radio>
+				<van-radio use-icon-slot name="2">2
+					<view class="radioIcon  {{radio === '2' ? 'checked' :''}}" slot="icon">B</view>
+				</van-radio>
+			</van-radio-group>
+		</view>
+
+	</view>
+	<view class="btnBox">
+		<van-button
+		 custom-style="width:120px"
+		 round
+		 type="info"
+		 color="#3875F4"
+		>查看解析
+		</van-button>
+	</view>
+</view>
+

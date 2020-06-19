@@ -1,0 +1,14 @@
+<van-nav-bar title="专业选择" left-arrow border="{{false}}" />
+
+<view class="title">
+	理工类-专业选择
+</view>
+
+<van-radio-group checked-color="#3875F4" value="{{ radio }}" bind:change="onChange">
+	<van-radio checked-color="#3875F4" name="1">通讯工程</van-radio>
+	<van-radio checked-color="#3875F4" name="2">通讯工程</van-radio>
+	<van-radio checked-color="#3875F4" name="3">通讯工程</van-radio>
+	<van-radio checked-color="#3875F4" name="4">通讯工程</van-radio>
+	<van-radio checked-color="#3875F4" name="5">通讯工程</van-radio>
+</van-radio-group>
+

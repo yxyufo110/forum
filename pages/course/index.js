@@ -15,4 +15,9 @@ Page({
       });
     }
   },
+  goDetail: function () {
+    wx.navigateTo({
+      url: '/pages/course/detail/index',
+    });
+  },
 });

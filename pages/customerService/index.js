@@ -15,4 +15,9 @@ Page({
       });
     }
   },
+  makPhoneCall: function () {
+    wx.makePhoneCall({
+      phoneNumber: '15139068517',
+    });
+  },
 });

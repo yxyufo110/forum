@@ -1,6 +1,6 @@
 /* pages/user/index.wxss */
 .userBox {
-  margin-top: 16pt;
+  margin-top: 16px;
   width: 92%;
   margin-left: 4%;
 }
@@ -9,48 +9,48 @@
   flex-direction: row;
 }
 .avatar {
-  width: 48pt;
-  height: 48pt;
+  width: 48px;
+  height: 48px;
   border-radius: 100%;
 }
 .nameBox {
   display: flex;
   flex-direction: column;
-  margin-left: 8pt;
-  margin-bottom: 27pt;
+  margin-left: 8px;
+  margin-bottom: 27px;
 }
 .nickname {
   color: #000000;
-  font-size: 15pt;
+  font-size: 15px;
   font-weight: bold;
-  margin-top: 14pt;
-  margin-bottom: 5pt;
+  margin-top: 14px;
+  margin-bottom: 5px;
 }
 .tips {
   color: #bdbdbd;
-  font-size: 9pt;
+  font-size: 9px;
 }
 .itemBox {
   -moz-box-shadow: 0px 0px 12px 0px rgba(102, 167, 204, 0.2);
   -webkit-box-shadow: 0px 0px 12px 0px rgba(102, 167, 204, 0.2);
   box-shadow: 0px 0px 12px 0px rgba(102, 167, 204, 0.2);
-  border-radius: 5pt;
-  margin-bottom: 10pt;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 .item {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 20pt 13pt 12pt 12pt;
+  padding: 20px 13px 12px 12px;
 }
 .itemImg {
-  width: 17pt;
-  height: 17pt;
-  margin-right: 8pt;
+  width: 17px;
+  height: 17px;
+  margin-right: 8px;
 }
 .itemTitle {
   color: #000000;
-  font-size: 15pt;
+  font-size: 15px;
 }
 .itemArrow {
   font-size: 15pt;

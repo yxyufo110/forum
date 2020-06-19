@@ -1,0 +1,26 @@
+.title {
+  font-size: 15px;
+  color: #000000;
+  margin: 20px 0 25px 7px;
+  font-weight: 500;
+}
+.item {
+  width: 45%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #ffffff;
+  background: linear-gradient(-23deg, rgba(192, 196, 249, 1) 0%, rgba(148, 162, 239, 1) 100%);
+  box-shadow: 0px 3px 16px 0px rgba(148, 162, 239, 0.6);
+  border-radius: 5px;
+  margin-top: 20px;
+}
+.box {
+  display: flex;
+  padding: 0 27px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.item:last-child {
+  margin-bottom: 20px;
+}

@@ -1,5 +1,5 @@
 <my-nav-bar title="个人" showLeft="{{false}}" showTabs="{{false}}" />
-<scroll-view scroll-y="true" style="height:{{isIPX ? 'calc(100vh - 114px - 44pt)' : 'calc(100vh - 158px)'}}">
+<scroll-view scroll-y="true" style="height:{{isIPX ? 'calc(100vh - 114px - 44pt)' : 'calc(100vh - 114px)'}}">
 	<view style="content: '';height:1px; overflow: hidden;" />
 	<view class="userBox">
 		<view class="userinfo">

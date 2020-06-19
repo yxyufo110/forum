@@ -1,0 +1,36 @@
+<van-nav-bar left-arrow border="{{false}}" />
+
+<view class="title">
+	搜索报考专业
+</view>
+
+<van-search
+ value="{{ value }}"
+ shape="round"
+ background="#FFFFFF"
+ placeholder="请输入搜索关键词"
+ style="padding:0"
+/>
+<scroll-view scroll-y="true" style="height:225px">
+	<van-cell-group border="{{false}}">
+		<van-cell title="理工类-通讯工程" />
+		<van-cell title="理工类-通讯工程" />
+		<van-cell title="理工类-通讯工程" />
+		<van-cell title="理工类-通讯工程" />
+		<van-cell title="理工类-通讯工程" />
+		<van-cell title="理工类-通讯工程" />
+		<van-cell title="理工类-通讯工程" />
+		<van-cell title="理工类-通讯工程" />
+		<van-cell title="理工类-通讯工程" />
+		<van-cell title="理工类-通讯工程" />
+		<van-cell title="理工类-通讯工程" />
+		<van-cell title="理工类-通讯工程" />
+		<van-cell title="理工类-通讯工程" />
+		<van-cell title="理工类-通讯工程" />
+		<van-cell title="理工类-通讯工程" />
+		<van-cell title="理工类-通讯工程" />
+		<van-cell title="理工类-通讯工程" />
+		<van-cell title="理工类-通讯工程" />
+	</van-cell-group>
+</scroll-view>
+

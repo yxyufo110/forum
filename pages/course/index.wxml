@@ -1,56 +1,105 @@
-<my-nav-bar></my-nav-bar>
+<my-nav-bar/>
 <scroll-view scroll-y="true" style="height:{{isIPX?'calc(100vh - 158px - 44pt)' : 'calc(100vh - 158px)'}}">
-  <swiper class="swiper" indicator-dots="true" indicator-color="rgba(255,255,255,0.4)"
-    indicator-active-color="rgba(255,255,255,1)" autoplay="true">
-    <swiper-item>
-      <image class="banner" src="../../static/images/banner.jpg" />
-    </swiper-item>
-    <swiper-item>
-      <image class="banner" src="../../static/images/banner.jpg" />
-    </swiper-item>
-    <swiper-item>
-      <image class="banner" src="../../static/images/banner.jpg" />
-    </swiper-item>
-    <swiper-item>
-      <image class="banner" src="../../static/images/banner.jpg" />
-    </swiper-item>
-  </swiper>
+	<swiper
+	 class="swiper"
+	 indicator-dots="true"
+	 indicator-color="rgba(255,255,255,0.4)"
+	 indicator-active-color="rgba(255,255,255,1)"
+	 autoplay="true"
+	>
+		<swiper-item>
+			<image class="banner" src="../../static/images/banner.jpg" />
+		</swiper-item>
+		<swiper-item>
+			<image class="banner" src="../../static/images/banner.jpg" />
+		</swiper-item>
+		<swiper-item>
+			<image class="banner" src="../../static/images/banner.jpg" />
+		</swiper-item>
+		<swiper-item>
+			<image class="banner" src="../../static/images/banner.jpg" />
+		</swiper-item>
+	</swiper>
 
-  <view class="panel">
-    <van-row gutter="20">
-      <van-col span="12">
-        <view class="panelItem">
-          <image mode="widthFix" class="panelImg" src="../../static/images/course_left.png"></image>
-          <text class="coverText">边学边练</text>
-        </view>
-      </van-col>
-      <van-col span="12">
-        <view class="panelItem">
-          <image mode="widthFix" class="panelImg" src="../../static/images/course_right.png"></image>
-          <text class="coverText">在线直播</text>
-        </view>
-      </van-col>
-    </van-row>
-  </view>
+	<view class="panel">
+		<van-row gutter="20">
+			<van-col span="12">
+				<view class="panelItem">
+					<image mode="widthFix" class="panelImg" src="../../static/images/course_left.png" />
+					<text class="coverText">边学边练</text>
+				</view>
+			</van-col>
+			<van-col span="12">
+				<view class="panelItem">
+					<image mode="widthFix" class="panelImg" src="../../static/images/course_right.png" />
+					<text class="coverText">在线直播</text>
+				</view>
+			</van-col>
+		</van-row>
+	</view>
 
+	<view>
+		<view class="title">我的专业好课</view>
+		<view class="myCourseBox">
+			<my-course-card
+			 bindtap="goDetail"
+			 title="高等考前精讲高等考前精讲"
+			 teacher="张三"
+			 time="2020/03/25"
+			 count="4500"
+			/>
+			<my-course-card
+			 bindtap="goDetail"
+			 title="高等考前精讲"
+			 teacher="张三"
+			 time="2020/03/25"
+			 count="4500"
+			/>
+			<my-course-card
+			 bindtap="goDetail"
+			 title="高等考前精讲"
+			 teacher="张三"
+			 time="2020/03/25"
+			 count="4500"
+			/>
+			<my-course-card
+			 bindtap="goDetail"
+			 title="高等考前精讲"
+			 teacher="张三"
+			 time="2020/03/25"
+			 count="4500"
+			/>
+		</view>
+	</view>
 
-  <view>
-    <view class="title">我的专业好课</view>
-    <view class="myCourseBox">
-      <my-course-card title="高等考前精讲高等考前精讲" teacher="张三" time="2020/03/25" count="4500"></my-course-card>
-      <my-course-card title="高等考前精讲" teacher="张三" time="2020/03/25" count="4500"></my-course-card>
-      <my-course-card title="高等考前精讲" teacher="张三" time="2020/03/25" count="4500"></my-course-card>
-      <my-course-card title="高等考前精讲" teacher="张三" time="2020/03/25" count="4500"></my-course-card>
-    </view>
-  </view>
-
-  <view style="padding-bottom: 20px;">
-    <view class="title">猜你喜欢</view>
-    <view class="myCourseBox">
-      <my-course-card title="高等考前精讲" teacher="张三" time="2020/03/25" count="4500"></my-course-card>
-      <my-course-card title="高等考前精讲" teacher="张三" time="2020/03/25" count="4500"></my-course-card>
-      <my-course-card title="高等考前精讲" teacher="张三" time="2020/03/25" count="4500"></my-course-card>
-      <my-course-card title="高等考前精讲" teacher="张三" time="2020/03/25" count="4500"></my-course-card>
-    </view>
-  </view>
+	<view style="padding-bottom: 20px;">
+		<view class="title">猜你喜欢</view>
+		<view class="myCourseBox">
+			<my-course-card
+			 title="高等考前精讲"
+			 teacher="张三"
+			 time="2020/03/25"
+			 count="4500"
+			/>
+			<my-course-card
+			 title="高等考前精讲"
+			 teacher="张三"
+			 time="2020/03/25"
+			 count="4500"
+			/>
+			<my-course-card
+			 title="高等考前精讲"
+			 teacher="张三"
+			 time="2020/03/25"
+			 count="4500"
+			/>
+			<my-course-card
+			 title="高等考前精讲"
+			 teacher="张三"
+			 time="2020/03/25"
+			 count="4500"
+			/>
+		</view>
+	</view>
 </scroll-view>
+

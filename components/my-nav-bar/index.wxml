@@ -1,11 +1,4 @@
-<van-nav-bar
- title="{{title}}"
- bind:click-left="onClickLeft"
- bind:click-right="onClickRight"
- class="navbar"
- border="{{false}}"
->
-
+<van-nav-bar title="{{title}}" class="navbar" border="{{false}}">
 	<van-icon
 	 wx:if="{{showLeft}}"
 	 name="icon iconfont iconkecheng"
@@ -18,11 +11,11 @@
 	 slot="left"
 	 class="navBarIcon"
 	/>
+
 </van-nav-bar>
 <van-tabs
  wx:if="{{showTabs}}"
  line-width="{{false}}"
- color
  active="{{ active }}"
  color="#999999"
  border="{{false}}"

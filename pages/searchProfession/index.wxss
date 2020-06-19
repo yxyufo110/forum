@@ -1,0 +1,34 @@
+.title {
+  font-size: 15px;
+  color: #000000;
+  font-weight: 500;
+  padding: 20px 12px;
+}
+.van-search__content {
+  border: 1px solid #a9c5ff;
+}
+.van-icon-search {
+  color: #a9c5ff;
+  font-size: 20px;
+}
+.van-search {
+  padding: 0 12px !important;
+}
+.van-cell-group {
+  padding: 0 12px;
+}
+.van-cell {
+  color: #999999 !important;
+}
+/* .van-cell-group {
+  width: calc(100% -24px);
+}
+.van-hairline--bottom:after,
+.van-hairline--left:after,
+.van-hairline--right:after,
+.van-hairline--surround:after,
+.van-hairline--top-bottom:after,
+.van-hairline--top:after,
+.van-hairline:after {
+  border: none !important;
+} */

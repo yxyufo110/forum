@@ -1,0 +1,25 @@
+<van-nav-bar title="地区选择" left-arrow border="{{false}}" />
+<view class="box">
+	<view class="title">
+		请选择报考地区
+	</view>
+	<view style="margin-bottom:30px" wx:if="{{ city }}">
+		<van-icon name="icon iconfont icondingwei" color="#FFAB33" size="13px" />
+		<text class="local">定位城市：{{ province }} {{ city }}</text>
+	</view>
+	<view class="cityBox">
+		<view class="cityBoxItem province" bindtap="openModal">
+			{{ province }}
+			<text wx:if="{{ !province }}" class="placeholder">省份</text>
+			<van-icon name="icon iconfont iconxiala" color="#A9C5FF" size="13px" />
+		</view>
+		<view class="cityBoxItem city" bindtap="openModal">
+			{{ city }}
+			<text wx:if="{{ !city }}" class="placeholder">城市</text>
+			<van-icon name="icon iconfont iconxiala" color="#A9C5FF" size="13px" />
+		</view>
+	</view>
+	<view class="btn">提交</view>
+
+</view>
+

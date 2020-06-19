@@ -19,7 +19,7 @@ Page({
       withShareTicket: true,
     });
   },
-  onshowShareMenu(res) {
+  onshowShareMenu: function (res) {
     console.log('分享');
     return {
       title: '分享',

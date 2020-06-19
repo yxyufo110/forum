@@ -1,0 +1,20 @@
+<van-nav-bar title="提升方式" left-arrow border="{{false}}" />
+<view class="title">
+	请选择学历提升方式
+</view>
+<view class="item" bindtap="confirmType">
+	成人高考
+</view>
+
+<view class="item" bindtap="confirmType">
+	自学考试
+</view>
+
+<view class="item" bindtap="confirmType">
+	网络教育
+</view>
+
+<view class="item" bindtap="confirmType">
+	同等学历升硕
+</view>
+

@@ -1,11 +1,11 @@
 .swiper {
   width: 96%;
   margin-left: 2%;
-  margin-top: 20pt;
-  border-radius: 5pt;
+  margin-top: 20px;
+  border-radius: 5px;
   transform: translateY(0);
   overflow: hidden;
-  height: 113pt;
+  height: 113px;
 }
 .banner {
   width: 100%;
@@ -14,12 +14,12 @@
 .panel {
   width: 96%;
   margin-left: 2%;
-  margin-top: 19pt;
+  margin-top: 19px;
 }
 .panelImg {
   width: 100%;
-  /* height: 80pt; */
-  border-radius: 5pt;
+  /* height: 80px; */
+  border-radius: 5px;
   position: relative;
 }
 .panelItem {
@@ -27,16 +27,15 @@
 }
 .coverText {
   position: absolute;
-  font-size: 15pt;
+  font-size: 15px;
   color: #ffffff;
-  width: 65pt;
-  top: 32%;
-  right: 7pt;
+  width: 65px;
+  top: 31px;
+  right: 16px;
 }
 .title {
-  font-size: 17pt;
-  font-weight: 500;
-  margin: 29pt 0 19pt 15pt;
+  font-size: 17px;
+  margin: 29px 0 19px 4%;
 }
 .myCourseBox {
   width: 92%;

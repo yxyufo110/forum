@@ -1,12 +1,14 @@
 <my-nav-bar title="客服" showLeft="{{false}}" showTabs="{{false}}" />
-<scroll-view scroll-y="true" style="height:{{isIPX ? 'calc(100vh - 114px - 44pt)' : 'calc(100vh - 158px)'}}">
+<scroll-view scroll-y="true" style="height:{{isIPX ? 'calc(100vh - 114px - 44pt)' : 'calc(100vh - 114px)'}}">
 	<view style="content: '';height:1px; overflow: hidden;" />
 	<view class="customerBox">
 		<view class="item">
-			<image class="itemImg" src="../../static/images/service.png" />
-			<text class="title">在线咨询</text>
+			<button class="button" open-type="contact">
+				<image class="itemImg" src="../../static/images/service.png" />
+				<text class="title">在线咨询</text>
+			</button>
 		</view>
-		<view class="item">
+		<view class="item" bindtap="makPhoneCall">
 			<image class="itemImg" src="../../static/images/tel.png" />
 			<text class="title">联系电话</text>
 		</view>
