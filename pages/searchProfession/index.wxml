@@ -1,4 +1,9 @@
-<van-nav-bar left-arrow border="{{false}}" />
+<van-nav-bar
+ title="报考专业"
+ left-arrow
+ border="{{false}}"
+ bind:click-left="onClickLeft"
+/>
 
 <view class="title">
 	搜索报考专业
@@ -10,27 +15,16 @@
  background="#FFFFFF"
  placeholder="请输入搜索关键词"
  style="padding:0"
+ bind:change="onChange"
 />
 <scroll-view scroll-y="true" style="height:225px">
-	<van-cell-group border="{{false}}">
-		<van-cell title="理工类-通讯工程" />
-		<van-cell title="理工类-通讯工程" />
-		<van-cell title="理工类-通讯工程" />
-		<van-cell title="理工类-通讯工程" />
-		<van-cell title="理工类-通讯工程" />
-		<van-cell title="理工类-通讯工程" />
-		<van-cell title="理工类-通讯工程" />
-		<van-cell title="理工类-通讯工程" />
-		<van-cell title="理工类-通讯工程" />
-		<van-cell title="理工类-通讯工程" />
-		<van-cell title="理工类-通讯工程" />
-		<van-cell title="理工类-通讯工程" />
-		<van-cell title="理工类-通讯工程" />
-		<van-cell title="理工类-通讯工程" />
-		<van-cell title="理工类-通讯工程" />
-		<van-cell title="理工类-通讯工程" />
-		<van-cell title="理工类-通讯工程" />
-		<van-cell title="理工类-通讯工程" />
+	<van-cell-group wx:if="{{list && list.length > 0}}" border="{{false}}">
+		<van-cell
+		 bind:click="checkList"
+		 data-id="{{item.id}}"
+		 title="{{item.relativePath}}"
+		 wx:for="{{list}}"
+		/>
 	</van-cell-group>
 </scroll-view>
 

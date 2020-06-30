@@ -1,20 +1,56 @@
-<van-nav-bar title="提升方式" left-arrow border="{{false}}" />
-<view class="title">
-	请选择学历提升方式
+<van-nav-bar
+ title="{{queryOne.name}}"
+ left-arrow
+ border="{{false}}"
+ bind:click-left="onClickLeft"
+/>
+<view wx:if="{{!isLeaf}}">
+	<view wx:if="{{!isSearch}}">
+		<view class="title">
+			请选择{{queryOne.name}}
+		</view>
+		<view
+		 wx:for="{{queryOne.categories}}"
+		 data-id="{{item.id}}"
+		 data-isleaf="{{item.isLeaf}}"
+		 class="items"
+		 bindtap="confirmType"
+		>
+			{{item.name}}
+		</view>
+	</view>
+	<view wx:if="{{isSearch}}">
+		<view class="titleBox">
+			<view class="title">
+				请选择{{queryOne.name}}
+			</view>
+			<van-icon
+			 name="search"
+			 color="#3875F3"
+			 size="21px"
+			 bindtap="goSearch"
+			/>
+		</view>
+		<view class="box">
+			<view
+			 wx:for="{{queryOne.categories}}"
+			 data-id="{{item.id}}"
+			 data-isleaf="{{item.isLeaf}}"
+			 class="item"
+			 bindtap="confirmType"
+			>
+				{{item.name}}
+			</view>
+		</view>
+	</view>
 </view>
-<view class="item" bindtap="confirmType">
-	成人高考
-</view>
-
-<view class="item" bindtap="confirmType">
-	自学考试
-</view>
-
-<view class="item" bindtap="confirmType">
-	网络教育
-</view>
-
-<view class="item" bindtap="confirmType">
-	同等学历升硕
+<view wx:if="{{isLeaf}}">
+	<view class="title">
+		请选择{{queryOne.name}}
+	</view>
+	<van-radio-group checked-color="#3875F4" value="{{ radio }}" bind:change="onChange">
+		<van-radio checked-color="#3875F4" name="{{item.id}}" wx:for="{{queryOne.categories}}">{{item.name}}</van-radio>
+	</van-radio-group>
+	<view class="btn" bindtap="submit">确定</view>
 </view>
 

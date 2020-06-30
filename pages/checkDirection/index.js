@@ -1,12 +1,26 @@
-// pages/checkDirection/index.js
+import { categoryList } from '../../services/dict';
 Page({
   /**
    * 页面的初始数据
    */
-  data: {},
-  confirmDirection: function () {
+  data: {
+    queryOne: {},
+  },
+  confirmDirection: function (e) {
     wx.navigateTo({
-      url: '/pages/checkType/index',
+      url: `/pages/checkType/index?parentId=${e.target.dataset.id}`,
+    });
+  },
+  onLoad: function () {
+    categoryList().then((res) => {
+      this.setData({
+        queryOne: res,
+      });
+    });
+  },
+  onClickLeft: function () {
+    wx.navigateBack({
+      delta: 1,
     });
   },
 });

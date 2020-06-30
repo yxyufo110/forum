@@ -1,7 +1,7 @@
 <my-home-nav-bar/>
 <video
  id="myVideo"
- src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"
+ src="{{oneData.vodUrl}}"
  binderror="videoErrorCallback"
  show-center-play-btn='{{false}}'
  show-play-btn="{{true}}"
@@ -10,11 +10,12 @@
  bindenterpictureinpicture='bindVideoEnterPictureInPicture'
  bindleavepictureinpicture='bindVideoLeavePictureInPicture'
  class="video"
- title="第二章 01.高等数学考点一"
+ title="{{oneData.name}}"
+ poster="{{oneData.vodCover}}"
 />
 <view class="content">
 	<view class="titleBox">
-		<view class="titleName">高等数学精讲</view>
+		<view class="titleName">{{oneData.name}}</view>
 		<view>
 			<van-icon
 			 color="#FB3434"
@@ -26,7 +27,7 @@
 		</view>
 	</view>
 	<view class="titleBox">
-		<view>主讲人：张三</view>
+		<view>主讲人：{{oneData.lecturer}}</view>
 		<view>
 			2020/03/24
 		</view>
@@ -37,9 +38,19 @@
 	 color="#3875F4"
 	 border="{{false}}"
 	>
-		<van-tab title="章节选择">内容 1</van-tab>
-		<van-tab title="课程详情">内容 2</van-tab>
-		<van-tab title="教案下载">内容 3</van-tab>
+		<van-tab title="章节选择">
+			<van-cell
+			 bindtap="onChange"
+			 wx:for="{{chapters}}"
+			 title="{{item.name}}"
+			 data-id="{{item.id}}"
+			 is-link
+			/>
+		</van-tab>
+		<van-tab title="课程详情">
+			<image src="{{course.detail}}" style="width:100%" />
+		</van-tab>
+		<van-tab title="教案下载">{{course.lessonPlans}}</van-tab>
 	</van-tabs>
 </view>
 

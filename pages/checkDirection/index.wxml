@@ -1,16 +1,16 @@
-<van-nav-bar title="学习方向" left-arrow bind:click-left="onClickLeft" />
+<van-nav-bar title="{{queryOne.name}}" left-arrow bind:click-left="onClickLeft" />
 <view class="title">
-	请选择学习方向
+	请选择{{queryOne.name}}
 </view>
 <view class="box">
-	<view class="item" bindtap="confirmDirection">
-		学历提升
+	<view
+	 class="item"
+	 data-id="{{item.id}}"
+	 bindtap="confirmDirection"
+	 wx:for="{{queryOne.categories}}"
+	>
+		{{item.name}}
 	</view>
-	<view class="item" bindtap="confirmDirection">
-		技能培训
-	</view>
-	<view class="item" bindtap="confirmDirection">
-		资格证考试
-	</view>
+
 </view>
 

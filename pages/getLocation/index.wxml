@@ -1,25 +1,44 @@
-<van-nav-bar title="地区选择" left-arrow border="{{false}}" />
+<van-nav-bar title="地区选择" border="{{false}}" />
 <view class="box">
 	<view class="title">
 		请选择报考地区
 	</view>
 	<view style="margin-bottom:30px" wx:if="{{ city }}">
 		<van-icon name="icon iconfont icondingwei" color="#FFAB33" size="13px" />
-		<text class="local">定位城市：{{ province }} {{ city }}</text>
+		<text class="local">定位城市：{{ province }} {{ city }} {{ district }}</text>
 	</view>
 	<view class="cityBox">
-		<view class="cityBoxItem province" bindtap="openModal">
-			{{ province }}
-			<text wx:if="{{ !province }}" class="placeholder">省份</text>
+		<view class="cityBoxItem" bindtap="openModal">
+
+			<text wx:if="{{ check[0] }}" class="text">{{ check[0].name }}</text>
+			<text wx:if="{{ !check[0] }}" class="placeholder">省份</text>
 			<van-icon name="icon iconfont iconxiala" color="#A9C5FF" size="13px" />
 		</view>
-		<view class="cityBoxItem city" bindtap="openModal">
-			{{ city }}
-			<text wx:if="{{ !city }}" class="placeholder">城市</text>
+		<view class="cityBoxItem" bindtap="openModal">
+			<text wx:if="{{ check[1] }}" class="text">{{ check[1].name }}</text>
+			<text wx:if="{{ !check[1] }}" class="placeholder">城市</text>
+			<van-icon name="icon iconfont iconxiala" color="#A9C5FF" size="13px" />
+		</view>
+		<view class="cityBoxItem" bindtap="openModal">
+			<text wx:if="{{ check[2] }}" class="text">{{ check[2].name }}</text>
+			<text wx:if="{{ !check[2] }}" class="placeholder">区域</text>
 			<van-icon name="icon iconfont iconxiala" color="#A9C5FF" size="13px" />
 		</view>
 	</view>
-	<view class="btn">提交</view>
+	<view class="btn" bindtap="submit">提交</view>
+	<van-popup
+	 show="{{ show }}"
+	 position="bottom"
+	 custom-style="height: 30%"
+	 bind:close="onClose"
+	>
+		<van-area
+		 bind:cancel="onClose"
+		 bind:confirm="changeCity"
+		 area-list="{{ areaList }}"
+		 title="选择地区"
+		/>
+	</van-popup>
 
 </view>
 

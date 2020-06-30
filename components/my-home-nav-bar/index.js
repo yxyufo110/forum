@@ -1,5 +1,11 @@
 Component({
-  methods: {},
+  methods: {
+    goBack: function () {
+      wx.navigateBack({
+        delta: 1,
+      });
+    },
+  },
   properties: {
     title: {
       // 属性名

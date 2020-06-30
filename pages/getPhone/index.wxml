@@ -1,2 +1,0 @@
-<button style="margin-top:200px" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"> 获取手机号 </button>
-

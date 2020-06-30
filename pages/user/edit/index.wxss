@@ -1,0 +1,39 @@
+/* pages/user/edit/index.wxss */
+.avatar {
+  width: 49px;
+  height: 49px;
+  border-radius: 49px;
+  margin-top: 20px;
+}
+.nickname {
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 12px;
+}
+.userinfo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.content .van-field__input,
+.van-cell__value {
+  color: #3875f4 !important;
+  font-size: 14px;
+}
+.content .van-cell__title {
+  font-size: 15px;
+}
+
+.content {
+  margin-top: 10px;
+  -moz-box-shadow: 0px 0px 12px 0px rgba(102, 167, 204, 0.2);
+  -webkit-box-shadow: 0px 0px 12px 0px rgba(102, 167, 204, 0.2);
+  box-shadow: 0px 0px 12px 0px rgba(102, 167, 204, 0.2);
+  border-radius: 5px;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding: 10px 0;
+}
+.btn {
+  text-align: center;
+  margin: 30px 0;
+}

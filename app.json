@@ -1,20 +1,17 @@
 {
   "pages": [
-    "pages/course/detail/index",
-    "pages/testBank/index",
-    "pages/index/index",
-    "pages/topic/radio/index",
-    "pages/getPhone/index",
-    "pages/professionRadio/index",
-    "pages/searchProfession/index",
-    "pages/checkProfession/index",
-    "pages/checkType/index",
-    "pages/course/index",
-    "pages/customerService/index",
     "pages/user/index",
-    "pages/checkLevel/index",
+    "pages/user/edit/index",
+    "pages/getLocation/index",
+    "pages/checkType/index",
+    "pages/index/index",
+    "pages/testBank/index",
     "pages/checkDirection/index",
-    "pages/getLocation/checkCity"
+    "pages/course/detail/index",
+    "pages/course/index",
+    "pages/topic/radio/index",
+    "pages/searchProfession/index",
+    "pages/customerService/index"
   ],
   "permission": {
     "scope.userLocation": {
@@ -62,7 +59,8 @@
     "van-row": "@vant/weapp/row/index",
     "van-col": "@vant/weapp/col/index",
     "my-nav-bar": "/components/my-nav-bar/index",
-    "van-button": "@vant/weapp/button/index"
+    "van-button": "@vant/weapp/button/index",
+    "van-popup": "@vant/weapp/popup/index"
   },
   "sitemapLocation": "sitemap.json"
 }

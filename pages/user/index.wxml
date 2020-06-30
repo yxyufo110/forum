@@ -1,23 +1,27 @@
 <my-nav-bar title="个人" showLeft="{{false}}" showTabs="{{false}}" />
-<scroll-view scroll-y="true" style="height:{{isIPX ? 'calc(100vh - 114px - 44pt)' : 'calc(100vh - 114px)'}}">
+<view wx:if="{{!hasUserInfo}}" style="margin-top:200px;text-align:center">
+	<van-button type="primary" open-type="getUserInfo" bind:getuserinfo="getUserInfo">获取用户信息
+	</van-button>
+</view>
+<scroll-view wx:if="{{hasUserInfo}}" scroll-y="true" style="height:{{isIPX ? 'calc(100vh - 114px - 44pt)' : 'calc(100vh - 114px)'}}">
 	<view style="content: '';height:1px; overflow: hidden;" />
 	<view class="userBox">
 		<view class="userinfo">
 			<image class="avatar" src="{{userInfo.avatarUrl}}" mode="cover" />
 			<view class="nameBox">
-				<text class="nickname">{{userInfo.nickName}}</text>
+				<text class="nickname">{{userInfo.username}}</text>
 				<text class="tips">每天进步多一点， 越努力，越幸运</text>
 			</view>
 		</view>
 
 		<view class="itemBox">
-			<view class="item">
+			<view class="item" bindtap="goEdit">
 				<image src="../../static/images/my2.png" class="itemImg" />
 				<view class="itemTitle">
 					个人资料
 				</view>
 				<view class="itemArrow">
-					>
+					<van-icon name="arrow" />
 				</view>
 			</view>
 			<view class="item">
@@ -26,7 +30,7 @@
 					学习记录
 				</view>
 				<view class="itemArrow">
-					>
+					<van-icon name="arrow" />
 				</view>
 			</view>
 		</view>
@@ -38,7 +42,7 @@
 					我的订单
 				</view>
 				<view class="itemArrow">
-					>
+					<van-icon name="arrow" />
 				</view>
 			</view>
 			<view class="item">
@@ -47,7 +51,7 @@
 					我的钱包
 				</view>
 				<view class="itemArrow">
-					>
+					<van-icon name="arrow" />
 				</view>
 			</view>
 		</view>
@@ -59,7 +63,7 @@
 					我的分享
 				</view>
 				<view class="itemArrow">
-					>
+					<van-icon name="arrow" />
 				</view>
 			</view>
 			<view class="item">
@@ -68,7 +72,7 @@
 					我的收藏
 				</view>
 				<view class="itemArrow">
-					>
+					<van-icon name="arrow" />
 				</view>
 			</view>
 			<view class="item">
@@ -77,7 +81,7 @@
 					我的消息
 				</view>
 				<view class="itemArrow">
-					>
+					<van-icon name="arrow" />
 				</view>
 			</view>
 		</view>

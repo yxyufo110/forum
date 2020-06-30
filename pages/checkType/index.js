@@ -1,13 +1,60 @@
 // pages/checkType/index.js
+import { categoryList } from '../../services/dict';
+import { updateSubject } from '../../services/user';
 Page({
   /**
    * 页面的初始数据
    */
-  data: {},
-
-  confirmType: function () {
+  data: {
+    queryOne: {},
+    isSearch: false,
+    isLeaf: false,
+    radio: '',
+    parentId: '',
+  },
+  onLoad: function (params) {
+    categoryList({
+      parentId: params.parentId,
+    }).then((res) => {
+      if (res.categories && res.categories.length > 0) {
+        this.setData({
+          queryOne: res,
+          isSearch: res.searchable,
+          isLeaf: res.categories[0].isLeaf,
+          parentId: params.parentId,
+        });
+      }
+    });
+  },
+  confirmType: function (e) {
     wx.navigateTo({
-      url: '/pages/checkLevel/index',
+      url: `/pages/checkType/index?parentId=${e.target.dataset.id}`,
+      // e.target.dataset.isleaf
+      // ? `/pages/professionRadio/index?parentId=${e.target.dataset.id}`
+    });
+  },
+  onClickLeft: function () {
+    wx.navigateBack({
+      delta: 1,
+    });
+  },
+  onChange: function (event) {
+    this.setData({
+      radio: event.detail,
+    });
+  },
+  submit: function () {
+    if (this.data.radio) {
+      updateSubject(this.data.radio).then((res) => {
+        wx.switchTab({
+          url: `/pages/testBank/index`,
+        });
+      });
+    }
+  },
+  goSearch: function () {
+    wx.navigateTo({
+      url: `/pages/searchProfession/index?grandpaId=${this.data.parentId}`,
     });
   },
 });
