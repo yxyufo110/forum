@@ -17,7 +17,6 @@ Page({
     fontSize: '15px',
   },
   onLoad: function (e) {
-    console.log(e);
     geTopic({
       subjectId: e.subjectId || '',
       chapter: e.chapterName || '',

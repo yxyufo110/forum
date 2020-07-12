@@ -5,6 +5,11 @@ Component({
         delta: 1,
       });
     },
+    goHome: function () {
+      wx.switchTab({
+        url: '/pages/testBank/index',
+      });
+    },
   },
   properties: {
     title: {

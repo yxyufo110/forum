@@ -10,17 +10,20 @@ Page({
     chapter: '',
     shareId: '',
     score: '',
+    showScore: false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (e) {
+    console.log(e);
     getCardList(e.examineId).then((res) => {
       this.setData({
         cardInfo: res,
         examineId: e.examineId,
         score: e.score,
+        showScore: e.score || e.score == '0' ? true : false,
       });
     });
     getShareId({

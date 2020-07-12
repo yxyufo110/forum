@@ -12,12 +12,12 @@
 	</view>
 
 	<van-divider/>
+	<view wx:if="{{showScore}}" class="scoreBox">
+		您本次的测试成绩为：
+		<text class="score">{{score}}分</text>
+	</view>
 </scroll-view>
 
-<view wx:if="{{score || score === 0}}" class="scoreBox">
-	您本次的测试成绩为：
-	<text class="score">{{score}}</text>
-</view>
 <van-button
  block
  class="bottom"
