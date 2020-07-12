@@ -19,5 +19,7 @@ App({
   globalData: {
     userInfo: null,
     isIPX: false,
+    subject: null,
+    fontSize: '15px',
   },
 });

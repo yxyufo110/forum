@@ -18,3 +18,29 @@ export function getUserInfo() {
     method: 'get',
   });
 }
+export function getNotice(data) {
+  return request({
+    url: `/student/stu/notice/page`,
+    method: 'get',
+    data: data,
+  });
+}
+export function red(id) {
+  return request({
+    url: `/student/stu/notice/read/${id}`,
+    method: 'put',
+  });
+}
+export function getNoticeOne(id) {
+  return request({
+    url: `/student/stu/notice/${id}`,
+    method: 'get',
+  });
+}
+
+export function getNav() {
+  return request({
+    url: `/itembank/stu/navigation`,
+    method: 'get',
+  });
+}

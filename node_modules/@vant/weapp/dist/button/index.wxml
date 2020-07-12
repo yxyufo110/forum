@@ -6,6 +6,7 @@
   class="custom-class {{ utils.bem('button', [type, size, { block, round, plain, square, loading, disabled, hairline, unclickable: disabled || loading }]) }} {{ hairline ? 'van-hairline--surround' : '' }}"
   hover-class="van-button--active hover-class"
   lang="{{ lang }}"
+  form-type="{{ formType }}"
   style="{{ baseStyle }} {{ customStyle }}"
   open-type="{{ disabled ? '' : openType }}"
   business-id="{{ businessId }}"
@@ -31,10 +32,7 @@
       type="{{ loadingType }}"
       color="{{ loadingColor(type,color,plain) }}"
     />
-    <view
-      wx:if="{{ loadingText }}"
-      class="van-button__loading-text"
-    >
+    <view wx:if="{{ loadingText }}" class="van-button__loading-text">
       {{ loadingText }}
     </view>
   </block>
@@ -43,6 +41,7 @@
       wx:if="{{ icon }}"
       size="1.2em"
       name="{{ icon }}"
+      class-prefix="{{ classPrefix }}"
       class="van-button__icon"
       custom-style="line-height: inherit;"
     />

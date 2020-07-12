@@ -19,3 +19,9 @@ export function searchCategory(data) {
     data: data,
   });
 }
+export function getBanners() {
+  return request({
+    url: `/ops/stu/banner/list`,
+    method: 'get',
+  });
+}

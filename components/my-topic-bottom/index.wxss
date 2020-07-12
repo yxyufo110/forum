@@ -1,0 +1,45 @@
+.topicBottomBox {
+  height: 49px;
+  -moz-box-shadow: 0px 0px 12px 0px rgba(181, 196, 229, 0.5);
+  -webkit-box-shadow: 0px 0px 12px 0px rgba(181, 196, 229, 0.5);
+  box-shadow: 0px 0px 12px 0px rgba(181, 196, 229, 0.5);
+  line-height: 49px;
+  padding: 0 31px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+}
+.iconBox {
+  display: flex;
+  align-items: center;
+}
+.fontBox {
+  padding: 16px;
+  -moz-box-shadow: 0px 0px 12px 0px rgba(181, 196, 229, 0.5);
+  -webkit-box-shadow: 0px 0px 12px 0px rgba(181, 196, 229, 0.5);
+  box-shadow: 0px 0px 12px 0px rgba(181, 196, 229, 0.5);
+  width: 100px;
+  height: 53px;
+  position: fixed;
+  bottom: 49px;
+  right: 0;
+  color: #717175;
+}
+.like {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+.like .desc {
+  margin-left: 8.5px;
+}
+.fontList {
+  display: flex;
+  justify-content: space-between;
+}

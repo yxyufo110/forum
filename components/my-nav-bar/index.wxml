@@ -16,15 +16,11 @@
 <van-tabs
  wx:if="{{showTabs}}"
  line-width="{{false}}"
- active="{{ active }}"
  color="#999999"
  border="{{false}}"
+ active="{{active}}"
+ bind:click="onClick"
 >
-	<van-tab title="理工类" />
-	<van-tab title="文法类" />
-	<van-tab title="管理类" />
-	<van-tab title="法学类" />
-	<van-tab title="文史类" />
-	<van-tab title="农学类" />
+	<van-tab name="{{item.id}}" title="{{item.name}}" wx:for="{{tabsList}}" />
 </van-tabs>
 

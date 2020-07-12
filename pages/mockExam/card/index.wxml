@@ -1,0 +1,30 @@
+<my-home-nav-bar title="答题卡" />
+<scroll-view scroll-y="true" style="height:calc(100vh - 136px)">
+	<view class="cardBox">
+		<view
+		 data-id="{{item.questionId}}"
+		 wx:for="{{cardInfo}}"
+		 bindtap="goTopic"
+		 class="item"
+		>
+			{{index}}
+		</view>
+	</view>
+
+	<van-divider/>
+</scroll-view>
+
+<view wx:if="{{score || score === 0}}" class="scoreBox">
+	您本次的测试成绩为：
+	<text class="score">{{score}}</text>
+</view>
+<van-button
+ block
+ class="bottom"
+ custom-style="height:48px"
+ open-type="share"
+>
+	<van-icon name="icon iconfont iconwodefenxiang" size="20px" color="#3875F4" />
+	<text class="share">分享题库</text>
+</van-button>
+

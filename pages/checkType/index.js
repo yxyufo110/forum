@@ -28,9 +28,7 @@ Page({
   },
   confirmType: function (e) {
     wx.navigateTo({
-      url: `/pages/checkType/index?parentId=${e.target.dataset.id}`,
-      // e.target.dataset.isleaf
-      // ? `/pages/professionRadio/index?parentId=${e.target.dataset.id}`
+      url: `/pages/checkType/index?parentId=${e.currentTarget.dataset.id}`,
     });
   },
   onClickLeft: function () {

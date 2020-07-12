@@ -75,7 +75,7 @@
 					<van-icon name="arrow" />
 				</view>
 			</view>
-			<view class="item">
+			<view class="item" bindtap="goNotice">
 				<image src="../../static/images/my3.png" class="itemImg" />
 				<view class="itemTitle">
 					我的消息

@@ -10,7 +10,6 @@ Page({
     isIPX: false,
   },
   onLoad: function () {
-    // let globalUserInfo = app.globalData.userInfo;
     getUserInfo().then((res) => {
       this.setData({
         userInfo: res,
@@ -18,6 +17,7 @@ Page({
       });
       app.globalData.userInfo = res;
     });
+
     if (app.globalData.isIPX) {
       this.setData({
         isIPX: true,
@@ -50,6 +50,11 @@ Page({
   goEdit: function () {
     wx.navigateTo({
       url: '/pages/user/edit/index',
+    });
+  },
+  goNotice: function () {
+    wx.navigateTo({
+      url: '/pages/user/notice/index',
     });
   },
 });

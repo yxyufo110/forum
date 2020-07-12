@@ -60,7 +60,7 @@ Page({
     };
     updateUsr(params).then((res) => {
       app.globalData.userInfo = res;
-      wx.redirectTo({
+      wx.navigateTo({
         url: '/pages/checkDirection/index',
       });
     });

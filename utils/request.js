@@ -1,6 +1,6 @@
 // request.js
 const app = getApp();
-const baseUrl = 'http://139.186.36.207';
+const baseUrl = 'http://129.28.204.69';
 const request = (options) => {
   let newOptions = options;
   return new Promise((resolve, reject) => {
@@ -18,12 +18,12 @@ const request = (options) => {
       ...options,
       url: `${baseUrl}${options.url}`,
       success: function (res) {
-        if (res.statusCode === 401) {
+        if (res.statusCode === 401 || res.statusCode === 403) {
           // 自动续签
           wx.login({
             success: (lres) => {
               wx.request({
-                url: `http://139.186.36.207/student/stu/student/login/${lres.code}`,
+                url: `http://129.28.204.69/student/stu/student/login/${lres.code}`,
                 method: 'post',
                 success: function (lres2) {
                   wx.setStorageSync('Authorization', lres2.header.Authorization);
@@ -31,7 +31,13 @@ const request = (options) => {
                   if (newOptions.data && newOptions.method !== 'get') {
                     newOptions.data = JSON.parse(newOptions.data);
                   }
-                  request(newOptions);
+                  request(newOptions)
+                    .then((res) => {
+                      resolve(res);
+                    })
+                    .catch((err) => {
+                      reject(err);
+                    });
                 },
                 fail: function (err) {
                   wx.showToast({
@@ -46,11 +52,14 @@ const request = (options) => {
           });
         } else {
           wx.hideLoading();
+          if (res.header.Authorization) {
+            wx.setStorageSync('Authorization', res.header.Authorization);
+          }
           if (res.statusCode === 200) {
             resolve(res.data);
           } else {
             wx.showToast({
-              title: res.data,
+              title: res.data.title,
               icon: 'none',
               duration: 1500,
               mask: true,

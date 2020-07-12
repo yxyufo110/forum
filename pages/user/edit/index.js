@@ -83,7 +83,7 @@ Page({
   },
   onChange: function (e) {
     this.setData({
-      userInfo: { ...this.data.userInfo, [e.target.dataset.key]: e.detail },
+      userInfo: { ...this.data.userInfo, [e.currentTarget.key]: e.detail },
     });
   },
 

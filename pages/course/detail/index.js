@@ -1,35 +1,121 @@
 // pages/course/detail/index.js
-import { queryOne } from '../../../services/course';
+import {
+  queryOne,
+  updateTime,
+  queryChapter,
+  cancelCollect,
+  collect,
+  getShareId,
+} from '../../../services/course';
+import Dialog from '../../../miniprogram_npm/@vant/weapp/dialog/dialog';
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    data: {
-      course: {},
-      oneData: {},
-      chapters: [],
-    },
+    course: {},
+    oneData: {},
+    chapters: [],
+    timer: 0,
+    shareId: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
-    queryOne('5eef62d8d2b59271aa5c4b52').then((res) => {
+  onLoad: function (e) {
+    queryOne(e.id).then((res) => {
       this.setData({
         course: res,
-        oneData: res.chapters[0],
         chapters: res.chapters,
+      });
+      if (res.chapters && res.chapters[0]) {
+        queryChapter(res.chapters[0].id).then((res2) => {
+          this.setData({
+            oneData: res2,
+          });
+        });
+      }
+      getShareId({
+        name: '课程',
+        desc: '分享课程',
+        linkedCode: this.data.course.id,
+      }).then((res) => {
+        this.setData({
+          shareId: res,
+        });
       });
     });
   },
-  onChange(event) {
-    console.log(this.data.chapters);
-    let chapters = this.data.chapters;
+  onHide: function () {
+    if (this.data.timer > 1) {
+      updateTime({ chapterId: this.data.oneData.id, time: this.data.timer });
+    }
+  },
+  onUnload: function () {
+    if (this.data.timer > 1) {
+      updateTime({ chapterId: this.data.oneData.id, time: this.data.timer });
+    }
+  },
+  onChange: function (event) {
     let id = event.currentTarget.dataset.id;
-    this.setData({
-      oneData: chapters.find((i) => i.id === id),
+    if (this.data.timer > 1) {
+      updateTime({ chapterId: this.data.oneData.id, time: this.data.timer });
+    }
+    queryChapter(id).then((res) => {
+      this.setData({
+        oneData: res,
+      });
     });
+  },
+  timeChange: function (e) {
+    this.setData({
+      timer: e.detail.currentTime,
+    });
+  },
+  videoEnd: function (e) {
+    Dialog.confirm({
+      title: '学习完成',
+      message: '本章课程已看完，去练习？',
+    })
+      .then(() => {
+        wx.navigateTo({
+          url: `/pages/topic/radio/index?subjectId=${this.data.course.subjectId}&chapterName=${this.data.oneData.chapter}`,
+        });
+      })
+      .catch(() => {
+        // on cancel
+      });
+  },
+  like: function () {
+    collect({
+      linkedCode: this.data.course.id,
+      name: this.data.course.name,
+      subject: this.data.course.subjectId,
+      type: 'Course',
+    }).then((res) => {
+      this.setData({
+        course: {
+          ...this.data.course,
+          hasCollected: true,
+        },
+      });
+    });
+  },
+  nolike: function () {
+    cancelCollect(this.data.course.id).then((res) => {
+      this.setData({
+        course: {
+          ...this.data.course,
+          hasCollected: false,
+        },
+      });
+    });
+  },
+  onShareAppMessage: function (e) {
+    return {
+      title: '分享课程',
+      path: `/pages/index/index?id=${this.data.shareId}&redirectUrl=/pages/course/index`,
+    };
   },
 });

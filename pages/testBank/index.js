@@ -1,7 +1,9 @@
+import { getBanners } from '../../services/dict';
 const app = getApp();
 Page({
   data: {
     isIPX: false,
+    bannerList: [],
   },
   onLoad() {
     if (app.globalData.isIPX) {
@@ -18,13 +20,25 @@ Page({
     wx.showShareMenu({
       withShareTicket: true,
     });
+    getBanners().then((res) => {
+      this.setData({
+        bannerList: res,
+      });
+    });
   },
   onshowShareMenu: function (res) {
-    console.log('分享');
     return {
       title: '分享',
       desc: '远东教育小程序!',
       path: '/page/course?id=123',
     };
+  },
+  getTabItem: function (e) {
+    app.globalData.subject = e.detail;
+  },
+  goBanner: function (e) {
+    wx.navigateTo({
+      url: `/pages/banner/index?id=${e.currentTarget.dataset.id}`,
+    });
   },
 });

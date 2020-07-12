@@ -167,7 +167,7 @@ component_1.VantComponent({
         ];
       }
       if (type === 'multiple') {
-        return [defaultDate || minDate];
+        return defaultDate || [minDate];
       }
       return defaultDate || minDate;
     },
@@ -304,7 +304,10 @@ component_1.VantComponent({
     },
     onConfirm: function () {
       var _this = this;
-      if (this.data.type === 'range' && !this.checkRange()) {
+      if (
+        this.data.type === 'range' &&
+        !this.checkRange(this.data.currentDate)
+      ) {
         return;
       }
       wx.nextTick(function () {

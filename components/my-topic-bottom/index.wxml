@@ -1,0 +1,55 @@
+<view class="fontBox" wx:if="{{showCard}}">
+	<view class="like">
+		<van-icon name="like-o" size="18px" />
+		<text class="desc">收藏本题</text>
+	</view>
+	<view class="fontList">
+		<van-icon
+		 data-size="15px"
+		 name="icon iconfont iconziti"
+		 color="#999999"
+		 size="15px"
+		 bind:click="changeFont"
+		/>
+		<van-icon
+		 data-size="17px"
+		 name="icon iconfont iconziti"
+		 color="#999999"
+		 size="17px"
+		 bind:click="changeFont"
+		/>
+		<van-icon
+		 data-size="19px"
+		 name="icon iconfont iconziti"
+		 color="#999999"
+		 size="19px"
+		 bind:click="changeFont"
+		/>
+	</view>
+</view>
+<view class="topicBottomBox">
+	<view class="iconBox">
+		<van-icon
+		 custom-style="margin-right:15px"
+		 name="icon iconfont iconcaogaozhi"
+		 color="#3775F3"
+		 size="22px"
+		 bind:click="goDraw"
+		/>
+		<van-icon
+		 bind:click="goCard"
+		 name="icon iconfont icondatika"
+		 color="#3775F3"
+		 size="22px"
+		/>
+	</view>
+	<view class="iconBox">
+		<van-icon
+		 bind:click="showMore"
+		 name="icon iconfont icongengduoxuanxiang"
+		 color="#3775F3"
+		 size="22px"
+		/>
+	</view>
+</view>
+

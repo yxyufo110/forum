@@ -8,7 +8,7 @@ Page({
   },
   confirmDirection: function (e) {
     wx.navigateTo({
-      url: `/pages/checkType/index?parentId=${e.target.dataset.id}`,
+      url: `/pages/checkType/index?parentId=${e.currentTarget.dataset.id}`,
     });
   },
   onLoad: function () {

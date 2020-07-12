@@ -1,0 +1,18 @@
+<!-- 函数 -->
+
+<my-home-nav-bar/>
+
+<view class="btnBox">
+
+	<van-button
+	 custom-style="width:120px"
+	 round
+	 type="info"
+	 color="#3875F4"
+	 bind:click="submit"
+	>交卷
+	</van-button>
+</view>
+<!-- 底部 -->
+<my-topic-bottom isTest bindchangeFont="changeFont" examineId="{{examineId}}" />
+

@@ -7,17 +7,25 @@ Page({
     // 登录
     wx.login({
       success: (res) => {
-        console.log(res);
         wx.request({
-          url: `http://139.186.36.207/student/stu/student/login/${res.code}`,
+          url: `http://129.28.204.69/student/stu/student/login/${res.code}`,
           method: 'post',
           success: function (res2) {
             wx.setStorageSync('Authorization', res2.header.Authorization);
             app.globalData.userInfo = res2.data;
-            wx.switchTab({
-              // url: '/pages/course/detail/index',
-              url: '/pages/user/index',
-            });
+            if (!res2.data.addr) {
+              wx.redirectTo({
+                url: '/pages/getLocation/index',
+              });
+            } else if (!res2.data.categories) {
+              wx.redirectTo({
+                url: '/pages/checkDirection/index',
+              });
+            } else {
+              wx.switchTab({
+                url: '/pages/testBank/index',
+              });
+            }
           },
           fail: function (err) {
             wx.showToast({

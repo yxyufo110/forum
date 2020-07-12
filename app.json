@@ -1,17 +1,29 @@
 {
   "pages": [
+    "pages/testBank/index",
+    "pages/course/index",
+    "pages/topic/card/index",
+    "pages/topic/draw/index",
+    "pages/index/index",
     "pages/user/index",
+    "pages/user/notice/index",
+    "pages/topic/radio/index",
     "pages/user/edit/index",
     "pages/getLocation/index",
     "pages/checkType/index",
-    "pages/index/index",
-    "pages/testBank/index",
     "pages/checkDirection/index",
     "pages/course/detail/index",
-    "pages/course/index",
-    "pages/topic/radio/index",
     "pages/searchProfession/index",
-    "pages/customerService/index"
+    "pages/customerService/index",
+    "pages/user/notice/details/index",
+    "pages/topic/checkSubjects/index",
+    "pages/topic/checkChapter/index",
+    "pages/banner/index",
+    "pages/mockExam/index",
+    "pages/mockExam/rules/index",
+    "pages/mockExam/radio/index",
+    "pages/mockExam/card/index",
+    "pages/mockExam/final/index"
   ],
   "permission": {
     "scope.userLocation": {
@@ -60,7 +72,9 @@
     "van-col": "@vant/weapp/col/index",
     "my-nav-bar": "/components/my-nav-bar/index",
     "van-button": "@vant/weapp/button/index",
-    "van-popup": "@vant/weapp/popup/index"
+    "van-popup": "@vant/weapp/popup/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index"
   },
   "sitemapLocation": "sitemap.json"
 }

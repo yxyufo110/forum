@@ -1,6 +1,6 @@
 {
   "usingComponents": {
     "my-home-nav-bar": "../../../components/my-home-nav-bar/index",
-    "van-cell": "../../../miniprogram_npm/@vant/weapp/cell/index"
+    "van-dialog": "../../../miniprogram_npm/@vant/weapp/dialog/index"
   }
 }

@@ -11,6 +11,8 @@
   text-align: center;
   color: #ffffff;
   background: linear-gradient(-23deg, rgba(192, 196, 249, 1) 0%, rgba(148, 162, 239, 1) 100%);
+  -moz-box-shadow: 0px 3px 16px 0px rgba(148, 162, 239, 0.6);
+  -webkit-box-shadow: 0px 3px 16px 0px rgba(148, 162, 239, 0.6);
   box-shadow: 0px 3px 16px 0px rgba(148, 162, 239, 0.6);
   border-radius: 5px;
   margin-top: 20px;

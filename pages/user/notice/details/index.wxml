@@ -1,0 +1,3 @@
+<my-home-nav-bar/>
+<rich-text nodes="{{noticeInfo}}" />
+

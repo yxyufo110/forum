@@ -5,3 +5,49 @@ export function queryOne(data) {
     method: 'get',
   });
 }
+export function queryALl(data) {
+  return request({
+    url: `/course/stu/course/page`,
+    method: 'get',
+    data: data,
+  });
+}
+export function queryLike(data) {
+  return request({
+    url: `/course/stu/course/recommend/${data}`,
+    method: 'get',
+  });
+}
+export function updateTime(data) {
+  return request({
+    url: `/course/stu/course/log`,
+    method: 'put',
+    data: data,
+  });
+}
+export function queryChapter(data) {
+  return request({
+    url: `/course/stu/course/chapter/${data}`,
+    method: 'get',
+  });
+}
+export function collect(data) {
+  return request({
+    url: `/student/stu/collect/Course`,
+    method: 'post',
+    data: data,
+  });
+}
+export function cancelCollect(data) {
+  return request({
+    url: `/student/stu/collect/${data}/Course`,
+    method: 'delete',
+  });
+}
+export function getShareId(data) {
+  return request({
+    url: `/student/stu/share/course`,
+    method: 'post',
+    data: data,
+  });
+}

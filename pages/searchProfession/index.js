@@ -29,7 +29,7 @@ Page({
     });
   }),
   checkList: function (e) {
-    updateSubject(e.target.dataset.id).then((res) => {
+    updateSubject(e.currentTarget.dataset.id).then((res) => {
       wx.switchTab({
         url: `/pages/testBank/index`,
       });

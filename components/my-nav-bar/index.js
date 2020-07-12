@@ -1,28 +1,56 @@
+import { getNav } from '../../services/user';
+
 Component({
   options: {
     styleIsolation: 'shared',
   },
+  data: {
+    tabsList: [],
+    active: '',
+  },
   properties: {
     title: {
-      // 属性名
       type: String,
       value: '考粉驿站',
     },
     showLeft: {
-      // 属性名
       type: Boolean,
       value: true,
     },
     showHome: {
-      // 属性名
       type: Boolean,
       value: false,
     },
     showTabs: {
-      // 属性名
       type: Boolean,
-      value: true,
+      value: false,
     },
   },
-  methods: {},
+  lifetimes: {
+    attached: function () {
+      if (this.data.showTabs) {
+        getNav().then((res) => {
+          this.setData({
+            tabsList: res,
+            active: res.find((i) => i.purchased === true).id,
+          });
+          this.triggerEvent(
+            'getTabItem',
+            res.find((i) => i.purchased === true),
+          );
+        });
+      }
+    },
+  },
+  methods: {
+    onClick: function (e) {
+      this.triggerEvent(
+        'getTabItem',
+        this.data.tabsList.find((i) => i.id === e.detail.name),
+      );
+      this.setData({
+        active: e.detail.name,
+      });
+    },
+  },
 });

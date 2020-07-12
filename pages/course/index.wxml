@@ -1,4 +1,4 @@
-<my-nav-bar/>
+<my-nav-bar showTabs="{{true}}" bindgetTabItem="getTabItem" />
 <scroll-view scroll-y="true" style="height:{{isIPX?'calc(100vh - 158px - 44pt)' : 'calc(100vh - 158px)'}}">
 	<swiper
 	 class="swiper"
@@ -7,17 +7,13 @@
 	 indicator-active-color="rgba(255,255,255,1)"
 	 autoplay="true"
 	>
-		<swiper-item>
-			<image class="banner" src="../../static/images/banner.jpg" />
-		</swiper-item>
-		<swiper-item>
-			<image class="banner" src="../../static/images/banner.jpg" />
-		</swiper-item>
-		<swiper-item>
-			<image class="banner" src="../../static/images/banner.jpg" />
-		</swiper-item>
-		<swiper-item>
-			<image class="banner" src="../../static/images/banner.jpg" />
+		<swiper-item
+		 wx:if="{{item.enable}}"
+		 wx:for="{{bannerList}}"
+		 bindtap="goBanner"
+		 data-id="{{item.id}}"
+		>
+			<image class="banner" src="{{item.banner}}" />
 		</swiper-item>
 	</swiper>
 
@@ -40,64 +36,37 @@
 
 	<view>
 		<view class="title">我的专业好课</view>
-		<view class="myCourseBox">
-			<my-course-card
-			 bindtap="goDetail"
-			 title="高等考前精讲高等考前精讲"
-			 teacher="张三"
-			 time="2020/03/25"
-			 count="4500"
-			/>
-			<my-course-card
-			 bindtap="goDetail"
-			 title="高等考前精讲"
-			 teacher="张三"
-			 time="2020/03/25"
-			 count="4500"
-			/>
-			<my-course-card
-			 bindtap="goDetail"
-			 title="高等考前精讲"
-			 teacher="张三"
-			 time="2020/03/25"
-			 count="4500"
-			/>
-			<my-course-card
-			 bindtap="goDetail"
-			 title="高等考前精讲"
-			 teacher="张三"
-			 time="2020/03/25"
-			 count="4500"
-			/>
-		</view>
+		<scroll-view scroll-y="true" style="max-height:350px">
+			<view class="myCourseBox">
+				<view wx:for="{{info}}">
+					<my-course-card
+					 wx:for="{{item}}"
+					 wx:for-item="citem"
+					 data-id="{{citem.id}}"
+					 bindtap="goDetail"
+					 title="{{citem.name}}"
+					 teacher="{{citem.lecturer}}"
+					 time="{{citem.createdDate}}"
+					 count="{{citem.hits}}"
+					 cover="{{citem.cover}}"
+					/>
+				</view>
+			</view>
+		</scroll-view>
 	</view>
 
 	<view style="padding-bottom: 20px;">
 		<view class="title">猜你喜欢</view>
 		<view class="myCourseBox">
 			<my-course-card
-			 title="高等考前精讲"
-			 teacher="张三"
-			 time="2020/03/25"
-			 count="4500"
-			/>
-			<my-course-card
-			 title="高等考前精讲"
-			 teacher="张三"
-			 time="2020/03/25"
-			 count="4500"
-			/>
-			<my-course-card
-			 title="高等考前精讲"
-			 teacher="张三"
-			 time="2020/03/25"
-			 count="4500"
-			/>
-			<my-course-card
-			 title="高等考前精讲"
-			 teacher="张三"
-			 time="2020/03/25"
-			 count="4500"
+			 wx:for="{{likeList}}"
+			 data-id="{{item.id}}"
+			 bindtap="goDetail"
+			 title="{{item.name}}"
+			 teacher="{{item.lecturer}}"
+			 time="{{item.createdDate}}"
+			 count="{{item.hits}}"
+			 cover="{{item.cover}}"
 			/>
 		</view>
 	</view>

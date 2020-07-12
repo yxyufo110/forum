@@ -4,7 +4,6 @@ Component({
   },
   methods: {
     onChange(event) {
-      console.log(event.detail);
       switch (event.detail) {
         case 0:
           wx.switchTab({

@@ -1,7 +1,15 @@
+import { queryALl, queryLike, getShareId } from '../../services/course';
+import { getBanners } from '../../services/dict';
 const app = getApp();
 Page({
   data: {
     isIPX: false,
+    pageNumber: 0, // 当前页码
+    hasNextPage: false, // 是否有下一页
+    info: [[]],
+    categoryId: '',
+    likeList: [],
+    bannerList: [],
   },
   onLoad() {
     if (app.globalData.isIPX) {
@@ -14,10 +22,61 @@ Page({
         active: 1,
       });
     }
-  },
-  goDetail: function () {
-    wx.navigateTo({
-      url: '/pages/course/detail/index',
+    getBanners().then((res) => {
+      this.setData({
+        bannerList: res,
+      });
     });
+    getShareId({
+      name: '课程',
+      desc: '分享课程',
+      linkedCode: '',
+    }).then((res) => {
+      this.setData({
+        shareId: res,
+      });
+    });
+  },
+  goBanner: function (e) {
+    wx.navigateTo({
+      url: `/pages/banner/index?id=${e.currentTarget.dataset.id}`,
+    });
+  },
+  searchMore: function () {
+    if (this.data.hasNextPage) {
+      queryALl({ page: this.data.pageNumber, size: 10 }).then((res) => {
+        this.setData({
+          [`info[${res.number + 1}]`]: res.content,
+          pageNumber: res.number + 1,
+          hasNextPage: res.number + 1 >= res.totalPages ? false : true,
+        });
+      });
+    }
+  },
+  goDetail: function (e) {
+    wx.navigateTo({
+      url: `/pages/course/detail/index?id=${e.currentTarget.dataset.id}`,
+    });
+  },
+  getTabItem: function (e) {
+    queryALl({ page: 0, size: 10, categoryId: e.detail.id }).then((res) => {
+      this.setData({
+        ['info[0]']: res.content,
+        pageNumber: res.number + 1,
+        hasNextPage: res.number + 1 >= res.totalPages ? false : true,
+        categoryId: e.detail.id,
+      });
+    });
+    queryLike(e.detail.id).then((res) => {
+      this.setData({
+        likeList: res,
+      });
+    });
+  },
+  onShareAppMessage: function (e) {
+    return {
+      title: '分享课程',
+      path: `/pages/index/index?id=${this.data.shareId}&redirectUrl=/pages/course/index`,
+    };
   },
 });

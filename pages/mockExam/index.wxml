@@ -1,0 +1,23 @@
+<van-nav-bar
+ title="科目"
+ left-arrow
+ border="{{false}}"
+ bind:click-left="onClickLeft"
+ wx:if="{{!isTest}}"
+/>
+<view wx:if="{{!isTest}}">
+	<view>
+		<view class="title">
+			请选择科目
+		</view>
+		<view
+		 wx:for="{{subjectInfo.subjects}}"
+		 data-id="{{item.id}}"
+		 class="items"
+		 bindtap="confirmType"
+		>
+			{{item.name}}
+		</view>
+	</view>
+</view>
+
