@@ -64,9 +64,36 @@
 	</view>
 </view>
 <!-- 空题页面 -->
-<view wx:if="{{!topicInfo}}">
-	题目已做完
+<view wx:if="{{!topicInfo}}" class="none">
+	<image src="../../../static/images/topic_bg.png" class="none-img" />
+	<view class="none-title">
+		本章知识点已学习完成
+	</view>
+	<view class="none-content">
+		您可以
+	</view>
+	<view class="none-btn" bindtap="goHome">
+		返回首页
+	</view>
+	<view class="none-btn" bindtap="collage">
+		加入收藏
+	</view>
+	<van-button
+	 block
+	 class="none-btn share-btn"
+	 custom-style="border:none;color: #ffffff;margin-bottom: 20px;width: 180px;height: 41px;line-height: 41px;text-align: center;margin-left: auto;margin-right: auto;font-size: 15px;border-radius: 41px;background: linear-gradient(0deg, rgba(255, 40, 40, 1) 0%, rgba(255, 122, 64, 1) 100%);box-shadow: 0px 0px 7px 0px rgba(255, 83, 53, 0.66);"
+	 open-type="share"
+	>
+		分享给朋友
+	</van-button>
+
 </view>
 <!-- 底部 -->
-<my-topic-bottom subjectId="{{subjectId}}" chapter="{{chapter}}" bindchangeFont="changeFont" />
+<my-topic-bottom
+ subjectId="{{subjectId}}"
+ chapter="{{chapter}}"
+ bindchangeFont="changeFont"
+ questionId="{{questionId}}"
+ name="（{{topicInfo.typeDesc}}）{{topicInfo.subjectName}}{{topicInfo.chapter}}"
+/>
 

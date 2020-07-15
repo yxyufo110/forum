@@ -52,6 +52,11 @@ Page({
       url: '/pages/user/edit/index',
     });
   },
+  goRecord: function () {
+    wx.navigateTo({
+      url: '/pages/user/record/index',
+    });
+  },
   goNotice: function () {
     wx.navigateTo({
       url: '/pages/user/notice/index',

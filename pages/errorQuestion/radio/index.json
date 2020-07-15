@@ -5,7 +5,6 @@
     "my-home-nav-bar": "../../../components/my-home-nav-bar/index",
     "my-topic-bottom": "../../../components/my-topic-bottom/index",
     "van-checkbox": "../../miniprogram_npm/@vant/weapp/checkbox/index",
-    "van-checkbox-group": "../../miniprogram_npm/@vant/weapp/checkbox-group/index",
-    "van-count-down": "../../miniprogram_npm/@vant/weapp/count-down/index"
+    "van-checkbox-group": "../../miniprogram_npm/@vant/weapp/checkbox-group/index"
   }
 }

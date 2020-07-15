@@ -12,9 +12,23 @@ export function getRules(data) {
     data: data,
   });
 }
+export function getFinalRules(data) {
+  return request({
+    url: `/itembank/stu/paper`,
+    method: 'get',
+    data: data,
+  });
+}
 export function start(data) {
   return request({
-    url: `/itembank/stu/mock-examine?ruleId=${data}`,
+    url: `/itembank/stu/mock-examine?ruleId=${data.ruleId}`,
+    method: 'post',
+    data: data,
+  });
+}
+export function startFinal(data) {
+  return request({
+    url: `/itembank/stu/final-examine?paperId=${data.paperId}`,
     method: 'post',
     data: data,
   });

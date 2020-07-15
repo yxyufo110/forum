@@ -24,7 +24,7 @@
 					<van-icon name="arrow" />
 				</view>
 			</view>
-			<view class="item">
+			<view class="item" bindtap="goRecord">
 				<image src="../../static/images/my1.png" class="itemImg" />
 				<view class="itemTitle">
 					学习记录

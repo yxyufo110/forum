@@ -27,3 +27,15 @@ export function getShareId(data) {
     data: data,
   });
 }
+export function topicIsCollect(data) {
+  return request({
+    url: `/student/stu/collect/judge/question/${data}`,
+    method: 'get',
+  });
+}
+export function cancelCollect(data) {
+  return request({
+    url: `/student/stu/collect/${data}/Question`,
+    method: 'delete',
+  });
+}

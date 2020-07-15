@@ -1,2 +1,3 @@
-<!--pages/banner/index.wxml-->
-<text>pages/banner/index.wxml</text>
+<my-home-nav-bar/>
+<rich-text nodes="{{bannerInfo}}" />
+

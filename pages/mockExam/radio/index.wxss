@@ -66,3 +66,12 @@
   margin: 20px 0;
   font-size: 14px;
 }
+.timer {
+  color: #f4ab38;
+  display: flex;
+}
+.van-count-down {
+  color: #f4ab38 !important;
+  font-size: 14px !important;
+  margin-left: 8px;
+}

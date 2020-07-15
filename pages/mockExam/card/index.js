@@ -17,7 +17,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (e) {
-    console.log(e);
     getCardList(e.examineId).then((res) => {
       this.setData({
         cardInfo: res,
@@ -37,7 +36,7 @@ Page({
     });
   },
   goTopic: function (e) {
-    wx.navigateTo({
+    wx.redirectTo({
       url: `/pages/mockExam/radio/index?examineId=${this.data.examineId}&questionId=${e.currentTarget.dataset.id}`,
     });
   },

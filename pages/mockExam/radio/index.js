@@ -12,11 +12,13 @@ Page({
     analysis: '',
     isMultiple: false,
     fontSize: '15px',
+    testTime: 0,
   },
   onLoad: function (e) {
     this.setData({
       examineId: e.examineId || '',
       questionId: e.questionId || '',
+      testTime: app.globalData.testTime * 1000,
     });
     geTopic({
       examineId: e.examineId || '',
@@ -48,8 +50,9 @@ Page({
       examineId: this.data.examineId,
       answers: this.data.isMultiple ? this.data.radio : [this.data.radio],
     }).then((res) => {
+      app.globalData.testTime = res.timeRemaining;
       if (res.questionId) {
-        wx.navigateTo({
+        wx.redirectTo({
           url: `/pages/mockExam/radio/index?examineId=${res.id}&questionId=${res.questionId}`,
         });
       } else {

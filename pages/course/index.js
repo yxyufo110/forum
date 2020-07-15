@@ -27,15 +27,6 @@ Page({
         bannerList: res,
       });
     });
-    getShareId({
-      name: '课程',
-      desc: '分享课程',
-      linkedCode: '',
-    }).then((res) => {
-      this.setData({
-        shareId: res,
-      });
-    });
   },
   goBanner: function (e) {
     wx.navigateTo({
@@ -59,6 +50,15 @@ Page({
     });
   },
   getTabItem: function (e) {
+    getShareId({
+      name: '课程',
+      desc: '分享课程',
+      linkedCode: e.detail.id,
+    }).then((res) => {
+      this.setData({
+        shareId: res,
+      });
+    });
     queryALl({ page: 0, size: 10, categoryId: e.detail.id }).then((res) => {
       this.setData({
         ['info[0]']: res.content,

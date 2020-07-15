@@ -25,3 +25,9 @@ export function getBanners() {
     method: 'get',
   });
 }
+export function getOneBanner(data) {
+  return request({
+    url: `/ops/stu/banner/${data}`,
+    method: 'get',
+  });
+}

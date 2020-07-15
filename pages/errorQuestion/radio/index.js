@@ -1,4 +1,5 @@
-import { geTopic, getAnswer, getShareId } from '../../../services/topic';
+import { getQuestion, getAnswer, remove } from '../../../services/problem';
+import { getShareId } from '../../../services/topic';
 import { collect } from '../../../services/course';
 const app = getApp();
 Page({
@@ -19,16 +20,15 @@ Page({
     shareId: '',
   },
   onLoad: function (e) {
-    geTopic({
+    getQuestion({
       subjectId: e.subjectId || '',
-      chapter: e.chapterName || '',
       questionId: e.questionId || '',
     }).then((res) => {
       if (!res) {
         getShareId({
           name: '题库',
           desc: '分享题库',
-          linkedCode: `subjectId=${e.subjectId}&chapter=${e.chapterName}`,
+          linkedCode: `subjectId=${e.subjectId}&questionId=${e.questionId}`,
         }).then((res) => {
           this.setData({
             shareId: res,
@@ -38,8 +38,7 @@ Page({
       this.setData({
         topicInfo: res,
         subjectId: e.subjectId || '',
-        questionId: e.questionId || '',
-        chapter: e.chapterName || '',
+        questionId: res.id || '',
         isMultiple: res.type === 'MultipleChoice' ? true : false,
         fontSize: app.globalData.fontSize,
       });
@@ -55,6 +54,16 @@ Page({
   onChangeCheckBox: function (e) {
     this.setData({
       radio: e.detail,
+    });
+  },
+  deleteQuestion: function (e) {
+    remove(this.data.questionId).then((res) => {
+      wx.showToast({
+        title: '移出成功',
+        icon: 'none',
+        duration: 1500,
+        mask: true,
+      });
     });
   },
   submit: function () {
@@ -80,7 +89,7 @@ Page({
   next: function () {
     if (this.data.nextId) {
       wx.redirectTo({
-        url: `/pages/topic/radio/index?subjectId=${this.data.subjectId}&questionId=${this.data.nextId}&chapterName=${this.data.chapter}`,
+        url: `/pages/errorQuestion/radio/index?subjectId=${this.data.subjectId}&questionId=${this.data.nextId}`,
       });
     } else {
       this.setData({

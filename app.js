@@ -21,5 +21,6 @@ App({
     isIPX: false,
     subject: null,
     fontSize: '15px',
+    testTime: 0,
   },
 });

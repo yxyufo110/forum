@@ -9,15 +9,23 @@ Page({
     subjectInfo: {},
     isTest: false,
   },
-  onLoad: function () {
+  onLoad: function (e) {
     isExamine().then((res) => {
       if (!res) {
+        app.globalData.testTime = 0;
         // 没有正在进行的考试，进行科目选择
-        this.setData({
-          subjectInfo: app.globalData.subject,
-          isTest: false,
-        });
+        if (e.isFinalTest) {
+          wx.redirectTo({
+            url: `/pages/mockExam/rules/index?isFinalTest=true`,
+          });
+        } else {
+          this.setData({
+            subjectInfo: app.globalData.subject,
+            isTest: false,
+          });
+        }
       } else {
+        app.globalData.testTime = res.timeRemaining;
         if (res.questionId) {
           wx.redirectTo({
             url: `/pages/mockExam/radio/index?examineId=${res.id}&questionId=${res.questionId}`,
@@ -31,7 +39,7 @@ Page({
     });
   },
   confirmType: function (e) {
-    wx.navigateTo({
+    wx.redirectTo({
       url: `/pages/mockExam/rules/index?subjectId=${e.currentTarget.dataset.id}`,
     });
   },

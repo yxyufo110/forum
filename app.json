@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/testBank/index",
     "pages/course/index",
     "pages/topic/card/index",
     "pages/topic/draw/index",
-    "pages/index/index",
     "pages/user/index",
     "pages/user/notice/index",
     "pages/topic/radio/index",
@@ -23,7 +23,10 @@
     "pages/mockExam/rules/index",
     "pages/mockExam/radio/index",
     "pages/mockExam/card/index",
-    "pages/mockExam/final/index"
+    "pages/mockExam/final/index",
+    "pages/errorQuestion/checkChapter/index",
+    "pages/errorQuestion/radio/index",
+    "pages/user/record/index"
   ],
   "permission": {
     "scope.userLocation": {

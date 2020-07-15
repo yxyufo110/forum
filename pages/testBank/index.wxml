@@ -35,11 +35,11 @@
 				<image class="cellImg" src="../../static/images/4.png" />
 				<text class="cellText">在线 PK </text>
 			</van-grid-item>
-			<van-grid-item use-slot>
+			<van-grid-item use-slot link-type="navigateTo" url="/pages/mockExam/index?isFinalTest=true">
 				<image class="cellImg" src="../../static/images/5.png" />
 				<text class="cellText">终极考试</text>
 			</van-grid-item>
-			<van-grid-item use-slot>
+			<van-grid-item use-slot link-type="navigateTo" url="/pages/errorQuestion/checkChapter/index">
 				<image class="cellImg" src="../../static/images/6.png" />
 				<text class="cellText">错题集锦</text>
 			</van-grid-item>

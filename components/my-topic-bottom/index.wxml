@@ -1,6 +1,18 @@
 <view class="fontBox" wx:if="{{showCard}}">
-	<view class="like">
-		<van-icon name="like-o" size="18px" />
+	<view class="like" wx:if="{{!isTest && haveShare}}">
+		<van-icon
+		 name="like-o"
+		 size="18px"
+		 wx:if="{{!isLike}}"
+		 bindtap="goLike"
+		/>
+		<van-icon
+		 name="like"
+		 size="18px"
+		 color="#FB3434"
+		 wx:if="{{isLike}}"
+		 bindtap="noLike"
+		/>
 		<text class="desc">收藏本题</text>
 	</view>
 	<view class="fontList">
@@ -37,6 +49,7 @@
 		 bind:click="goDraw"
 		/>
 		<van-icon
+		 wx:if="{{haveCard}}"
 		 bind:click="goCard"
 		 name="icon iconfont icondatika"
 		 color="#3775F3"

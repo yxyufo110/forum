@@ -33,7 +33,7 @@ export function queryChapter(data) {
 }
 export function collect(data) {
   return request({
-    url: `/student/stu/collect/Course`,
+    url: `/student/stu/collect/${data.type || 'Course'}`,
     method: 'post',
     data: data,
   });

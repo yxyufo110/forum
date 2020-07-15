@@ -35,7 +35,7 @@ Page({
     });
   },
   goTopic: function (e) {
-    wx.navigateTo({
+    wx.redirectTo({
       url: `/pages/topic/radio/index?subjectId=${this.data.subjectId}&questionId=${e.currentTarget.dataset.id}&chapterName=${this.data.chapter}&showAnswer=true`,
     });
   },
