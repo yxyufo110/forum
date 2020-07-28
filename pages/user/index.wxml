@@ -36,7 +36,7 @@
 		</view>
 
 		<view class="itemBox">
-			<view class="item">
+			<view class="item" bindtap="goOrder">
 				<image src="../../static/images/my7.png" class="itemImg" />
 				<view class="itemTitle">
 					我的订单
@@ -45,7 +45,7 @@
 					<van-icon name="arrow" />
 				</view>
 			</view>
-			<view class="item">
+			<view class="item" bindtap="goWalet">
 				<image src="../../static/images/my5.png" class="itemImg" />
 				<view class="itemTitle">
 					我的钱包
@@ -57,7 +57,7 @@
 		</view>
 
 		<view class="itemBox">
-			<view class="item">
+			<view class="item" bindtap="goShare">
 				<image src="../../static/images/my6.png" class="itemImg" />
 				<view class="itemTitle">
 					我的分享
@@ -66,7 +66,7 @@
 					<van-icon name="arrow" />
 				</view>
 			</view>
-			<view class="item">
+			<view class="item" bindtap="goCollect">
 				<image src="../../static/images/my4.png" class="itemImg" />
 				<view class="itemTitle">
 					我的收藏

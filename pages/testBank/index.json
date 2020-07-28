@@ -4,5 +4,4 @@
     "van-grid-item": "../../miniprogram_npm/@vant/weapp/grid-item/index",
     "my-cell": "../../components/my-cell/index"
   }
-  
 }

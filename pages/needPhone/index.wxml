@@ -1,0 +1,29 @@
+<my-home-nav-bar title="绑定手机" />
+
+<view class="t1">
+	<image src="../../static/images/phoneBg.png" />
+</view>
+
+<view class="t2">
+	<view class="t2-title">
+		您的会员权限已用完
+	</view>
+	<view class="t2-desc">
+		{{ pop ? '您可以缴费学习本专业所有课程' : '绑定手机号以获得更多权限' }}
+	</view>
+</view>
+
+<view class="t3">
+	<van-button
+	 wx:if="{{!pop}}"
+	 bind:getphonenumber="getPhone"
+	 open-type="getPhoneNumber"
+	 custom-style="border:none;padding:0;height:41px;background:linear-gradient(0deg,rgba(255,40,40,1) 0%,rgba(255,122,64,1) 100%);box-shadow:0px 0px 7px 0px rgba(255,83,53,0.66);width:180px;line-height:41px;border-radius:41px;color:#ffffff"
+	>
+		绑定手机号
+	</van-button>
+	<van-button wx:if="{{pop}}" bind:click="goPay" custom-style="border:none;padding:0;height:41px;background:linear-gradient(0deg,rgba(255,40,40,1) 0%,rgba(255,122,64,1) 100%);box-shadow:0px 0px 7px 0px rgba(255,83,53,0.66);width:180px;line-height:41px;border-radius:41px;color:#ffffff">
+		去支付
+	</van-button>
+</view>
+

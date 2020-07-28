@@ -1,0 +1,28 @@
+<my-home-nav-bar title="我的钱包" />
+
+<scroll-view bindscrolltolower="searchMore" scroll-y="true" style="height:calc(100vh - 136px)">
+	<view class="t1">
+		<view class="t1-title">
+			学习币充值总额
+		</view>
+		<view class="t1-desc">
+			{{total}}
+		</view>
+	</view>
+	<view class="box" wx:for="{{info}}">
+		<view class="card" wx:for="{{item}}" wx:for-item="citem">
+			<view class="b1">
+				<view class="desc">
+					微信充值
+				</view>
+				<view class="desc">
+					¥ {{citem.price}}（{{citem.price * 10}}学习币）
+				</view>
+			</view>
+			<view class="time">
+				{{citem.payTime}}
+			</view>
+		</view>
+	</view>
+</scroll-view>
+

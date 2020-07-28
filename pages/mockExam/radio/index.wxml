@@ -8,7 +8,7 @@
 </wxs>
 
 <my-home-nav-bar/>
-<view class="content" wx:if="{{topicInfo}}">
+<view style="padding-bottom:70px;min-height:100vh" class="content" wx:if="{{topicInfo}}">
 	<view class="title">
 		<text>（{{topicInfo.typeDesc}}）{{topicInfo.subjectName}}{{topicInfo.chapter}}</text>
 		<view class="timer">
@@ -38,22 +38,22 @@
 					<view class="radioIcon {{m1.isIn(item.number,radio) ? 'checked' :''}} {{item.right ? 'right' : ''}}" slot="icon">{{item.number}}</view>
 				</van-checkbox>
 			</van-checkbox-group>
+			<!-- 操作按钮 -->
+			<view class="btnBox">
+
+				<van-button
+				 custom-style="width:120px"
+				 round
+				 type="info"
+				 color="#3875F4"
+				 bind:click="next"
+				>下一题
+				</van-button>
+			</view>
 		</view>
 	</view>
 	<!-- 解析 -->
 
-	<!-- 操作按钮 -->
-	<view class="btnBox">
-
-		<van-button
-		 custom-style="width:120px"
-		 round
-		 type="info"
-		 color="#3875F4"
-		 bind:click="next"
-		>下一题
-		</van-button>
-	</view>
 </view>
 <!-- 空题页面 -->
 

@@ -18,33 +18,51 @@ Page({
     chapters: [],
     timer: 0,
     shareId: '',
+    subjectId: '',
+    query: {},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (e) {
-    queryOne(e.id).then((res) => {
+    this.setData({
+      query: e,
+    });
+  },
+  onShow: function () {
+    queryOne(this.data.query.id).then((res) => {
       this.setData({
         course: res,
         chapters: res.chapters,
+        subjectId: res.subjectId,
       });
       if (res.chapters && res.chapters[0]) {
         queryChapter(res.chapters[0].id).then((res2) => {
+          if (!res2.bought) {
+            Dialog.confirm({
+              title: '购买课程',
+              message: '购买课程以观看完整视频',
+            }).then(() => {
+              wx.navigateTo({
+                url: `/pages/pay/index?subjectId=${res.subjectId}`,
+              });
+            });
+          }
           this.setData({
             oneData: res2,
           });
+          getShareId({
+            name: res2.chapter,
+            desc: res2.name,
+            linkedCode: this.data.course.id,
+          }).then((sid) => {
+            this.setData({
+              shareId: sid,
+            });
+          });
         });
       }
-      getShareId({
-        name: '课程',
-        desc: '分享课程',
-        linkedCode: this.data.course.id,
-      }).then((res) => {
-        this.setData({
-          shareId: res,
-        });
-      });
     });
   },
   onHide: function () {
@@ -63,6 +81,16 @@ Page({
       updateTime({ chapterId: this.data.oneData.id, time: this.data.timer });
     }
     queryChapter(id).then((res) => {
+      if (!res.bought) {
+        Dialog.confirm({
+          title: '购买课程',
+          message: '购买课程以观看完整视频',
+        }).then(() => {
+          wx.navigateTo({
+            url: `/pages/pay/index?subjectId=${this.data.subjectId}`,
+          });
+        });
+      }
       this.setData({
         oneData: res,
       });
@@ -112,7 +140,7 @@ Page({
       });
     });
   },
-  onShareAppMessage: function (e) {
+  onShareAppMessage: function () {
     return {
       title: '分享课程',
       path: `/pages/index/index?id=${this.data.shareId}&redirectUrl=/pages/course/index`,

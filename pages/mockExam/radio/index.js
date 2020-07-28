@@ -6,7 +6,7 @@ Page({
    */
   data: {
     radio: '',
-    topicInfo: null,
+    topicInfo: {},
     examineId: '',
     questionId: '',
     analysis: '',
@@ -36,6 +36,7 @@ Page({
     this.setData({
       radio: e.detail,
     });
+    this.next();
   },
   // 多选
   onChangeCheckBox: function (e) {
@@ -59,23 +60,10 @@ Page({
         wx.navigateTo({
           url: `/pages/mockExam/final/index?examineId=${res.id}`,
         });
-        // this.setData({
-        //   showNext: false,
-        // });
-        // wx.showToast({
-        //   title: '已经是最后一题了',
-        //   icon: 'none',
-        //   duration: 1500,
-        //   mask: true,
-        // });
       }
     });
   },
-  // submit: function () {
-  //   handIn({ examineId: this.data.examineId }).then((res) => {
-  //     console.log(res);
-  //   });
-  // },
+
   changeFont: function (e) {
     app.globalData.fontSize = e.detail;
     this.setData({

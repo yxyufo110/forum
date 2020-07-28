@@ -1,19 +1,30 @@
 //index.js
+import { backShare, backPk } from '../../services/user';
 //获取应用实例
 const app = getApp();
 
 Page({
-  onLoad: function () {
+  onLoad: function (e) {
     // 登录
     wx.login({
       success: (res) => {
         wx.request({
-          url: `http://129.28.204.69/student/stu/student/login/${res.code}`,
+          url: `https://gateway.yuandong-edu.com/student/stu/student/login/${res.code}`,
           method: 'post',
           success: function (res2) {
             wx.setStorageSync('Authorization', res2.header.Authorization);
             app.globalData.userInfo = res2.data;
-            if (!res2.data.addr) {
+            if (e.id) {
+              backShare({ shareId: e.id });
+            }
+            if (e.pkId) {
+              backPk({
+                pkId: e.pkId,
+              });
+              wx.redirectTo({
+                url: `/pages/pk/index?pkId=${e.pkId}`,
+              });
+            } else if (!res2.data.area) {
               wx.redirectTo({
                 url: '/pages/getLocation/index',
               });

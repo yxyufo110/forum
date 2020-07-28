@@ -1,14 +1,17 @@
 import { getQuestion, getAnswer, remove } from '../../../services/problem';
-import { getShareId } from '../../../services/topic';
+import { getShareId, geTopicOne } from '../../../services/topic';
 import { collect } from '../../../services/course';
 const app = getApp();
+var time = 0;
+var touchDot = 0; //触摸时的原点
+var interval = '';
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     radio: '',
-    topicInfo: null,
+    topicInfo: {},
     subjectId: '',
     questionId: '',
     chapter: '',
@@ -19,30 +22,40 @@ Page({
     fontSize: '15px',
     shareId: '',
   },
-  onLoad: function (e) {
-    getQuestion({
-      subjectId: e.subjectId || '',
-      questionId: e.questionId || '',
-    }).then((res) => {
-      if (!res) {
-        getShareId({
-          name: '题库',
-          desc: '分享题库',
-          linkedCode: `subjectId=${e.subjectId}&questionId=${e.questionId}`,
-        }).then((res) => {
-          this.setData({
-            shareId: res,
-          });
-        });
-      }
-      this.setData({
-        topicInfo: res,
+  async onLoad(e) {
+    let res = '';
+    if (e.questionId) {
+      res = await geTopicOne({
         subjectId: e.subjectId || '',
-        questionId: res.id || '',
-        isMultiple: res.type === 'MultipleChoice' ? true : false,
-        fontSize: app.globalData.fontSize,
+        questionId: e.questionId || '',
       });
+    } else {
+      res = await getQuestion({
+        subjectId: e.subjectId || '',
+      });
+    }
+    if (!res) {
+      getShareId({
+        name: '题库',
+        desc: '分享题库',
+        linkedCode: `subjectId=${e.subjectId}&questionId=${e.questionId}`,
+      }).then((res) => {
+        this.setData({
+          shareId: res,
+        });
+      });
+    }
+    this.setData({
+      topicInfo: res,
+      subjectId: e.subjectId || res.subjectId || '',
+      questionId: res.id || '',
+      isMultiple: res.type === 'MultipleChoice' ? true : false,
+      fontSize: app.globalData.fontSize,
     });
+  },
+  onShow: function () {
+    clearInterval(interval); // 清除setInterval
+    time = 0;
   },
   // 单选
   onChange: function (e) {
@@ -129,10 +142,82 @@ Page({
       });
     });
   },
-  onShareAppMessage: function (e) {
+  onShareAppMessage: function () {
     return {
       title: '分享题库',
       path: `/pages/index/index?id=${this.data.shareId}&redirectUrl=/pages/testBank/index`,
     };
   },
+
+  // 处理滑动开始
+  // 触摸开始事件
+  touchStart: function (e) {
+    touchDot = e.touches[0].pageX; // 获取触摸时的原点
+    // 使用js计时器记录时间
+    interval = setInterval(function () {
+      time++;
+    }, 100);
+  },
+  // 触摸结束事件
+  touchEnd: function (e) {
+    var touchMove = e.changedTouches[0].pageX;
+    // 向左滑动 下一题
+    if (touchMove - touchDot <= -80 && time < 10) {
+      //执行切换页面的方法
+      getQuestion({
+        subjectId: this.data.subjectId || '',
+        questionId: this.data.questionId || '',
+        forward: true,
+      }).then((res) => {
+        if (!res) {
+          this.setData({
+            topicInfo: null,
+          });
+          wx.showToast({
+            title: '已经是最后一题了',
+            icon: 'none',
+            duration: 1500,
+            mask: true,
+          });
+        } else {
+          this.setData({
+            topicInfo: res,
+            subjectId: res.subjectId || '',
+            questionId: res.id || '',
+            isMultiple: res.type === 'MultipleChoice' ? true : false,
+            fontSize: app.globalData.fontSize,
+          });
+        }
+      });
+    }
+    // 向右滑动 上一题
+    if (touchMove - touchDot >= 80 && time < 10) {
+      //执行切换页面的方法
+      getQuestion({
+        subjectId: this.data.subjectId || '',
+        questionId: this.data.questionId || '',
+        forward: false,
+      }).then((res) => {
+        if (!res) {
+          wx.showToast({
+            title: '当前为第一题',
+            icon: 'none',
+            duration: 1500,
+            mask: true,
+          });
+        } else {
+          this.setData({
+            topicInfo: res,
+            subjectId: res.subjectId || '',
+            questionId: res.id || '',
+            isMultiple: res.type === 'MultipleChoice' ? true : false,
+            fontSize: app.globalData.fontSize,
+          });
+        }
+      });
+    }
+    clearInterval(interval); // 清除setInterval
+    time = 0;
+  },
+  // 处理滑动结束
 });

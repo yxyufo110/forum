@@ -31,3 +31,16 @@ export function getOneBanner(data) {
     method: 'get',
   });
 }
+export function getCollect(data) {
+  return request({
+    url: `/student/stu/collect/page/${data.type}`,
+    method: 'get',
+    data: data,
+  });
+}
+export function getQuestion() {
+  return request({
+    url: `/student/stu/collect/list/question`,
+    method: 'get',
+  });
+}

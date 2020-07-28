@@ -39,7 +39,7 @@ Page({
       url: `/pages/topic/radio/index?subjectId=${this.data.subjectId}&questionId=${e.currentTarget.dataset.id}&chapterName=${this.data.chapter}&showAnswer=true`,
     });
   },
-  onShareAppMessage: function (e) {
+  onShareAppMessage: function () {
     return {
       title: '分享题库',
       path: `/pages/index/index?id=${this.data.shareId}&redirectUrl=/pages/testBank/index`,

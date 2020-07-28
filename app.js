@@ -1,4 +1,5 @@
 //app.js
+import { lyOut } from './services/user';
 App({
   onLaunch: function () {
     // 判断设备是不是ipx
@@ -11,10 +12,7 @@ App({
     });
   },
   onHide: function () {
-    console.log('关闭');
-  },
-  onShow: function () {
-    console.log('进入');
+    lyOut();
   },
   globalData: {
     userInfo: null,

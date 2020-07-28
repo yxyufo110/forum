@@ -1,0 +1,67 @@
+.t1 {
+  position: relative;
+}
+.bg {
+  width: 100%;
+  height: 183px;
+}
+.t-box {
+  position: absolute;
+  top: 65px;
+  left: 15px;
+  right: 15px;
+  box-shadow: 0px 0px 12px 1px rgba(181, 197, 229, 0.5);
+  border-radius: 10px;
+  padding: 22px 0 15px 0;
+  background: #ffffff;
+}
+.title {
+  color: #999999;
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.num {
+  text-align: center;
+  color: #000000;
+  font-size: 28px;
+  font-weight: 500;
+}
+.countBox {
+  display: flex;
+  justify-content: space-around;
+}
+.cell {
+  width: 1px;
+  height: 63px;
+  background: #d0d4de;
+}
+
+.desc {
+  color: #000000;
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.dnum {
+  color: #3875f4;
+  font-size: 18px;
+  text-align: center;
+}
+.t2 {
+  position: relative;
+  top: 60px;
+}
+.t3 {
+  width: 91px;
+  height: 46px;
+  text-align: center;
+  line-height: 46px;
+  color: #ffffff;
+  background: #3875f4;
+  font-size: 17px;
+  position: fixed;
+  right: 0;
+  bottom: 70px;
+  border-radius: 46px 0 0 46px;
+}

@@ -1,6 +1,7 @@
 // pages/checkType/index.js
 import { categoryList } from '../../services/dict';
 import { updateSubject } from '../../services/user';
+const app = getApp();
 Page({
   /**
    * 页面的初始数据
@@ -44,6 +45,7 @@ Page({
   submit: function () {
     if (this.data.radio) {
       updateSubject(this.data.radio).then((res) => {
+        app.globalData.userInfo = res.data;
         wx.switchTab({
           url: `/pages/testBank/index`,
         });

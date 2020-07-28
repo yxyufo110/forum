@@ -5,9 +5,18 @@
 		 data-id="{{item.questionId}}"
 		 wx:for="{{cardInfo}}"
 		 bindtap="goTopic"
-		 class="item"
+		 class="item {{item.answer.length>0 ? 'checked' :''}}"
+		 wx:if="{{!showScore}}"
 		>
-			{{index}}
+			{{index + 1}}
+		</view>
+		<view
+		 data-id="{{item.questionId}}"
+		 wx:for="{{cardInfo}}"
+		 class="item {{item.valid ? 'right' :'error'}}"
+		 wx:if="{{showScore}}"
+		>
+			{{index + 1}}
 		</view>
 	</view>
 

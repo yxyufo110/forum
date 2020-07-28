@@ -1,8 +1,9 @@
 import request from '../utils/request';
-export function isExamine() {
+export function isExamine(data) {
   return request({
     url: `/itembank/stu/examine/mine`,
     method: 'get',
+    data: data,
   });
 }
 export function getRules(data) {
@@ -57,5 +58,25 @@ export function getCardList(data) {
   return request({
     url: `/itembank/stu/examine/${data}/answer-sheet`,
     method: 'get',
+  });
+}
+
+// pkId
+export function startPk(data) {
+  return request({
+    url: `/student/stu/pk/${data.subjectId}/${data.paperId}`,
+    method: 'post',
+  });
+}
+export function finalPk(data) {
+  return request({
+    url: `/student/stu/pk/submit/${data.pkId}/${data.paperId}`,
+    method: 'post',
+  });
+}
+export function submitPk(data) {
+  return request({
+    url: `/student/stu/pk/start/${data.pkId}`,
+    method: 'post',
   });
 }

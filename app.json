@@ -1,11 +1,22 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/user/collect/index",
+    "pages/user/index",
+    "pages/user/record/index",
+    "pages/needPhone/index",
+    "pages/user/walet/index",
+    "pages/user/walet/popList/index",
+    "pages/user/walet/used/index",
+    "pages/user/walet/popUp/index",
+    "pages/order/index",
+    "pages/pay/index",
     "pages/testBank/index",
+    "pages/pk/index",
+    "pages/user/share/index",
     "pages/course/index",
     "pages/topic/card/index",
     "pages/topic/draw/index",
-    "pages/user/index",
     "pages/user/notice/index",
     "pages/topic/radio/index",
     "pages/user/edit/index",
@@ -26,7 +37,11 @@
     "pages/mockExam/final/index",
     "pages/errorQuestion/checkChapter/index",
     "pages/errorQuestion/radio/index",
-    "pages/user/record/index"
+    "pages/errorQuestion/card/index",
+    "pages/pk/sbuject/index",
+    "pages/pk/rules/index",
+    "pages/pk/radio/index",
+    "pages/pk/final/index"
   ],
   "permission": {
     "scope.userLocation": {
@@ -77,7 +92,9 @@
     "van-button": "@vant/weapp/button/index",
     "van-popup": "@vant/weapp/popup/index",
     "van-cell": "@vant/weapp/cell/index",
-    "van-cell-group": "@vant/weapp/cell-group/index"
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-collapse": "@vant/weapp/collapse/index",
+    "van-collapse-item": "@vant/weapp/collapse-item/index"
   },
   "sitemapLocation": "sitemap.json"
 }

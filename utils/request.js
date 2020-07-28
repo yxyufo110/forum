@@ -1,6 +1,6 @@
 // request.js
 const app = getApp();
-const baseUrl = 'http://129.28.204.69';
+const baseUrl = 'https://gateway.yuandong-edu.com';
 const request = (options) => {
   let newOptions = options;
   return new Promise((resolve, reject) => {
@@ -23,7 +23,7 @@ const request = (options) => {
           wx.login({
             success: (lres) => {
               wx.request({
-                url: `http://129.28.204.69/student/stu/student/login/${lres.code}`,
+                url: `https://gateway.yuandong-edu.com/student/stu/student/login/${lres.code}`,
                 method: 'post',
                 success: function (lres2) {
                   wx.setStorageSync('Authorization', lres2.header.Authorization);
@@ -50,12 +50,22 @@ const request = (options) => {
               });
             },
           });
+          wx.hideLoading();
         } else {
           wx.hideLoading();
           if (res.header.Authorization) {
             wx.setStorageSync('Authorization', res.header.Authorization);
           }
           if (res.statusCode === 200) {
+            if (res.data.restriction === 'Guest' && res.data.subjectId) {
+              wx.redirectTo({
+                url: `/pages/needPhone/index?subjectId=${res.data.subjectId}`,
+              });
+            } else if (res.data.restriction === 'ExperienceStudent' && res.data.subjectId) {
+              wx.redirectTo({
+                url: `/pages/needPhone/index?subjectId=${res.data.subjectId}&pop=true`,
+              });
+            }
             resolve(res.data);
           } else {
             wx.showToast({
@@ -70,7 +80,7 @@ const request = (options) => {
       fail: function (res) {
         wx.hideLoading();
         wx.showToast({
-          title: res.data,
+          title: res.data.title,
           icon: 'none',
           duration: 1500,
           mask: true,

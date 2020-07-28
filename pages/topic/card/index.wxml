@@ -7,7 +7,7 @@
 		 bindtap="goTopic"
 		 class="item {{item.valid ? 'right':'error'}} {{item.practiced ? '': 'normal'}}"
 		>
-			{{index}}
+			{{index + 1}}
 		</view>
 	</view>
 

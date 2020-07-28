@@ -1,0 +1,24 @@
+<van-nav-bar
+ title="考卷"
+ left-arrow
+ border="{{false}}"
+ bind:click-left="onClickLeft"
+/>
+<view>
+	<view class="title">
+		请选择考题数量
+	</view>
+	<van-radio-group checked-color="#3875F4" value="{{ radio }}" bind:change="onChange">
+		<van-radio checked-color="#3875F4" name="{{item.id}}" wx:for="{{ruleInfo}}">{{item.name}}</van-radio>
+	</van-radio-group>
+	<van-button
+	 block
+	 class="bottom"
+	 custom-style="width: 120px;height: 41px;line-height: 41px;color: #ffffff;font-size: 15px;background: #3875f4;border-radius: 20.5px;text-align: center;margin-top: 90px;margin-left: auto;margin-right: auto;"
+	 open-type="share"
+	>
+		确定
+	</van-button>
+
+</view>
+

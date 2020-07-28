@@ -10,7 +10,9 @@ Page({
     isTest: false,
   },
   onLoad: function (e) {
-    isExamine().then((res) => {
+    isExamine({
+      type: e.isFinalTest ? 'Final' : 'Mock',
+    }).then((res) => {
       if (!res) {
         app.globalData.testTime = 0;
         // 没有正在进行的考试，进行科目选择
@@ -25,6 +27,12 @@ Page({
           });
         }
       } else {
+        wx.showToast({
+          title: '请先完成正在进行的考试',
+          icon: 'none',
+          duration: 1500,
+          mask: true,
+        });
         app.globalData.testTime = res.timeRemaining;
         if (res.questionId) {
           wx.redirectTo({

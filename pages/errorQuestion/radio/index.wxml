@@ -8,7 +8,13 @@
 </wxs>
 
 <my-home-nav-bar/>
-<view class="content" wx:if="{{topicInfo}}">
+<view
+ class="content"
+ wx:if="{{topicInfo}}"
+ style="padding-bottom:70px;min-height:100vh"
+ bindtouchstart="touchStart"
+ bindtouchend="touchEnd"
+>
 	<view class="title">
 		<text>（{{topicInfo.typeDesc}}）{{topicInfo.subjectName}}{{topicInfo.chapter}}</text>
 	</view>
@@ -92,5 +98,14 @@
 
 </view>
 <!-- 底部 -->
-<my-topic-bottom haveShare="{{false}}" haveCard="{{false}}" bindchangeFont="changeFont" />
+<my-topic-bottom
+ wx:if="{{topicInfo}}"
+ subjectId="{{subjectId}}"
+ chapter="{{chapter}}"
+ questionId="{{questionId}}"
+ name="（{{topicInfo.typeDesc}}）{{topicInfo.subjectName}}"
+ isErr
+ haveShare="{{false}}"
+ bindchangeFont="changeFont"
+/>
 

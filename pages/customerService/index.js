@@ -1,9 +1,17 @@
+import { getTeacher } from '../../services/user';
 const app = getApp();
+
 Page({
   data: {
     isIPX: false,
+    teacherInfo: {},
   },
   onLoad() {
+    getTeacher().then((res) => {
+      this.setData({
+        teacherInfo: res[0],
+      });
+    });
     if (app.globalData.isIPX) {
       this.setData({
         isIPX: true,
@@ -16,8 +24,10 @@ Page({
     }
   },
   makPhoneCall: function () {
-    wx.makePhoneCall({
-      phoneNumber: '15139068517',
-    });
+    if (this.data.teacherInfo.cellphone) {
+      wx.makePhoneCall({
+        phoneNumber: this.data.teacherInfo.cellphone,
+      });
+    }
   },
 });

@@ -13,9 +13,17 @@
 			<text class="title">联系电话</text>
 		</view>
 		<view class="item">
-			<image class="itemImg" src="../../static/images/goon.png" />
-			<text class="title">问题反馈</text>
+			<button class="button" open-type="contact">
+				<image class="itemImg" src="../../static/images/goon.png" />
+				<text class="title">问题反馈</text>
+			</button>
 		</view>
+	</view>
+	<view class="img-box">
+		<view class="code-desc">
+			班主任微信
+		</view>
+		<image show-menu-by-longpress class="rcCode" src="{{teacherInfo.qrCodeUri}}" />
 	</view>
 </scroll-view>
 

@@ -4,6 +4,7 @@
 	 name="icon iconfont iconkecheng"
 	 slot="left"
 	 class="navBarIcon"
+	 bindtap="check"
 	/>
 	<van-icon
 	 wx:if="{{showLeft}}"

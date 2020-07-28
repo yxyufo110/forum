@@ -26,8 +26,8 @@ Page({
       });
     });
     getShareId({
-      name: '题库',
-      desc: '分享题库',
+      name: '考试',
+      desc: '分享考试',
       linkedCode: `examineId=${e.examineId}`,
     }).then((res) => {
       this.setData({
@@ -40,9 +40,9 @@ Page({
       url: `/pages/mockExam/radio/index?examineId=${this.data.examineId}&questionId=${e.currentTarget.dataset.id}`,
     });
   },
-  onShareAppMessage: function (e) {
+  onShareAppMessage: function () {
     return {
-      title: '分享题库',
+      title: '分享考试',
       path: `/pages/index/index?id=${this.data.shareId}&redirectUrl=/pages/testBank/index`,
     };
   },

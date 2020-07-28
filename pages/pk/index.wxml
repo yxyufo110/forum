@@ -1,0 +1,26 @@
+<my-home-nav-bar title="往期成绩" />
+<scroll-view bindscrolltolower="searchMore" scroll-y="true" style="height:calc(100vh - 88px)">
+	<image class="bg" src="../../static/images/pk_bg.png" />
+	<view class="start" bindtap="goPk">
+		发送pk函
+	</view>
+	<view class="card" wx:for="{{list}}">
+		<view class="left">
+			<image src="{{item.challengerAvatarUrl}}" />
+			<view class="sum">
+				{{item.challengerWinNum}}
+			</view>
+		</view>
+		<view>
+			<image class="pk" src="../../static/images/pk.png" />
+		</view>
+		<view class="right">
+			<image src="{{item.initiatorAvatarUrl}}" />
+			<view class="sum">
+				{{item.initiatorWinNum}}
+			</view>
+		</view>
+	</view>
+
+</scroll-view>
+

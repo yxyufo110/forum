@@ -1,0 +1,19 @@
+.van-radio {
+  padding: 17px;
+}
+.van-radio__label {
+  color: #999999 !important;
+}
+.btn {
+  width: 120px;
+  height: 41px;
+  line-height: 41px;
+  color: #ffffff;
+  font-size: 15px;
+  background: #3875f4;
+  border-radius: 20.5px;
+  text-align: center;
+  margin-top: 90px;
+  margin-left: auto;
+  margin-right: auto;
+}

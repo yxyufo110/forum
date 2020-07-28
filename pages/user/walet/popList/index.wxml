@@ -1,0 +1,28 @@
+<my-home-nav-bar title="我的钱包" />
+
+<scroll-view bindscrolltolower="searchMore" scroll-y="true" style="height:calc(100vh - 136px)">
+	<view class="t1">
+		<view class="t1-title">
+			我的总积分
+		</view>
+		<view class="t1-desc">
+			{{total}}
+		</view>
+	</view>
+	<view class="box" wx:for="{{info}}">
+		<view class="card" wx:for="{{item}}" wx:for-item="citem">
+			<view class="b1">
+				<view class="desc">
+					{{citem.desc}}
+				</view>
+				<view class="desc" style="color:#3875F4">
+					+ {{citem.integral}}
+				</view>
+			</view>
+			<view class="time">
+				{{citem.createdDate}}
+			</view>
+		</view>
+	</view>
+</scroll-view>
+

@@ -1,0 +1,73 @@
+<my-home-nav-bar title="我的钱包" />
+
+<view class="t1">
+	<image class="bg" src="../../../static/images/walet.png" />
+	<view class="t-box">
+		<view class="countBox">
+			<view class="expense">
+				<view class="desc">
+					我的学习币
+				</view>
+				<view class="dnum">
+					{{info.topUp}}
+				</view>
+			</view>
+			<view class="cell" />
+			<view class="income">
+				<view class="desc">
+					我的总积分
+				</view>
+				<view class="dnum">
+					{{info.total}}
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view class="t2">
+	<van-cell-group border="{{false}}">
+		<van-cell
+		 is-link
+		 border="{{false}}"
+		 title="我的充值"
+		 link-type="navigateTo"
+		 url="/pages/user/walet/popUp/index?total={{info.topUp}}"
+		/>
+		<van-cell
+		 is-link
+		 border="{{false}}"
+		 title="消费记录"
+		 link-type="navigateTo"
+		 url="/pages/user/walet/used/index?total={{info.writeOff}}"
+		/>
+		<van-cell
+		 is-link
+		 border="{{false}}"
+		 title="奖励明细"
+		 link-type="navigateTo"
+		 url="/pages/user/walet/popList/index?total={{info.total}}"
+		/>
+	</van-cell-group>
+</view>
+
+<view class="t3" bindtap="recharge">
+	充值
+</view>
+
+<van-dialog
+ use-slot
+ title="充值学习币数量"
+ show="{{ show }}"
+ show-cancel-button
+ bind:cancel="onClose"
+ bind:confirm="submit"
+>
+	<van-field
+	 type="number"
+	 value="{{ value }}"
+	 placeholder="学习币数量"
+	 bind:change="onChange"
+	/>
+</van-dialog>
+

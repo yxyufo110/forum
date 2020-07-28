@@ -51,3 +51,17 @@ export function getShareId(data) {
     data: data,
   });
 }
+export function getCourseLog(data) {
+  return request({
+    url: `/course/stu/course/log/list`,
+    method: 'get',
+    data: data,
+  });
+}
+export function getQuestionLog(data) {
+  return request({
+    url: `/itembank/stu/question/practice/statistics/category`,
+    method: 'get',
+    data: data,
+  });
+}

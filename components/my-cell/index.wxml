@@ -3,12 +3,12 @@
 	<view class="content">
 		<view class="title">{{ title }}</view>
 		<text class="speed">
-      <text class="current">0</text>
-		<text class="all">/200</text>
+    <text class="current">{{practiced}}</text>
+		<text class="all">/{{total}}</text>
 		</text>
 		<view>
 			<van-rate
-			 value="2.5"
+			 value="{{practiced / total * 5}}"
 			 size="{{ 12 }}"
 			 allow-half
 			 color="#FECD15"

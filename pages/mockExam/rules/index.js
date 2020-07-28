@@ -1,4 +1,5 @@
 import { getRules, start, getFinalRules, startFinal } from '../../../services/examine';
+const app = getApp();
 Page({
   /**
    * 页面的初始数据
@@ -37,12 +38,14 @@ Page({
     if (this.data.radio) {
       if (this.data.isFinalTest) {
         startFinal({ paperId: this.data.radio }).then((res) => {
+          app.globalData.testTime = res.timeRemaining;
           wx.redirectTo({
             url: `/pages/mockExam/radio/index?examineId=${res.id}&questionId=${res.questionId}`,
           });
         });
       } else {
         start({ ruleId: this.data.radio }).then((res) => {
+          app.globalData.testTime = res.timeRemaining;
           wx.redirectTo({
             url: `/pages/mockExam/radio/index?examineId=${res.id}&questionId=${res.questionId}`,
           });

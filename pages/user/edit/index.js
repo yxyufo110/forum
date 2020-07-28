@@ -17,12 +17,28 @@ Page({
     columns: ['男', '女'],
     columns2: [
       {
-        key: 'HighSchoolOrUnder',
-        value: '高中及以下',
+        key: 'JuniorHighSchool',
+        value: '初中及以下',
+      },
+      {
+        key: 'HighSchool',
+        value: '高中',
+      },
+      {
+        key: 'TechnicalSecondarySchool',
+        value: '中专',
+      },
+      {
+        key: 'VocationalHighSchool',
+        value: '职高',
+      },
+      {
+        key: 'TechnicalSchool',
+        value: '技校',
       },
       {
         key: 'JuniorCollege',
-        value: '专科',
+        value: '大专',
       },
       {
         key: 'Undergraduate',
@@ -83,7 +99,7 @@ Page({
   },
   onChange: function (e) {
     this.setData({
-      userInfo: { ...this.data.userInfo, [e.currentTarget.key]: e.detail },
+      userInfo: { ...this.data.userInfo, [e.currentTarget.dataset.key]: e.detail },
     });
   },
 

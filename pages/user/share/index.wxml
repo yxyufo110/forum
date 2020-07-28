@@ -1,0 +1,69 @@
+<my-home-nav-bar/>
+
+<view class="share-box">
+	<image src="../../../static/images/share_bg.png" class="bg-img" />
+	<view class="title">
+		分享记录
+	</view>
+	<view class="count-box">
+		<view class="desc">
+			有效分享次数
+		</view>
+		<view class="num">
+			{{effectiveHits}}
+		</view>
+	</view>
+
+</view>
+
+<van-collapse value="{{ activeNames }}" bind:change="onChange">
+	<van-collapse-item title="题库" name="Testbank">
+		<view>
+			<view class="cell" wx:for="{{Testbank}}">
+				<view class="c-title">
+					{{item.name }}
+				</view>
+				<view class="c-name">
+					{{item.desc }}
+				</view>
+				<view class="c-time">
+					<text >{{item.createdDate}}</text>
+					<text>{{item.effectiveHits}}/{{item.hits}}</text>
+				</view>
+			</view>
+		</view>
+	</van-collapse-item>
+	<van-collapse-item title="课程" name="Course">
+		<view>
+			<view class="cell" wx:for="{{Course}}">
+				<view class="c-title">
+					{{item.name }}
+				</view>
+				<view class="c-name">
+					{{item.desc }}
+				</view>
+				<view class="c-time">
+					<text >{{item.createdDate}}</text>
+					<text>{{item.effectiveHits}}/{{item.hits}}</text>
+				</view>
+			</view>
+		</view>
+	</van-collapse-item>
+	<van-collapse-item title="推文" name="Tweets">
+		<view>
+			<view class="cell" wx:for="{{Tweets}}">
+				<view class="c-title">
+					{{item.name }}
+				</view>
+				<view class="c-name">
+					{{item.desc }}
+				</view>
+				<view class="c-time">
+					<text >{{item.createdDate}}</text>
+					<text>{{item.effectiveHits}}/{{item.hits}}</text>
+				</view>
+			</view>
+		</view>
+	</van-collapse-item>
+</van-collapse>
+

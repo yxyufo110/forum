@@ -6,6 +6,12 @@ export function geTopic(data) {
     data: data,
   });
 }
+export function geTopicOne(data) {
+  return request({
+    url: `/itembank/stu/question/${data.questionId}/detail`,
+    method: 'get',
+  });
+}
 export function getAnswer(data) {
   return request({
     url: `/itembank/stu/question/practice`,
@@ -37,5 +43,20 @@ export function cancelCollect(data) {
   return request({
     url: `/student/stu/collect/${data}/Question`,
     method: 'delete',
+  });
+}
+export function errorCard(data) {
+  return request({
+    url: `/itembank/stu/problem-book/work-card`,
+    method: 'get',
+    data: data,
+  });
+}
+
+export function statistics(data) {
+  return request({
+    url: `/itembank/stu/question/practice/statistics`,
+    method: 'get',
+    data: data,
   });
 }

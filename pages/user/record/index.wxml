@@ -1,2 +1,41 @@
-<!--pages/user/record/index.wxml-->
-<text>pages/user/record/index.wxml</text>
+<my-home-nav-bar title="学习记录" />
+<scroll-view scroll-y="true" style="height:calc(100vh - 88px)">
+	<van-tabs
+	 line-height="2"
+	 animated
+	 color="#3875F4"
+	 border="{{false}}"
+	>
+		<van-tab title="题库记录">
+			<view class="card" wx:for="{{questionList}}">
+				<view class="bg">{{item.categoryName}}</view>
+				<van-cell
+				 wx:for="{{item.subjects}}"
+				 wx:for-item="citem"
+				 title="{{citem.name}}"
+				 is-link
+				 border="{{false}}"
+				 link-type="navigateTo"
+				 url="/pages/topic/radio/index?subjectId={{citem.id}}"
+				/>
+			</view>
+
+		</van-tab>
+		<van-tab title="课程记录">
+			<view class="card" wx:for="{{courseList}}">
+				<view class="bg">{{item.categoryName}}</view>
+				<van-cell
+				 title="{{citem.subjectName}}"
+				 is-link
+				 border="{{false}}"
+				 wx:for="{{item.subjects}}"
+				 wx:for-item="citem"
+				 link-type="navigateTo"
+				 url="/pages/course/detail/index?id={{citem.courseId}}"
+				/>
+			</view>
+		</van-tab>
+	</van-tabs>
+
+</scroll-view>
+

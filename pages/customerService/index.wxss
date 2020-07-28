@@ -38,3 +38,16 @@
   font-size: 15px;
   float: left;
 }
+.img-box {
+  text-align: center;
+  margin-top: 45px;
+}
+.code-desc {
+  font-size: 15px;
+  color: #121212;
+  margin-bottom: 25px;
+}
+.rcCode {
+  width: 145px;
+  height: 145px;
+}

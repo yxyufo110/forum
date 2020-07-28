@@ -56,7 +56,7 @@ Page({
     let params = {
       province: this.data.check[0].name,
       city: this.data.check[1].name,
-      addr: this.data.check[2].name,
+      area: this.data.check[2].name,
     };
     updateUsr(params).then((res) => {
       app.globalData.userInfo = res;

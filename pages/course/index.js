@@ -59,6 +59,7 @@ Page({
         shareId: res,
       });
     });
+    app.globalData.subject = e.detail;
     queryALl({ page: 0, size: 10, categoryId: e.detail.id }).then((res) => {
       this.setData({
         ['info[0]']: res.content,
@@ -73,7 +74,7 @@ Page({
       });
     });
   },
-  onShareAppMessage: function (e) {
+  onShareAppMessage: function () {
     return {
       title: '分享课程',
       path: `/pages/index/index?id=${this.data.shareId}&redirectUrl=/pages/course/index`,

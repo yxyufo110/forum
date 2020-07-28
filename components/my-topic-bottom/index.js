@@ -15,6 +15,10 @@ Component({
       type: Boolean,
       value: false,
     },
+    isErr: {
+      type: Boolean,
+      value: false,
+    },
     examineId: {
       type: String,
       value: '',
@@ -92,11 +96,15 @@ Component({
 
     goCard: function () {
       if (this.data.isTest) {
-        wx.navigateTo({
+        wx.redirectTo({
           url: `/pages/mockExam/card/index?examineId=${this.data.examineId}`,
         });
+      } else if (this.data.isErr) {
+        wx.redirectTo({
+          url: `/pages/errorQuestion/card/index?chapter=${this.data.chapter}&subjectId=${this.data.subjectId}`,
+        });
       } else {
-        wx.navigateTo({
+        wx.redirectTo({
           url: `/pages/topic/card/index?chapter=${this.data.chapter}&subjectId=${this.data.subjectId}`,
         });
       }

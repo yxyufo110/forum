@@ -1,0 +1,62 @@
+<!-- 函数 -->
+<wxs module="m1">
+	var isIn = function(a,b) {
+	return b.indexOf(a) >= 0
+	};
+
+	module.exports.isIn = isIn;
+</wxs>
+
+<my-home-nav-bar/>
+<view class="content" wx:if="{{topicInfo}}" style="padding-bottom:50px">
+	<view class="title">
+		<text>（{{topicInfo.typeDesc}}）{{topicInfo.subjectName}}{{topicInfo.chapter}}</text>
+		<view class="timer">
+			<van-icon name="underway-o" color="#F4AB38" size="22px" />
+			<van-count-down time="{{ testTime }}" />
+		</view>
+	</view>
+	<view class="topicBox">
+		<!-- 题目 -->
+		<view class="topic">
+			<rich-text style="font-size:{{fontSize}}" nodes="{{topicInfo.stem}}" />
+		</view>
+		<!-- 单选 -->
+		<view class="options" wx:if="{{!isMultiple}}">
+			<van-radio-group value="{{ radio }}" bind:change="onChange">
+				<van-radio use-icon-slot name="{{item.number}}" wx:for="{{topicInfo.answers}}">
+					<rich-text style="font-size:{{fontSize}}" nodes="{{item.answer}}" />
+					<view class="radioIcon {{radio === item.number ? 'checked' :''}} {{item.right ? 'right' : ''}}" slot="icon">{{item.number}}</view>
+				</van-radio>
+			</van-radio-group>
+		</view>
+		<!-- 多选 -->
+		<view class="options" wx:if="{{isMultiple}}">
+			<van-checkbox-group value="{{ radio }}" bind:change="onChangeCheckBox">
+				<van-checkbox use-icon-slot name="{{item.number}}" wx:for="{{topicInfo.answers}}">
+					<rich-text style="font-size:{{fontSize}}" nodes="{{item.answer}}" />
+					<view class="radioIcon {{m1.isIn(item.number,radio) ? 'checked' :''}} {{item.right ? 'right' : ''}}" slot="icon">{{item.number}}</view>
+				</van-checkbox>
+			</van-checkbox-group>
+		</view>
+	</view>
+	<!-- 解析 -->
+
+	<!-- 操作按钮 -->
+	<view class="btnBox">
+
+		<van-button
+		 custom-style="width:120px"
+		 round
+		 type="info"
+		 color="#3875F4"
+		 bind:click="next"
+		>下一题
+		</van-button>
+	</view>
+</view>
+<!-- 空题页面 -->
+
+<!-- 底部 -->
+<my-topic-bottom isTest bindchangeFont="changeFont" examineId="{{examineId}}" />
+

@@ -1,16 +1,16 @@
 //index.js
 //获取应用实例
-import { updateUsr, getUserInfo } from '../../services/user';
+import { updateUsr, getUserInfos } from '../../services/user';
 const app = getApp();
 
 Page({
   data: {
     userInfo: {},
-    hasUserInfo: false,
+    hasUserInfo: true,
     isIPX: false,
   },
   onLoad: function () {
-    getUserInfo().then((res) => {
+    getUserInfos().then((res) => {
       this.setData({
         userInfo: res,
         hasUserInfo: res.username && res.avatarUrl ? true : false,
@@ -31,7 +31,6 @@ Page({
   },
   getUserInfo: function (e) {
     if (e.detail.userInfo) {
-      console.log(e.detail.userInfo);
       // 获取用户授权成功
       // this.setData
       let params = {
@@ -60,6 +59,26 @@ Page({
   goNotice: function () {
     wx.navigateTo({
       url: '/pages/user/notice/index',
+    });
+  },
+  goShare: function () {
+    wx.navigateTo({
+      url: '/pages/user/share/index',
+    });
+  },
+  goOrder: function () {
+    wx.navigateTo({
+      url: '/pages/order/index',
+    });
+  },
+  goWalet: function () {
+    wx.navigateTo({
+      url: '/pages/user/walet/index',
+    });
+  },
+  goCollect: function () {
+    wx.navigateTo({
+      url: '/pages/user/collect/index',
     });
   },
 });
