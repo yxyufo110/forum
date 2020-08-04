@@ -22,7 +22,7 @@ Page({
         active: 1,
       });
     }
-    getBanners().then((res) => {
+    getBanners('Course').then((res) => {
       this.setData({
         bannerList: res,
       });

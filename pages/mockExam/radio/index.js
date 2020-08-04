@@ -13,12 +13,14 @@ Page({
     isMultiple: false,
     fontSize: '15px',
     testTime: 0,
+    subjectId: '',
   },
   onLoad: function (e) {
     this.setData({
       examineId: e.examineId || '',
       questionId: e.questionId || '',
       testTime: app.globalData.testTime * 1000,
+      subjectId: e.subjectId,
     });
     geTopic({
       examineId: e.examineId || '',
@@ -27,6 +29,7 @@ Page({
       this.setData({
         topicInfo: res,
         isMultiple: res.type === 'MultipleChoice' ? true : false,
+        radio: res.type === 'MultipleChoice' ? res.latestAnswers : res.latestAnswers[0],
         fontSize: app.globalData.fontSize,
       });
     });
@@ -54,7 +57,7 @@ Page({
       app.globalData.testTime = res.timeRemaining;
       if (res.questionId) {
         wx.redirectTo({
-          url: `/pages/mockExam/radio/index?examineId=${res.id}&questionId=${res.questionId}`,
+          url: `/pages/mockExam/radio/index?examineId=${res.id}&questionId=${res.questionId}&subjectId=${res.subjectId}`,
         });
       } else {
         wx.navigateTo({

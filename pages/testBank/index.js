@@ -20,7 +20,7 @@ Page({
       });
     }
 
-    getBanners().then((res) => {
+    getBanners('Paper').then((res) => {
       this.setData({
         bannerList: res,
       });

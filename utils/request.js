@@ -65,8 +65,9 @@ const request = (options) => {
               wx.redirectTo({
                 url: `/pages/needPhone/index?subjectId=${res.data.subjectId}&pop=true`,
               });
+            } else {
+              resolve(res.data);
             }
-            resolve(res.data);
           } else {
             wx.showToast({
               title: res.data.title,

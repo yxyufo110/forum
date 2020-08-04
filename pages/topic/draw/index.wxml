@@ -1,52 +1,12 @@
-<my-home-nav-bar/>
-
-<view class='jdraw'>
-	<view class='tool'>
-		<image
-		 class="{{brushState=='p'?'selected':''}}"
-		 src='../../../static/images/jd_pencil.png'
-		 data-state='p'
-		 bindtap='switchBrush'
-		/>
-		<image
-		 class="{{brushState=='c'?'selected':''}}"
-		 src='../../../static/images/jd_eraser.png'
-		 data-state='c'
-		 bindtap='switchBrush'
-		/>
-		<image src='../../../static/images/jd_clear.png' bindtap='drawClear' />
-		<image src='../../../static/images/jd_back.png' bindtap='drawBack' />
-	</view>
-	<view>
-		<scroll-view scroll-x="true" scroll-left="0" class='tinct-list'>
-			<view
-			 wx:for='{{tinctList}}'
-			 style='background-color:{{item}}'
-			 data-index='{{index}}'
-			 bindtap='tinColorChange'
-			 class="tinct-item {{tinctCurr==index?'tinct-curr':''}}"
-			/>
-		</scroll-view>
-	</view>
-	<view class="page-section page-section-gap">
-		<view class="body-view">
-			<slider
-			 value="{{tinctSize}}"
-			 min="1"
-			 max="10"
-			 bindchange="tinSizechange"
-			 show-value
-			/>
-		</view>
-	</view>
-	<canvas
-	 style="width: 400px; height: 500px;"
-	 id="palette"
-	 bindtouchstart='touchstart'
-	 bindtouchmove='touchMove'
-	 bindtouchend='touchEnd'
-	 disable-scroll='true'
-	 type="2d"
-	/>
-</view>
+<canvas
+ class="sign"
+ canvas-id="sign"
+ bindtouchmove="move"
+ bindtouchstart="start"
+ bindtouchend="end"
+ bindtouchcancel="cancel"
+ bindlongtap="tap"
+ disable-scroll="true"
+ binderror="error"
+/>
 

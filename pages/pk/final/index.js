@@ -13,14 +13,13 @@ Page({
     this.setData({
       examineId: e.examineId,
       pkId: e.pkId,
-      paperId: e.paperId,
     });
   },
 
   submit: function () {
     handIn({ examineId: this.data.examineId }).then((res) => {
       if (this.data.pkId) {
-        finalPk({ pkId: this.data.pkId, paperId: this.data.paperId });
+        finalPk({ pkId: this.data.pkId });
       }
       wx.redirectTo({
         url: `/pages/mockExam/card/index?examineId=${this.data.examineId}&score=${res.score}`,

@@ -14,31 +14,24 @@ Page({
     fontSize: '15px',
     testTime: 0,
     pkId: '',
+    subjectId: '',
   },
   onLoad: function (e) {
     this.setData({
       examineId: e.examineId || '',
       questionId: e.questionId || '',
+      subjectId: e.subjectId,
       pkId: e.pkId,
       testTime: app.globalData.testTime * 1000,
-      paperId: e.paperId,
     });
     geTopic({
       examineId: e.examineId || '',
       questionId: e.questionId || '',
     }).then((res) => {
-      if (res.restriction === 2 && res.subjectId) {
-        wx.redirectTo({
-          url: `/pages/needPhone/index?subjectId=${res.subjectId}`,
-        });
-      } else if (res.restriction === 4 && res.subjectId) {
-        wx.redirectTo({
-          url: `/pages/needPhone/index?subjectId=${res.subjectId}&pop=true`,
-        });
-      }
       this.setData({
         topicInfo: res,
         isMultiple: res.type === 'MultipleChoice' ? true : false,
+        radio: res.type === 'MultipleChoice' ? res.latestAnswers : res.latestAnswers[0],
         fontSize: app.globalData.fontSize,
       });
     });
@@ -65,7 +58,7 @@ Page({
       app.globalData.testTime = res.timeRemaining;
       if (res.questionId) {
         wx.redirectTo({
-          url: `/pages/pk/radio/index?examineId=${res.id}&questionId=${res.questionId}&pkId=${this.data.pkId}`,
+          url: `/pages/pk/radio/index?examineId=${res.id}&questionId=${res.questionId}&pkId=${this.data.pkId}&subjectId=${res.subjectId}`,
         });
       } else {
         wx.navigateTo({

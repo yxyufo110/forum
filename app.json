@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/radar/index",
+    "pages/topic/draw/index",
     "pages/user/collect/index",
     "pages/user/index",
     "pages/user/record/index",
@@ -16,7 +18,6 @@
     "pages/user/share/index",
     "pages/course/index",
     "pages/topic/card/index",
-    "pages/topic/draw/index",
     "pages/user/notice/index",
     "pages/topic/radio/index",
     "pages/user/edit/index",

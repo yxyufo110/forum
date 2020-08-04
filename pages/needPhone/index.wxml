@@ -1,4 +1,4 @@
-<my-home-nav-bar title="绑定手机" />
+<my-home-nav-bar title="{{pop?'购买课程':'绑定手机'}}" />
 
 <view class="t1">
 	<image src="../../static/images/phoneBg.png" />

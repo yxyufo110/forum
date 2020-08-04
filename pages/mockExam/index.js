@@ -36,7 +36,7 @@ Page({
         app.globalData.testTime = res.timeRemaining;
         if (res.questionId) {
           wx.redirectTo({
-            url: `/pages/mockExam/radio/index?examineId=${res.id}&questionId=${res.questionId}`,
+            url: `/pages/mockExam/radio/index?examineId=${res.id}&questionId=${res.questionId}&subjectId=${res.subjectId}`,
           });
         } else {
           wx.redirectTo({

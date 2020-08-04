@@ -19,9 +19,9 @@ export function searchCategory(data) {
     data: data,
   });
 }
-export function getBanners() {
+export function getBanners(data) {
   return request({
-    url: `/ops/stu/banner/list`,
+    url: `/ops/stu/banner/list/${data}`,
     method: 'get',
   });
 }

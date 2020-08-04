@@ -8,6 +8,7 @@ Page({
     radio: '',
     ruleInfo: {},
     isFinalTest: '',
+    subjectId: '',
   },
 
   /**
@@ -19,12 +20,14 @@ Page({
         this.setData({
           ruleInfo: res,
           isFinalTest: e.isFinalTest,
+          subjectId: res[0].subjectId || '',
         });
       });
     } else {
       getRules({ subjectId: e.subjectId }).then((res) => {
         this.setData({
           ruleInfo: res.content,
+          subjectId: res.content[0].subjectId || '',
         });
       });
     }
@@ -40,14 +43,14 @@ Page({
         startFinal({ paperId: this.data.radio }).then((res) => {
           app.globalData.testTime = res.timeRemaining;
           wx.redirectTo({
-            url: `/pages/mockExam/radio/index?examineId=${res.id}&questionId=${res.questionId}`,
+            url: `/pages/mockExam/radio/index?examineId=${res.id}&questionId=${res.questionId}&subjectId=${this.data.subjectId}`,
           });
         });
       } else {
         start({ ruleId: this.data.radio }).then((res) => {
           app.globalData.testTime = res.timeRemaining;
           wx.redirectTo({
-            url: `/pages/mockExam/radio/index?examineId=${res.id}&questionId=${res.questionId}`,
+            url: `/pages/mockExam/radio/index?examineId=${res.id}&questionId=${res.questionId}&subjectId=${this.data.subjectId}`,
           });
         });
       }

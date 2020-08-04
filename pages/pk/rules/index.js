@@ -8,6 +8,7 @@ Page({
     radio: '',
     ruleInfo: {},
     pkId: '',
+    subjectId: '',
   },
 
   /**
@@ -43,9 +44,9 @@ Page({
   onShareAppMessage: function () {
     if (this.data.radio) {
       submitPk({ pkId: this.data.pkId }).then((res) => {
-        app.globalData.testTime = res.timeRemaining;
+        app.globalData.testTime = res.exam.timeRemaining;
         wx.redirectTo({
-          url: `/pages/pk/radio/index?examineId=${res.exam.id}&questionId=${res.questionId}&pkId=${this.data.pkId}`,
+          url: `/pages/pk/radio/index?examineId=${res.exam.id}&questionId=${res.exam.questionId}&pkId=${this.data.pkId}&subjectId=${this.data.subjectId}`,
         });
       });
     }

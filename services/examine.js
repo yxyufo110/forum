@@ -70,7 +70,7 @@ export function startPk(data) {
 }
 export function finalPk(data) {
   return request({
-    url: `/student/stu/pk/submit/${data.pkId}/${data.paperId}`,
+    url: `/student/stu/pk/submit/${data.pkId}`,
     method: 'post',
   });
 }

@@ -6,18 +6,18 @@
 	</view>
 	<view class="card" wx:for="{{list}}">
 		<view class="left">
-			<image src="{{item.challengerAvatarUrl}}" />
+			<image src="{{item.initiatorAvatarUrl}}" />
 			<view class="sum">
-				{{item.challengerWinNum}}
+				{{item.initiatorWinNum}}
 			</view>
 		</view>
 		<view>
 			<image class="pk" src="../../static/images/pk.png" />
 		</view>
 		<view class="right">
-			<image src="{{item.initiatorAvatarUrl}}" />
+			<image src="{{item.challengerAvatarUrl}}" />
 			<view class="sum">
-				{{item.initiatorWinNum}}
+				{{item.challengerWinNum}}
 			</view>
 		</view>
 	</view>

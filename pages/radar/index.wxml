@@ -1,0 +1,4 @@
+<my-home-nav-bar title="分析报告" />
+
+<canvas canvas-id="radarCanvas" disable-scroll="true" class="canvas" />
+

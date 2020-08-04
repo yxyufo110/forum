@@ -20,9 +20,10 @@ Page({
             if (e.pkId) {
               backPk({
                 pkId: e.pkId,
-              });
-              wx.redirectTo({
-                url: `/pages/pk/index?pkId=${e.pkId}`,
+              }).then((x) => {
+                wx.redirectTo({
+                  url: `/pages/pk/index?pkId=${e.pkId}`,
+                });
               });
             } else if (!res2.data.area) {
               wx.redirectTo({

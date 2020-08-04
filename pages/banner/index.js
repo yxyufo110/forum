@@ -14,7 +14,7 @@ Page({
   onLoad: function (options) {
     getOneBanner(options.id).then((res) => {
       this.setData({
-        bannerInfo: res.content,
+        bannerInfo: res.content.replace(/\<img/gi, '<img class="rich-img" '),
       });
     });
   },

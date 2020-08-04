@@ -1,6 +1,6 @@
 // pages/pk/index.js
 import { getPkList } from '../../services/user';
-import { isExamine, start } from '../../services/examine';
+import { isExamine, submitPk } from '../../services/examine';
 const app = getApp();
 Page({
   /**
@@ -14,43 +14,47 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (e) {
-    if (e.pkId) {
-      start({ ruleId: e.paperId }).then((res) => {
-        app.globalData.testTime = res.timeRemaining;
-        wx.redirectTo({
-          url: `/pages/pk/radio/index?examineId=${res.id}&questionId=${res.questionId}&pkId=${e.pkId}`,
-        });
-      });
-    } else {
-      isExamine({
-        type: 'PK',
-      }).then((res) => {
-        if (!res) {
+    isExamine({
+      type: 'PK',
+    }).then((res) => {
+      if (!res) {
+        if (e.pkId) {
+          submitPk({ pkId: e.pkId }).then((res) => {
+            app.globalData.testTime = res.exam.timeRemaining;
+            wx.redirectTo({
+              url: `/pages/pk/radio/index?examineId=${res.exam.id}&questionId=${res.exam.questionId}&pkId=${e.pkId}`,
+            });
+          });
+        } else {
           getPkList().then((res) => {
             this.setData({
               list: res,
             });
           });
-        } else {
-          wx.showToast({
-            title: '请先完成正在进行的考试',
-            icon: 'none',
-            duration: 1500,
-            mask: true,
-          });
-          app.globalData.testTime = res.timeRemaining;
-          if (res.questionId) {
-            wx.redirectTo({
-              url: `/pages/mockExam/radio/index?examineId=${res.id}&questionId=${res.questionId}`,
-            });
-          } else {
-            wx.redirectTo({
-              url: `/pages/mockExam/final/index?examineId=${res.id}`,
-            });
-          }
         }
-      });
-    }
+      } else {
+        wx.showToast({
+          title: '请先完成正在进行的考试',
+          icon: 'none',
+          duration: 1500,
+          mask: true,
+        });
+        app.globalData.testTime = res.timeRemaining;
+        if (res.questionId) {
+          wx.redirectTo({
+            url: `/pages/pk/radio/index?examineId=${res.id}&questionId=${res.questionId}&pkId=${
+              e.pkId || res.pkId
+            }&subjectId=${res.subjectId}`,
+          });
+        } else {
+          wx.redirectTo({
+            url: `/pages/pk/final/index?examineId=${res.id}&pkId=${e.pkId || res.pkId}&subjectId=${
+              res.subjectId
+            }`,
+          });
+        }
+      }
+    });
   },
   goPk: function () {
     wx.navigateTo({

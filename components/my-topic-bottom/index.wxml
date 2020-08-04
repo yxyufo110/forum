@@ -65,4 +65,27 @@
 		/>
 	</view>
 </view>
+<view wx:if="{{showDraw}}">
+	<canvas
+	 class="sign"
+	 canvas-id="sign"
+	 bindtouchmove="move"
+	 bindtouchstart="start"
+	 bindtouchend="end"
+	 bindtouchcancel="cancel"
+	 bindlongtap="tap"
+	 disable-scroll="true"
+	 binderror="error"
+	/>
+	<cover-view class="cvBox">
+		<cover-view bindtap="clearClick" style="margin-right:20px">
+			<cover-image src="../../static/images/ref.png" />
+		</cover-view>
+		<cover-view bindtap="close">
+			<cover-image src="../../static/images/close.png" />
+		</cover-view>
+
+	</cover-view>
+
+</view>
 

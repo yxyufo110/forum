@@ -105,6 +105,7 @@ Page({
     // 提交
     getAnswer({
       questionId: this.data.topicInfo.id,
+      chapter: this.data.chapter || '',
       answers: this.data.isMultiple ? this.data.radio : [this.data.radio],
     }).then((res) => {
       let newObj = this.data.topicInfo;
@@ -145,7 +146,7 @@ Page({
         this.setData({
           topicInfo: newObj,
           subjectId: newObj.subjectId || '',
-          questionId: newObj.questionId,
+          questionId: newObj.id,
           chapter: this.data.chapter || '',
           isMultiple: newObj.type === 'MultipleChoice' ? true : false,
           fontSize: app.globalData.fontSize,
@@ -192,7 +193,6 @@ Page({
   // 处理滑动开始
   // 触摸开始事件
   touchStart: function (e) {
-    console.log(123);
     touchDot = e.touches[0].pageX; // 获取触摸时的原点
     // 使用js计时器记录时间
     interval = setInterval(function () {

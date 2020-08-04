@@ -8,102 +8,104 @@
 </wxs>
 
 <my-home-nav-bar/>
-<view
- class="content"
- wx:if="{{topicInfo}}"
- style="padding-bottom:70px;min-height:100vh"
- bindtouchstart="touchStart"
- bindtouchend="touchEnd"
->
-	<view class="title">
-		<text>（{{topicInfo.typeDesc}}）{{topicInfo.subjectName}}{{topicInfo.chapter}}</text>
-	</view>
-	<view class="topicBox">
-		<!-- 题目 -->
-		<view class="topic">
-			<rich-text style="font-size:{{fontSize}}" nodes="{{topicInfo.stem}}" />
-		</view>
-		<!-- 单选 -->
-		<view class="options" wx:if="{{!isMultiple}}">
-			<van-radio-group value="{{ radio }}" bind:change="onChange">
-				<van-radio use-icon-slot name="{{item.number}}" wx:for="{{topicInfo.answers}}">
-					<rich-text style="font-size:{{fontSize}}" nodes="{{item.answer}}" />
-					<view class="radioIcon {{radio === item.number ? 'checked' :''}} {{item.right ? 'right' : ''}}" slot="icon">{{item.number}}</view>
-				</van-radio>
-			</van-radio-group>
-		</view>
-		<!-- 多选 -->
-		<view class="options" wx:if="{{isMultiple}}">
-			<van-checkbox-group value="{{ radio }}" bind:change="onChangeCheckBox">
-				<van-checkbox use-icon-slot name="{{item.number}}" wx:for="{{topicInfo.answers}}">
-					<rich-text style="font-size:{{fontSize}}" nodes="{{item.answer}}" />
-					<view class="radioIcon {{m1.isIn(item.number,radio) ? 'checked' :''}} {{item.right ? 'right' : ''}}" slot="icon">{{item.number}}</view>
-				</van-checkbox>
-			</van-checkbox-group>
-		</view>
-	</view>
-	<!-- 解析 -->
-	<view style="font-size:{{fontSize}}" class="analysis" wx:if="{{analysis}}">
-		解析：
-		<rich-text style="font-size:{{fontSize}}" nodes="{{analysis}}" />
-	</view>
-	<!-- 操作按钮 -->
-	<view class="btnBox">
-		<van-button
-		 custom-style="width:120px"
-		 round
-		 type="info"
-		 color="#3875F4"
-		 bind:click="submit"
-		 wx:if="{{!showNext}}"
-		>查看解析
-		</van-button>
-		<van-button
-		 custom-style="width:120px"
-		 round
-		 type="info"
-		 color="#3875F4"
-		 bind:click="next"
-		 wx:if="{{showNext}}"
-		>下一题
-		</van-button>
-	</view>
-	<view class="delete" bindtap="deleteQuestion">
-		移出错题集
-	</view>
-</view>
-<!-- 空题页面 -->
-<view wx:if="{{!topicInfo}}" class="none">
-	<image src="../../../static/images/topic_bg.png" class="none-img" />
-	<view class="none-title">
-		本章知识点已学习完成
-	</view>
-	<view class="none-content">
-		您可以
-	</view>
-	<view class="none-btn" bindtap="goHome">
-		返回首页
-	</view>
-	<view class="none-btn" bindtap="collage">
-		加入收藏
-	</view>
-	<van-button
-	 block
-	 class="none-btn share-btn"
-	 custom-style="border:none;color: #ffffff;margin-bottom: 20px;width: 180px;height: 41px;line-height: 41px;text-align: center;margin-left: auto;margin-right: auto;font-size: 15px;border-radius: 41px;background: linear-gradient(0deg, rgba(255, 40, 40, 1) 0%, rgba(255, 122, 64, 1) 100%);box-shadow: 0px 0px 7px 0px rgba(255, 83, 53, 0.66);"
-	 open-type="share"
+<scroll-view scroll-y="true" style="height:calc(100vh - 113px)">
+	<view
+	 class="content"
+	 wx:if="{{topicInfo}}"
+	 style="padding-bottom:70px;min-height:100vh"
+	 bindtouchstart="touchStart"
+	 bindtouchend="touchEnd"
 	>
-		分享给朋友
-	</van-button>
+		<view class="title">
+			<text>（{{topicInfo.typeDesc}}）{{topicInfo.subjectName}}{{topicInfo.chapter}}</text>
+		</view>
+		<view class="topicBox">
+			<!-- 题目 -->
+			<view class="topic">
+				<rich-text style="font-size:{{fontSize}}" nodes="{{topicInfo.stem}}" />
+			</view>
+			<!-- 单选 -->
+			<view class="options" wx:if="{{!isMultiple}}">
+				<van-radio-group value="{{ radio }}" bind:change="onChange">
+					<van-radio use-icon-slot name="{{item.number}}" wx:for="{{topicInfo.answers}}">
+						<rich-text style="font-size:{{fontSize}}" nodes="{{item.answer}}" />
+						<view class="radioIcon {{radio === item.number ? 'checked' :''}} {{item.right ? 'right' : ''}}" slot="icon">{{item.number}}</view>
+					</van-radio>
+				</van-radio-group>
+			</view>
+			<!-- 多选 -->
+			<view class="options" wx:if="{{isMultiple}}">
+				<van-checkbox-group value="{{ radio }}" bind:change="onChangeCheckBox">
+					<van-checkbox use-icon-slot name="{{item.number}}" wx:for="{{topicInfo.answers}}">
+						<rich-text style="font-size:{{fontSize}}" nodes="{{item.answer}}" />
+						<view class="radioIcon {{m1.isIn(item.number,radio) ? 'checked' :''}} {{item.right ? 'right' : ''}}" slot="icon">{{item.number}}</view>
+					</van-checkbox>
+				</van-checkbox-group>
+			</view>
+		</view>
+		<!-- 解析 -->
+		<view style="font-size:{{fontSize}}" class="analysis" wx:if="{{analysis}}">
+			解析：
+			<rich-text style="font-size:{{fontSize}}" nodes="{{analysis}}" />
+		</view>
+		<!-- 操作按钮 -->
+		<view class="btnBox">
+			<van-button
+			 custom-style="width:120px"
+			 round
+			 type="info"
+			 color="#3875F4"
+			 bind:click="submit"
+			 wx:if="{{!showNext}}"
+			>查看解析
+			</van-button>
+			<van-button
+			 custom-style="width:120px"
+			 round
+			 type="info"
+			 color="#3875F4"
+			 bind:click="next"
+			 wx:if="{{showNext}}"
+			>下一题
+			</van-button>
+		</view>
+		<view class="delete" bindtap="deleteQuestion">
+			移出错题集
+		</view>
+	</view>
+	<!-- 空题页面 -->
+	<view wx:if="{{!topicInfo}}" class="none">
+		<image src="../../../static/images/topic_bg.png" class="none-img" />
+		<view class="none-title">
+			本章知识点已学习完成
+		</view>
+		<view class="none-content">
+			您可以
+		</view>
+		<view class="none-btn" bindtap="goHome">
+			返回首页
+		</view>
+		<view class="none-btn" bindtap="collage">
+			加入收藏
+		</view>
+		<van-button
+		 block
+		 class="none-btn share-btn"
+		 custom-style="border:none;color: #ffffff;margin-bottom: 20px;width: 180px;height: 41px;line-height: 41px;text-align: center;margin-left: auto;margin-right: auto;font-size: 15px;border-radius: 41px;background: linear-gradient(0deg, rgba(255, 40, 40, 1) 0%, rgba(255, 122, 64, 1) 100%);box-shadow: 0px 0px 7px 0px rgba(255, 83, 53, 0.66);"
+		 open-type="share"
+		>
+			分享给朋友
+		</van-button>
 
-</view>
+	</view>
+</scroll-view>
 <!-- 底部 -->
 <my-topic-bottom
  wx:if="{{topicInfo}}"
  subjectId="{{subjectId}}"
  chapter="{{chapter}}"
  questionId="{{questionId}}"
- name="（{{topicInfo.typeDesc}}）{{topicInfo.subjectName}}"
+ name="{{topicInfo.typeDesc}}"
  isErr
  haveShare="{{false}}"
  bindchangeFont="changeFont"

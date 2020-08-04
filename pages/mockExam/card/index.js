@@ -11,6 +11,7 @@ Page({
     shareId: '',
     score: '',
     showScore: false,
+    pkId: false,
   },
 
   /**
@@ -23,6 +24,7 @@ Page({
         examineId: e.examineId,
         score: e.score,
         showScore: e.score || e.score == '0' ? true : false,
+        pkId: e.pkId,
       });
     });
     getShareId({
@@ -36,9 +38,15 @@ Page({
     });
   },
   goTopic: function (e) {
-    wx.redirectTo({
-      url: `/pages/mockExam/radio/index?examineId=${this.data.examineId}&questionId=${e.currentTarget.dataset.id}`,
-    });
+    if (this.data.pkId) {
+      wx.redirectTo({
+        url: `/pages/pk/radio/index?examineId=${this.data.examineId}&questionId=${e.currentTarget.dataset.id}&pkId=${this.data.pkId}`,
+      });
+    } else {
+      wx.redirectTo({
+        url: `/pages/mockExam/radio/index?examineId=${this.data.examineId}&questionId=${e.currentTarget.dataset.id}`,
+      });
+    }
   },
   onShareAppMessage: function () {
     return {

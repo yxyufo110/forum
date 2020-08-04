@@ -43,7 +43,7 @@
 				<image class="cellImg" src="../../static/images/6.png" />
 				<text class="cellText">错题集锦</text>
 			</van-grid-item>
-			<van-grid-item use-slot>
+			<van-grid-item use-slot link-type="navigateTo" url="/pages/radar/index">
 				<image class="cellImg" src="../../static/images/7.png" />
 				<text class="cellText">测试报告</text>
 			</van-grid-item>

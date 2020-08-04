@@ -9,7 +9,7 @@
 	 active="{{ active }}"
 	 bind:change="onChange"
 	>
-		<van-tab title="题库" name="Question">
+		<van-tab title="题目" name="Question">
 
 			<view class="card" wx:for="{{infoQ}}">
 				<view class="bg">{{item.categoryName}}</view>
@@ -17,7 +17,7 @@
 					<van-cell
 					 wx:for="{{citem.collections}}"
 					 wx:for-item="xitem"
-					 title="{{xitem.name}}"
+					 title="{{citem.subjectName}}-{{xitem.name}}"
 					 is-link
 					 border="{{false}}"
 					 link-type="navigateTo"

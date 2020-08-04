@@ -60,7 +60,7 @@ export function backShare(data) {
 }
 export function backPk(data) {
   return request({
-    url: `/stu/pk/click/${data.pkId}`,
+    url: `/student/stu/pk/click/${data.pkId}`,
     method: 'post',
     data: data,
   });
@@ -95,5 +95,12 @@ export function updateNav(data) {
   return request({
     url: `/student/stu/student/category/self/${data}`,
     method: 'post',
+  });
+}
+export function getRadar(data) {
+  return request({
+    url: `/itembank/stu/question/practice/statistics/radar`,
+    method: 'get',
+    data: data,
   });
 }
