@@ -51,3 +51,9 @@
   width: 145px;
   height: 145px;
 }
+.tname {
+  float: right;
+  margin-right: 22.5px;
+  font-size: 15px;
+  color: #999999;
+}

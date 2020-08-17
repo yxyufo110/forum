@@ -54,6 +54,11 @@
   background: #07c160 !important;
   border: 1px solid #07c160 !important;
 }
+.error {
+  color: #ffffff;
+  background: #ff4a4a !important;
+  border: 1px solid #ff4a4a !important;
+}
 .btnBox {
   margin-top: 60px;
   text-align: center;

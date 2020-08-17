@@ -6,8 +6,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding-left: 20px;
-  padding-right: 13px;
+  /* padding-left: 20px; */
+  /* padding-right: 13px; */
 }
 
 .navIcon {
@@ -16,6 +16,4 @@
 }
 .divider {
   color: #cccccc;
-  margin-left: 15px;
-  margin-right: 12px;
 }

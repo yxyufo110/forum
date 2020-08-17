@@ -1,11 +1,11 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/user/record/index",
     "pages/radar/index",
     "pages/topic/draw/index",
     "pages/user/collect/index",
     "pages/user/index",
-    "pages/user/record/index",
     "pages/needPhone/index",
     "pages/user/walet/index",
     "pages/user/walet/popList/index",
@@ -42,7 +42,8 @@
     "pages/pk/sbuject/index",
     "pages/pk/rules/index",
     "pages/pk/radio/index",
-    "pages/pk/final/index"
+    "pages/pk/final/index",
+    "pages/course/lookAndTest/index"
   ],
   "permission": {
     "scope.userLocation": {

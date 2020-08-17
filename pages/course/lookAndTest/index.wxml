@@ -1,0 +1,20 @@
+<my-home-nav-bar title="边学边练" />
+
+<scroll-view scroll-y="true" style="max-height:350px">
+	<view class="myCourseBox">
+		<view wx:for="{{info}}">
+			<my-course-card
+			 wx:for="{{item}}"
+			 wx:for-item="citem"
+			 data-id="{{citem.id}}"
+			 bindtap="goDetail"
+			 title="{{citem.name}}"
+			 teacher="{{citem.lecturer}}"
+			 time="{{citem.createdDate}}"
+			 count="{{citem.hits}}"
+			 cover="{{citem.cover}}"
+			/>
+		</view>
+	</view>
+</scroll-view>
+

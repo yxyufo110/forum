@@ -126,7 +126,6 @@ Page({
     });
   },
   confirmEdu: function (e) {
-    console.log(e);
     this.setData({
       userInfo: { ...this.data.userInfo, currentEducation: e.detail.value.value },
       showEdu: false,

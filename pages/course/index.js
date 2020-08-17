@@ -40,6 +40,7 @@ Page({
           [`info[${res.number + 1}]`]: res.content,
           pageNumber: res.number + 1,
           hasNextPage: res.number + 1 >= res.totalPages ? false : true,
+          categoryId: this.data.categoryId,
         });
       });
     }
@@ -47,6 +48,11 @@ Page({
   goDetail: function (e) {
     wx.navigateTo({
       url: `/pages/course/detail/index?id=${e.currentTarget.dataset.id}`,
+    });
+  },
+  golookTest: function () {
+    wx.navigateTo({
+      url: `/pages/course/lookAndTest/index`,
     });
   },
   getTabItem: function (e) {

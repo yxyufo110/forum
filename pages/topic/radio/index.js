@@ -1,9 +1,7 @@
-import { geTopic, geTopicOne, getAnswer, getShareId } from '../../../services/topic';
+import { geTopic, geTopicOne, getAnswer, getShareId, repractice } from '../../../services/topic';
 import { collect } from '../../../services/course';
 const app = getApp();
-var time = 0;
 var touchDot = 0; //触摸时的原点
-var interval = '';
 
 Page({
   /**
@@ -69,16 +67,13 @@ Page({
       subjectId: e.subjectId || res.subjectId || '',
       questionId: e.questionId || res.id || '',
       chapter: e.chapterName || '',
-      isMultiple: res.type === 'MultipleChoice' ? true : false,
+      isMultiple: res.type === 'MultipleChoice' || res.type === 'ShortAnswer' ? true : false,
       fontSize: app.globalData.fontSize,
       radio: res.latestAnswers,
       answers: this.dealAnswers(res.latestAnswers, res.rightAnswers, res.answers),
     });
   },
-  onShow: function () {
-    clearInterval(interval); // 清除setInterval
-    time = 0;
-  },
+
   // 单选
   onChange: function (e) {
     if (this.data.topicInfo.latestAnswers) {
@@ -106,7 +101,11 @@ Page({
     getAnswer({
       questionId: this.data.topicInfo.id,
       chapter: this.data.chapter || '',
-      answers: this.data.isMultiple ? this.data.radio : [this.data.radio],
+      answers: this.data.isMultiple
+        ? this.data.radio
+          ? this.data.radio
+          : ['']
+        : [this.data.radio],
     }).then((res) => {
       let newObj = this.data.topicInfo;
       this.setData({
@@ -121,7 +120,8 @@ Page({
             subjectId: res.next.subjectId || '',
             questionId: res.next.id || '',
             chapter: this.data.chapter || '',
-            isMultiple: res.next.type === 'MultipleChoice' ? true : false,
+            isMultiple:
+              res.next.type === 'MultipleChoice' || res.next.type === 'ShortAnswer' ? true : false,
             fontSize: app.globalData.fontSize,
             radio: res.next.latestAnswers,
             answers: this.dealAnswers(
@@ -148,7 +148,8 @@ Page({
           subjectId: newObj.subjectId || '',
           questionId: newObj.id,
           chapter: this.data.chapter || '',
-          isMultiple: newObj.type === 'MultipleChoice' ? true : false,
+          isMultiple:
+            newObj.type === 'MultipleChoice' || newObj.type === 'ShortAnswer' ? true : false,
           fontSize: app.globalData.fontSize,
           radio: res.answers,
           answers: this.dealAnswers(res.answers, res.rightAnswers, newObj.answers),
@@ -189,21 +190,27 @@ Page({
       path: `/pages/index/index?id=${this.data.shareId}&redirectUrl=/pages/testBank/index`,
     };
   },
-
+  reTest: function () {
+    repractice({
+      subjectId: this.data.subjectId || '',
+      chapter: this.data.chapter || '',
+    }).then((res) => {
+      wx.navigateTo({
+        url: `/pages/topic/radio/index?subjectId=${this.data.subjectId}&chapterName=${this.data.chapter}`,
+      });
+    });
+  },
   // 处理滑动开始
   // 触摸开始事件
   touchStart: function (e) {
     touchDot = e.touches[0].pageX; // 获取触摸时的原点
-    // 使用js计时器记录时间
-    interval = setInterval(function () {
-      time++;
-    }, 100);
   },
   // 触摸结束事件
   touchEnd: function (e) {
     var touchMove = e.changedTouches[0].pageX;
+
     // 向左滑动 下一题
-    if (touchMove - touchDot <= -80 && time < 10) {
+    if (touchMove - touchDot <= -80) {
       //执行切换页面的方法
       geTopic({
         subjectId: this.data.subjectId || '',
@@ -227,7 +234,7 @@ Page({
             subjectId: res.subjectId || '',
             questionId: res.id || '',
             chapter: this.data.chapter || '',
-            isMultiple: res.type === 'MultipleChoice' ? true : false,
+            isMultiple: res.type === 'MultipleChoice' || res.type === 'ShortAnswer' ? true : false,
             fontSize: app.globalData.fontSize,
             radio: res.latestAnswers,
             answers: this.dealAnswers(res.latestAnswers, res.rightAnswers, res.answers),
@@ -236,7 +243,7 @@ Page({
       });
     }
     // 向右滑动 上一题
-    if (touchMove - touchDot >= 80 && time < 10) {
+    if (touchMove - touchDot >= 80) {
       //执行切换页面的方法
       geTopic({
         subjectId: this.data.subjectId || '',
@@ -257,7 +264,7 @@ Page({
             subjectId: res.subjectId || '',
             questionId: res.id || '',
             chapter: this.data.chapter || '',
-            isMultiple: res.type === 'MultipleChoice' ? true : false,
+            isMultiple: res.type === 'MultipleChoice' || res.type === 'ShortAnswer' ? true : false,
             fontSize: app.globalData.fontSize,
             radio: res.latestAnswers,
             answers: this.dealAnswers(res.latestAnswers, res.rightAnswers, res.answers),
@@ -265,8 +272,6 @@ Page({
         }
       });
     }
-    clearInterval(interval); // 清除setInterval
-    time = 0;
   },
   // 处理滑动结束
 });

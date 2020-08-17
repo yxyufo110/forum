@@ -28,8 +28,11 @@ Page({
     }).then((res) => {
       this.setData({
         topicInfo: res,
-        isMultiple: res.type === 'MultipleChoice' ? true : false,
-        radio: res.type === 'MultipleChoice' ? res.latestAnswers : res.latestAnswers[0],
+        isMultiple: res.type === 'MultipleChoice' || res.type === 'ShortAnswer' ? true : false,
+        radio:
+          res.type === 'MultipleChoice' || res.type === 'ShortAnswer'
+            ? res.latestAnswers
+            : res.latestAnswers[0],
         fontSize: app.globalData.fontSize,
       });
     });
@@ -52,7 +55,11 @@ Page({
     getAnswer({
       questionId: this.data.questionId,
       examineId: this.data.examineId,
-      answers: this.data.isMultiple ? this.data.radio : [this.data.radio],
+      answers: this.data.isMultiple
+        ? this.data.radio
+          ? this.data.radio
+          : ['']
+        : [this.data.radio],
     }).then((res) => {
       app.globalData.testTime = res.timeRemaining;
       if (res.questionId) {

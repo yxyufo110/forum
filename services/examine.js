@@ -80,3 +80,11 @@ export function submitPk(data) {
     method: 'post',
   });
 }
+
+export function getExamineList(data) {
+  return request({
+    url: `/itembank/stu/mock-examine`,
+    method: 'get',
+    data: data,
+  });
+}

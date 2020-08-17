@@ -1,7 +1,7 @@
 <van-nav-bar title="{{title}}" class="navbar" border="{{false}}">
 	<van-icon
 	 wx:if="{{showLeft}}"
-	 name="icon iconfont iconkecheng"
+	 name="icon iconfont iconjiaohuan"
 	 slot="left"
 	 class="navBarIcon"
 	 bindtap="check"

@@ -2,9 +2,7 @@ import { getQuestion, getAnswer, remove } from '../../../services/problem';
 import { getShareId, geTopicOne } from '../../../services/topic';
 import { collect } from '../../../services/course';
 const app = getApp();
-var time = 0;
 var touchDot = 0; //触摸时的原点
-var interval = '';
 Page({
   /**
    * 页面的初始数据
@@ -21,6 +19,26 @@ Page({
     isMultiple: false,
     fontSize: '15px',
     shareId: '',
+  },
+  dealAnswers: function (a, b, c) {
+    // a -> radio
+    //  b-> right
+    //  c->all
+    if (a && b && c) {
+      return c.map((i) => ({
+        ...i,
+        status:
+          a.indexOf(i.number) < 0
+            ? b.find((x) => x.number === i.number)
+              ? 'right'
+              : ''
+            : b.find((x) => x.number === i.number)
+            ? 'right'
+            : 'error',
+      }));
+    } else {
+      return c;
+    }
   },
   async onLoad(e) {
     let res = '';
@@ -49,22 +67,25 @@ Page({
       topicInfo: res,
       subjectId: e.subjectId || res.subjectId || '',
       questionId: res.id || '',
-      isMultiple: res.type === 'MultipleChoice' ? true : false,
+      isMultiple: res.type === 'MultipleChoice' || res.type === 'ShortAnswer' ? true : false,
       fontSize: app.globalData.fontSize,
     });
   },
-  onShow: function () {
-    clearInterval(interval); // 清除setInterval
-    time = 0;
-  },
+
   // 单选
   onChange: function (e) {
+    if (this.data.showNext) {
+      return;
+    }
     this.setData({
       radio: e.detail,
     });
   },
   // 多选
   onChangeCheckBox: function (e) {
+    if (this.data.showNext) {
+      return;
+    }
     this.setData({
       radio: e.detail,
     });
@@ -83,14 +104,15 @@ Page({
     // 提交
     getAnswer({
       questionId: this.data.topicInfo.id,
-      answers: this.data.isMultiple ? this.data.radio : [this.data.radio],
+      answers: this.data.isMultiple
+        ? this.data.radio
+          ? this.data.radio
+          : ['']
+        : [this.data.radio],
     }).then((res) => {
       let newObj = this.data.topicInfo;
-      newObj.answers.forEach((i) => {
-        if (res.answers.find((x) => x.number === i.number)) {
-          i.right = true;
-        }
-      });
+      newObj.answers = this.dealAnswers(res.answers, res.rightAnswers, this.data.topicInfo.answers);
+
       this.setData({
         topicInfo: newObj,
         analysis: res.analysis,
@@ -154,15 +176,12 @@ Page({
   touchStart: function (e) {
     touchDot = e.touches[0].pageX; // 获取触摸时的原点
     // 使用js计时器记录时间
-    interval = setInterval(function () {
-      time++;
-    }, 100);
   },
   // 触摸结束事件
   touchEnd: function (e) {
     var touchMove = e.changedTouches[0].pageX;
     // 向左滑动 下一题
-    if (touchMove - touchDot <= -80 && time < 10) {
+    if (touchMove - touchDot <= -80) {
       //执行切换页面的方法
       getQuestion({
         subjectId: this.data.subjectId || '',
@@ -184,14 +203,17 @@ Page({
             topicInfo: res,
             subjectId: res.subjectId || '',
             questionId: res.id || '',
-            isMultiple: res.type === 'MultipleChoice' ? true : false,
+            isMultiple: res.type === 'MultipleChoice' || res.type === 'ShortAnswer' ? true : false,
             fontSize: app.globalData.fontSize,
+            radio: '',
+            analysis: '',
+            showNext: false,
           });
         }
       });
     }
     // 向右滑动 上一题
-    if (touchMove - touchDot >= 80 && time < 10) {
+    if (touchMove - touchDot >= 80) {
       //执行切换页面的方法
       getQuestion({
         subjectId: this.data.subjectId || '',
@@ -210,14 +232,15 @@ Page({
             topicInfo: res,
             subjectId: res.subjectId || '',
             questionId: res.id || '',
-            isMultiple: res.type === 'MultipleChoice' ? true : false,
+            isMultiple: res.type === 'MultipleChoice' || res.type === 'ShortAnswer' ? true : false,
             fontSize: app.globalData.fontSize,
+            radio: '',
+            analysis: '',
+            showNext: false,
           });
         }
       });
     }
-    clearInterval(interval); // 清除setInterval
-    time = 0;
   },
   // 处理滑动结束
 });

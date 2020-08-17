@@ -1,4 +1,5 @@
 import { getCourseLog, getQuestionLog } from '../../../services/course';
+import { getExamineList } from '../../../services/examine';
 Page({
   /**
    * 页面的初始数据
@@ -6,6 +7,10 @@ Page({
   data: {
     courseList: [],
     questionList: [],
+    pageNumber: 0, // 当前页码
+    hasNextPage: false, // 是否有下一页
+    info: [[]],
+    active: 0,
   },
 
   /**
@@ -22,40 +27,28 @@ Page({
         courseList: res,
       });
     });
+    getExamineList({ page: 0, size: 10 }).then((res) => {
+      this.setData({
+        ['info[0]']: res.content,
+        pageNumber: res.number + 1,
+        hasNextPage: res.number + 1 >= res.totalPages ? false : true,
+      });
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {},
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {},
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {},
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {},
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {},
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {},
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {},
+  onChange(event) {
+    this.setData({
+      active: event.detail.name,
+    });
+  },
+  searchMore: function () {
+    if (this.data.hasNextPage && this.data.active === 2) {
+      getExamineList({ page: this.data.pageNumber, size: 10 }).then((res) => {
+        this.setData({
+          [`info[${res.number + 1}]`]: res.content,
+          pageNumber: res.number + 1,
+          hasNextPage: res.number + 1 >= res.totalPages ? false : true,
+        });
+      });
+    }
+  },
 });

@@ -45,7 +45,7 @@ Page({
   submit: function () {
     if (this.data.radio) {
       updateSubject(this.data.radio).then((res) => {
-        app.globalData.userInfo = res.data;
+        app.globalData.userInfo = res;
         wx.switchTab({
           url: `/pages/testBank/index`,
         });

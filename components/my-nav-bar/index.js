@@ -55,7 +55,7 @@ Component({
         wx.redirectTo({
           url: '/pages/getLocation/index',
         });
-      } else if (!app.globalData.userInfo.categories) {
+      } else if (!app.globalData.userInfo.categories || !app.globalData.userInfo.categories[0]) {
         wx.redirectTo({
           url: '/pages/checkDirection/index',
         });

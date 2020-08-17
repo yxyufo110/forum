@@ -60,3 +60,10 @@ export function statistics(data) {
     data: data,
   });
 }
+export function repractice(data) {
+  return request({
+    url: `/itembank/stu/question/re-practice?subjectId=${data.subjectId}&chapter=${data.chapter}`,
+    method: 'put',
+    data: data,
+  });
+}

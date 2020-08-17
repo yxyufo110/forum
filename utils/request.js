@@ -58,11 +58,11 @@ const request = (options) => {
           }
           if (res.statusCode === 200) {
             if (res.data.restriction === 'Guest' && res.data.subjectId) {
-              wx.redirectTo({
+              wx.navigateTo({
                 url: `/pages/needPhone/index?subjectId=${res.data.subjectId}`,
               });
             } else if (res.data.restriction === 'ExperienceStudent' && res.data.subjectId) {
-              wx.redirectTo({
+              wx.navigateTo({
                 url: `/pages/needPhone/index?subjectId=${res.data.subjectId}&pop=true`,
               });
             } else {

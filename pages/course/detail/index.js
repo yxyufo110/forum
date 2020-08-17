@@ -102,18 +102,20 @@ Page({
     });
   },
   videoEnd: function (e) {
-    Dialog.confirm({
-      title: '学习完成',
-      message: '本章课程已看完，去练习？',
-    })
-      .then(() => {
-        wx.navigateTo({
-          url: `/pages/topic/radio/index?subjectId=${this.data.course.subjectId}&chapterName=${this.data.oneData.chapter}`,
-        });
+    if (this.data.query.test) {
+      Dialog.confirm({
+        title: '学习完成',
+        message: '本章课程已看完，去练习？',
       })
-      .catch(() => {
-        // on cancel
-      });
+        .then(() => {
+          wx.navigateTo({
+            url: `/pages/topic/radio/index?subjectId=${this.data.course.subjectId}&chapterName=${this.data.oneData.chapter}`,
+          });
+        })
+        .catch(() => {
+          // on cancel
+        });
+    }
   },
   like: function () {
     collect({

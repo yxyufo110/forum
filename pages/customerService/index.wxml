@@ -11,6 +11,7 @@
 		<view class="item" bindtap="makPhoneCall">
 			<image class="itemImg" src="../../static/images/tel.png" />
 			<text class="title">联系电话</text>
+			<text class="tname">{{teacherInfo.name}}</text>
 		</view>
 		<view class="item">
 			<button class="button" open-type="contact">

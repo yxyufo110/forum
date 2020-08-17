@@ -29,7 +29,7 @@ Page({
               wx.redirectTo({
                 url: '/pages/getLocation/index',
               });
-            } else if (!res2.data.categories) {
+            } else if (!res2.data.categories || !res2.data.categories[0]) {
               wx.redirectTo({
                 url: '/pages/checkDirection/index',
               });

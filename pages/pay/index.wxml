@@ -1,7 +1,7 @@
 <my-home-nav-bar/>
 <van-radio-group checked-color="#3875F4" value="{{ radio }}" bind:change="onChange">
 	<van-radio checked-color="#3875F4" name="Wechat">微信支付（{{payInfo.yuan || 0}}元）</van-radio>
-	<van-radio checked-color="#3875F4" name="CSCoin">学习币（{{payInfo.yuan * 10 || 0}}/{{payInfo.integral.total}}）</van-radio>
+	<van-radio checked-color="#3875F4" name="CSCoin">学习币（{{payInfo.integral.total}}/{{payInfo.yuan * 10 || 0}}）</van-radio>
 </van-radio-group>
 <view class="btn" bindtap="submit">确定</view>
 
