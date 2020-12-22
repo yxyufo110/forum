@@ -16,22 +16,23 @@ Page({
   onLoad: function (e) {
     isExamine({
       type: 'PK',
+      pkId: e.pkId || '',
     }).then((res) => {
       if (!res) {
-        if (e.pkId) {
-          submitPk({ pkId: e.pkId }).then((res) => {
-            app.globalData.testTime = res.exam.timeRemaining;
-            wx.redirectTo({
-              url: `/pages/pk/radio/index?examineId=${res.exam.id}&questionId=${res.exam.questionId}&pkId=${e.pkId}`,
-            });
+        // if (e.pkId) {
+        // submitPk({ pkId: e.pkId }).then((res) => {
+        //   app.globalData.testTime = res.exam.timeRemaining;
+        //   wx.redirectTo({
+        //     url: `/pages/pk/radio/index?examineId=${res.exam.id}&questionId=${res.exam.questionId}&pkId=${e.pkId}`,
+        //   });
+        // });
+        // } else {
+        getPkList().then((res) => {
+          this.setData({
+            list: res,
           });
-        } else {
-          getPkList().then((res) => {
-            this.setData({
-              list: res,
-            });
-          });
-        }
+        });
+        // }
       } else {
         wx.showToast({
           title: '请先完成正在进行的考试',

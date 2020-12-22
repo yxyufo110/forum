@@ -17,7 +17,7 @@
 		</swiper-item>
 	</swiper>
 
-	<view class="panel">
+	<!-- <view class="panel">
 		<van-row gutter="20">
 			<van-col span="12">
 				<view class="panelItem" bindtap="golookTest">
@@ -25,14 +25,9 @@
 					<text class="coverText">边学边练</text>
 				</view>
 			</van-col>
-			<van-col span="12">
-				<view class="panelItem">
-					<image mode="widthFix" class="panelImg" src="../../static/images/course_right.png" />
-					<text class="coverText">在线直播</text>
-				</view>
-			</van-col>
+	
 		</van-row>
-	</view>
+	</view> -->
 
 	<view>
 		<view class="title">我的专业好课</view>

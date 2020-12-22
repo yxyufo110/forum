@@ -75,3 +75,7 @@
   font-size: 14px !important;
   margin-left: 8px;
 }
+rich-text .rich-img {
+  max-width: 100%;
+  height: auto;
+}

@@ -57,3 +57,6 @@
   color: #b0b0b0;
   margin-left: auto;
 }
+.van-button__text {
+  width: 100% !important;
+}

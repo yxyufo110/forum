@@ -24,6 +24,11 @@
  active="{{active}}"
  bind:click="onClick"
 >
-	<van-tab name="{{item.id}}" title="{{item.name}}" wx:for="{{tabsList}}" />
+	<van-tab
+	 custom-style="font-size:15px"
+	 name="{{item.id}}"
+	 title="{{item.name}}"
+	 wx:for="{{tabsList}}"
+	/>
 </van-tabs>
 

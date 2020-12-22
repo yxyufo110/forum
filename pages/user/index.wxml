@@ -24,6 +24,7 @@
 					<van-icon name="arrow" />
 				</view>
 			</view>
+
 			<view class="item" bindtap="goRecord">
 				<image src="../../static/images/my1.png" class="itemImg" />
 				<view class="itemTitle">
@@ -33,6 +34,23 @@
 					<van-icon name="arrow" />
 				</view>
 			</view>
+			<van-button
+			 bind:getphonenumber="getPhone"
+			 open-type="getPhoneNumber"
+			 custom-style="border:none;background:#ffffff;height:auto;width:100%;padding:0"
+			>
+				<view class="item">
+					<image src="../../static/images/tel.png" class="itemImg" />
+					<view class="itemTitle">
+						{{userInfo && userInfo.phoneNum ? '更新手机号' : '绑定手机号'}} 
+					</view>
+					<view class="itemArrow">
+						{{ userInfo && userInfo.phoneNum}}
+						<van-icon name="arrow" />
+					</view>
+				</view>
+			</van-button>
+
 		</view>
 
 		<view class="itemBox">

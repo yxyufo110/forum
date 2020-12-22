@@ -15,8 +15,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (e) {
+    let categoryId = app.globalData.userInfo && app.globalData.userInfo.categories && app.globalData.userInfo.categories[0] ? app.globalData.userInfo.categories[0].categoryDetail.parentId :''
     if (e.isFinalTest) {
-      getFinalRules().then((res) => {
+      getFinalRules({
+        categoryId:categoryId
+      }).then((res) => {
         this.setData({
           ruleInfo: res,
           isFinalTest: e.isFinalTest,

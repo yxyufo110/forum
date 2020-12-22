@@ -10,6 +10,9 @@ export function geTopicOne(data) {
   return request({
     url: `/itembank/stu/question/${data.questionId}/detail`,
     method: 'get',
+    data: {
+      chapter: data.chapter,
+    },
   });
 }
 export function getAnswer(data) {

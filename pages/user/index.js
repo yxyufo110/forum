@@ -9,7 +9,7 @@ Page({
     hasUserInfo: true,
     isIPX: false,
   },
-  onLoad: function () {
+  onShow:function(){
     getUserInfos().then((res) => {
       this.setData({
         userInfo: res,
@@ -17,7 +17,8 @@ Page({
       });
       app.globalData.userInfo = res;
     });
-
+  },
+  onLoad: function () {
     if (app.globalData.isIPX) {
       this.setData({
         isIPX: true,
@@ -80,5 +81,15 @@ Page({
     wx.navigateTo({
       url: '/pages/user/collect/index',
     });
+  },
+  getPhone: function (e) {
+    if (e.detail.iv) {
+      updateUsr({ iv: e.detail.iv, phoneNum: e.detail.encryptedData }).then((res) => {
+        app.globalData.userInfo = res;
+        wx.navigateBack({
+          delta: 1,
+        });
+      });
+    }
   },
 });

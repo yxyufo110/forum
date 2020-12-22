@@ -64,7 +64,8 @@
 			/>
 		</van-tab>
 		<van-tab title="课程详情">
-			<image src="{{course.detail}}" style="width:100%" />
+			<image mode="widthFix" src="{{course.detail}}" style="width:100%" />
+		
 		</van-tab>
 		<van-tab title="教案下载">{{course.lessonPlans}}</van-tab>
 	</van-tabs>

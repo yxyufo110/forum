@@ -8,15 +8,21 @@ Page({
   data: {
     subjectInfo: {},
     isTest: false,
+    query: {},
   },
   onLoad: function (e) {
+    this.setData({
+      query: e,
+    });
+  },
+  onShow: function () {
     isExamine({
-      type: e.isFinalTest ? 'Final' : 'Mock',
+      type: this.data.query.isFinalTest ? 'Final' : 'Mock',
     }).then((res) => {
       if (!res) {
         app.globalData.testTime = 0;
         // 没有正在进行的考试，进行科目选择
-        if (e.isFinalTest) {
+        if (this.data.query.isFinalTest) {
           wx.redirectTo({
             url: `/pages/mockExam/rules/index?isFinalTest=true`,
           });

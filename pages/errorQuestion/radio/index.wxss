@@ -114,3 +114,7 @@
   text-align: center;
   text-decoration: underline;
 }
+rich-text .rich-img {
+  max-width: 100%;
+  height: auto;
+}

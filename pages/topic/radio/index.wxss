@@ -107,3 +107,8 @@
   background: linear-gradient(0deg, rgba(255, 40, 40, 1) 0%, rgba(255, 122, 64, 1) 100%);
   box-shadow: 0px 0px 7px 0px rgba(255, 83, 53, 0.66);
 }
+rich-text .rich-img {
+  max-width: 100%;
+
+  height: auto;
+}

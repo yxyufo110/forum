@@ -18,6 +18,7 @@ Page({
     fontSize: '15px',
     shareId: '',
     answers: [],
+    query: {},
   },
   dealAnswers: function (a, b, c) {
     // a -> radio
@@ -39,22 +40,24 @@ Page({
       return c;
     }
   },
-  // 初始化，获取题目
-  async onLoad(e) {
+  async onShow() {
     let res = '';
-    if (e.questionId) {
-      res = await geTopicOne({ questionId: e.questionId });
+    if (this.data.query.questionId) {
+      res = await geTopicOne({
+        questionId: this.data.query.questionId,
+        chapter: this.data.query.chapterName || '',
+      });
     } else {
       res = await geTopic({
-        subjectId: e.subjectId || '',
-        chapter: e.chapterName || '',
+        subjectId: this.data.query.subjectId || '',
+        chapter: this.data.query.chapterName || '',
       });
     }
     if (!res) {
       getShareId({
         name: '题库',
         desc: '分享题库',
-        linkedCode: `subjectId=${e.subjectId}&chapter=${e.chapterName}`,
+        linkedCode: `subjectId=${this.data.query.subjectId}&chapter=${this.data.query.chapterName}`,
       }).then((res) => {
         this.setData({
           shareId: res,
@@ -64,13 +67,20 @@ Page({
 
     this.setData({
       topicInfo: res,
-      subjectId: e.subjectId || res.subjectId || '',
-      questionId: e.questionId || res.id || '',
-      chapter: e.chapterName || '',
+      subjectId: this.data.query.subjectId || res.subjectId || '',
+      questionId: this.data.query.questionId || res.id || '',
+      chapter: this.data.query.chapterName || '',
       isMultiple: res.type === 'MultipleChoice' || res.type === 'ShortAnswer' ? true : false,
       fontSize: app.globalData.fontSize,
       radio: res.latestAnswers,
       answers: this.dealAnswers(res.latestAnswers, res.rightAnswers, res.answers),
+    });
+  },
+
+  // 初始化，获取题目
+  async onLoad(e) {
+    this.setData({
+      query: e,
     });
   },
 

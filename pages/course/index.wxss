@@ -5,7 +5,7 @@
   border-radius: 5px;
   transform: translateY(0);
   overflow: hidden;
-  height: 113px;
+  height: 150px;
 }
 .banner {
   width: 100%;

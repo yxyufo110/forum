@@ -51,11 +51,14 @@ Component({
           },
         });
       }
-      if (!app.globalData.userInfo.area) {
+      if (app.globalData.userInfo && !app.globalData.userInfo.area) {
         wx.redirectTo({
           url: '/pages/getLocation/index',
         });
-      } else if (!app.globalData.userInfo.categories || !app.globalData.userInfo.categories[0]) {
+      } else if (
+        app.globalData.userInfo &&
+        (!app.globalData.userInfo.categories || !app.globalData.userInfo.categories[0])
+      ) {
         wx.redirectTo({
           url: '/pages/checkDirection/index',
         });

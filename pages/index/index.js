@@ -21,8 +21,9 @@ Page({
               backPk({
                 pkId: e.pkId,
               }).then((x) => {
+                app.globalData.testTime = x.exam.timeRemaining;
                 wx.redirectTo({
-                  url: `/pages/pk/index?pkId=${e.pkId}`,
+                  url: `/pages/pk/radio/index?examineId=${x.exam.id}&questionId=${x.exam.questionId}&pkId=${e.pkId}`,
                 });
               });
             } else if (!res2.data.area) {

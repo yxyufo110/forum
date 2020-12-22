@@ -1,6 +1,6 @@
 <my-home-nav-bar title="边学边练" />
 
-<scroll-view scroll-y="true" style="max-height:350px">
+<scroll-view scroll-y="true" style="height:calc(100vh - 62px)">
 	<view class="myCourseBox">
 		<view wx:for="{{info}}">
 			<my-course-card
