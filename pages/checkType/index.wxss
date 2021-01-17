@@ -65,8 +65,14 @@
   background: #3875f4;
   border-radius: 20.5px;
   text-align: center;
-  margin-top: 90px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 60px;
+
+}
+.bottom-box {
+width: 100%;
+padding:10px 0;
+position: fixed;
+bottom: 0;
+background: #ffffff;
 }

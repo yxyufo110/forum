@@ -44,13 +44,16 @@
 		</view>
 	</view>
 </view>
-<view wx:if="{{isLeaf}}">
+<view wx:if="{{isLeaf}}" style="padding-bottom:61px">
 	<view class="title">
 		请选择{{queryOne.name}}
 	</view>
 	<van-radio-group checked-color="#3875F4" value="{{ radio }}" bind:change="onChange">
 		<van-radio checked-color="#3875F4" name="{{item.id}}" wx:for="{{queryOne.categories}}">{{item.name}}</van-radio>
 	</van-radio-group>
-	<view class="btn" bindtap="submit">确定</view>
+	<view class="bottom-box">
+		<view class="btn" bindtap="submit">确定</view>
+	</view>
+	
 </view>
 

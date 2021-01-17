@@ -1,9 +1,14 @@
 .cardBox {
-  padding: 0 0 0 17px;
-  display: flex;
+  /* padding: 0 0 0 17px; */
+  /* display: flex;
   flex-direction: row;
-  justify-content: start;
-  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-wrap: wrap; */
+  padding: 0 17px;
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: repeat(auto-fill, 45px);
+  grid-gap: 17px;
 }
 .item {
   width: 45px;
@@ -14,9 +19,10 @@
   border-radius: 45px;
   font-size: 21px;
   color: #545454;
-  margin-right: 17px;
+  /* margin-right: 17px; */
   margin-top: 20px;
 }
+
 .right {
   border: 1px solid #3bab35;
   background: #3bab35;

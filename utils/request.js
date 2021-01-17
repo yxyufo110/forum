@@ -1,6 +1,6 @@
 // request.js
 const app = getApp();
-const baseUrl = 'https://gateway.yuandong-edu.com';
+const baseUrl = 'http://139.186.36.207:8443';
 const request = (options) => {
   let newOptions = options;
   return new Promise((resolve, reject) => {
@@ -23,7 +23,7 @@ const request = (options) => {
           wx.login({
             success: (lres) => {
               wx.request({
-                url: `https://gateway.yuandong-edu.com/student/stu/student/login/${lres.code}`,
+                url: `${baseUrl}/student/stu/student/login/${lres.code}`,
                 method: 'post',
                 success: function (lres2) {
                   wx.setStorageSync('Authorization', lres2.header.Authorization);

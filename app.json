@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/checkType/index",
+    "pages/login/index",
     "pages/user/index",
     "pages/user/record/index",
     "pages/radar/index",
@@ -22,7 +24,6 @@
     "pages/topic/radio/index",
     "pages/user/edit/index",
     "pages/getLocation/index",
-    "pages/checkType/index",
     "pages/checkDirection/index",
     "pages/course/detail/index",
     "pages/searchProfession/index",

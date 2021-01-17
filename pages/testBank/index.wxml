@@ -47,7 +47,7 @@
 				<image class="cellImg" src="../../static/images/7.png" />
 				<text class="cellText">测试报告</text>
 			</van-grid-item>
-			<van-grid-item use-slot link-type="navigateTo" url="/pages/checkDirection/index">
+			<van-grid-item use-slot link-type="reLaunch" url="/pages/getLocation/index">
 				<image class="cellImg" src="../../static/images/8.png" />
 				<text class="cellText">其他题库</text>
 			</van-grid-item>

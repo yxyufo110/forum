@@ -1,0 +1,15 @@
+<my-nav-bar title="登录" showLeft="{{false}}" showTabs="{{false}}" />
+<view class="login">
+	<image class="logo" src="../../static/images/logo.png" />
+	<van-button
+	custom-class="btn"
+	 color="#3875F4"
+	 round
+	 type="info"
+	 bind:getphonenumber="getPhone"
+	 open-type="getPhoneNumber"
+	>微信手机号一键登录
+	</van-button>
+	<view class="back" bindtap="backHome">返回首页</view>
+</view>
+
