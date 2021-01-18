@@ -12,11 +12,24 @@ export function payOrder(data) {
     data: data,
   });
 }
+export function rePay(data) {
+  return request({
+    url: `/student/stu/order/repay/${data.id}`,
+    method: 'post',
+    data: data,
+  });
+}
 export function getOrderList(data) {
   return request({
     url: `/student/stu/order/page`,
     method: 'get',
     data: data,
+  });
+}
+export function getOrderDetail(data) {
+  return request({
+    url: `/student/stu/order/${data}`,
+    method: 'get',
   });
 }
 export function popUp(data) {

@@ -15,6 +15,8 @@
 			</view>
 			<view class="t4">
 				<text>￥ {{citem.price}}</text>
+				 <view wx:if="{{citem.status == 'WaitForPay'}}" bindtap="goDetail" data-item="{{citem}}" class="continue">继续支付</view>
+				 <view wx:if="{{citem.status != 'WaitForPay'}}" bindtap="goDetail" data-item="{{citem}}" class="look" >查看详情</view>
 			</view>
 		</view>
 	</view>

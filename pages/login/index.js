@@ -17,6 +17,10 @@ Page({
           wx.redirectTo({
             url: '/pages/index/index',
           })
+        }  else {
+          wx.navigateTo({
+            url: '/pages/login/confirm/index',
+          })
         }
       });
     }

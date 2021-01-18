@@ -9,7 +9,7 @@ Page({
     wx.login({
       success: (res) => {
         wx.request({
-          url: `http://139.186.36.207:8443/student/stu/student/login/${res.code}`,
+          url: `https://gateway.yuandong-edu.com/student/stu/student/login/${res.code}`,
           method: 'post',
           success: function (res2) {
             wx.setStorageSync('Authorization', res2.header.Authorization);
@@ -25,6 +25,10 @@ Page({
                 wx.redirectTo({
                   url: `/pages/pk/radio/index?examineId=${x.exam.id}&questionId=${x.exam.questionId}&pkId=${e.pkId}`,
                 });
+              });
+            } else if(!res2.data.phoneNum) {
+              wx.redirectTo({
+                url: '/pages/login/index',
               });
             } else if (!res2.data.area) {
               wx.redirectTo({

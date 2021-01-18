@@ -38,4 +38,9 @@ Page({
       });
     }
   },
+  goDetail:function(e){
+    wx.navigateTo({
+      url: '/pages/order/detail/index?id=' + e.currentTarget.dataset.item.id,
+    })
+  }
 });

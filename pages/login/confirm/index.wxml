@@ -1,0 +1,24 @@
+<van-nav-bar
+  left-arrow
+  bind:click-left="onClickLeft"
+/>
+<view class="box">
+  <view class="title">
+    您已是会员用户，学习方向为:
+  </view>
+  <view class="item">-{{confirmInfo.province}}</view>
+  <view class="item">-{{confirmInfo.importDataCategory.parentName}}</view>
+  <view class="item">-{{confirmInfo.importDataCategory.title}}</view>
+  <view class="bottom"> 
+    <van-button
+	custom-class="btn"
+	 color="#3875F4"
+	 round
+   type="info"
+   bind:click="submit"
+	>确认
+  </van-button>
+  <view class="tips">提示：如您的学习方向有误，请联系班主任或客服</view>
+  </view>
+  
+</view>

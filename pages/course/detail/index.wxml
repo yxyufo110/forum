@@ -55,13 +55,21 @@
 	 border="{{false}}"
 	>
 		<van-tab title="章节选择">
+			<scroll-view scroll-y="true" style="height:{{isIPX?'calc(100vh - 401px - 44pt)' : 'calc(100vh - 401px)'}}">
+		
 			<van-cell
 			 bindtap="onChange"
 			 wx:for="{{chapters}}"
-			 title="{{item.name}}"
 			 data-id="{{item.id}}"
 			 is-link
-			/>
+			>
+			<view slot="title">
+				<view wx:if="{{item.id == oneData.id}}" class="van-cell-text" style="color:#3875F4">{{item.name}}</view>
+				<view wx:if="{{item.id != oneData.id}}" class="van-cell-text">{{item.name}}</view>
+  </view>
+		</van-cell>
+			
+		</scroll-view>
 		</van-tab>
 		<van-tab title="课程详情">
 			<image mode="widthFix" src="{{course.detail}}" style="width:100%" />

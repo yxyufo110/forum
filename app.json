@@ -1,8 +1,11 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/checkType/index",
+    "pages/order/index",
+    "pages/order/detail/index",
     "pages/login/index",
+    "pages/login/confirm/index",
+    "pages/checkType/index",
     "pages/user/index",
     "pages/user/record/index",
     "pages/radar/index",
@@ -13,7 +16,6 @@
     "pages/user/walet/popList/index",
     "pages/user/walet/used/index",
     "pages/user/walet/popUp/index",
-    "pages/order/index",
     "pages/pay/index",
     "pages/testBank/index",
     "pages/pk/index",
