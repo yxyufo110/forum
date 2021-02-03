@@ -45,10 +45,11 @@ export function getNav() {
   });
 }
 
-export function getShareList() {
+export function getShareList(data) {
   return request({
     url: `/student/stu/share/list`,
     method: 'get',
+    data:data
   });
 }
 export function backShare(data) {

@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "my-home-nav-bar": "../../components/my-home-nav-bar/index"
+    "my-home-nav-bar": "../../components/my-home-nav-bar/index",
+    "van-progress": "../../miniprogram_npm/@vant/weapp/progress/index"
   }
 }

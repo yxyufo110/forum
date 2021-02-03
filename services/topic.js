@@ -70,3 +70,10 @@ export function repractice(data) {
     data: data,
   });
 }
+export function correction(data) {
+  return request({
+    url: `/student/stu/share/test-bank`,
+    method: 'post',
+    data: data,
+  });
+}

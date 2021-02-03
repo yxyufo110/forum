@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/radar/index",
+    "pages/user/share/index",
     "pages/order/index",
     "pages/order/detail/index",
     "pages/login/index",
@@ -8,7 +10,6 @@
     "pages/checkType/index",
     "pages/user/index",
     "pages/user/record/index",
-    "pages/radar/index",
     "pages/topic/draw/index",
     "pages/user/collect/index",
     "pages/needPhone/index",
@@ -19,7 +20,6 @@
     "pages/pay/index",
     "pages/testBank/index",
     "pages/pk/index",
-    "pages/user/share/index",
     "pages/course/index",
     "pages/topic/card/index",
     "pages/user/notice/index",
@@ -46,7 +46,8 @@
     "pages/pk/rules/index",
     "pages/pk/radio/index",
     "pages/pk/final/index",
-    "pages/course/lookAndTest/index"
+    "pages/course/lookAndTest/index",
+    "pages/radar/detail/index"
   ],
   "permission": {
     "scope.userLocation": {

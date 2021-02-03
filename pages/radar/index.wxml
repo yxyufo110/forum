@@ -1,4 +1,22 @@
-<my-home-nav-bar title="分析报告" />
+<my-home-nav-bar title="测试报告" />
+<view class="box">
+  <view class="item" bindtap="goDetail">
+    <view class="top">
+      <view class="title">语文</view>
+      <view class="desc">准确率</view>
+    </view>
+    <view class="bottom">
+      <view class="process">
+        <view class="count">
+          完成第1/500
+        </view>
+        <van-progress show-pivot="{{false}}" percentage="25" />
+      </view>
+      <view class="cril">
+        60%
+      </view>
+    </view>
+  </view>
 
-<canvas canvas-id="radarCanvas" disable-scroll="true" class="canvas" />
-
+</view>
+<!-- <canvas canvas-id="radarCanvas" disable-scroll="true" class="canvas" /> -->

@@ -67,3 +67,14 @@
 	</van-collapse-item>
 </van-collapse>
 
+<view class="timer" bindtap="showTimer">选择时间段</view>
+<van-popup show="{{ timerVis }}" round position="bottom" custom-style="height: 100vh;" bind:close="showTimer" closeable close-icon-position="top-left">
+	<van-calendar
+	title="日历"
+	poppable="{{ false }}"
+	type="range"
+	bind:confirm="onConfirm"
+	min-date="{{minDate}}"
+/>
+
+</van-popup>

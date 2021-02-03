@@ -1,3 +1,4 @@
+import moment from 'moment';
 import { getShareList, shareCount } from '../../../services/user';
 Page({
   /**
@@ -9,6 +10,9 @@ Page({
     Testbank: [],
     Tweets: [],
     effectiveHits: 0,
+    timerVis:false,
+    minDate: new Date(2010, 10, 1).getTime(),
+    
   },
 
   /**
@@ -34,4 +38,23 @@ Page({
       activeNames: event.detail,
     });
   },
+  showTimer() {
+    this.setData({
+      timerVis:!this.data.timerVis
+    })
+  },
+ 
+  onConfirm(e) {
+    getShareList({
+      beginShortDate:moment(e.detail[0]).format('YYYY-MM-DD'),
+      endShortDate:moment(e.detail[1]).format('YYYY-MM-DD'),
+    }).then((res) => {
+      this.setData({
+        Course: res.Course,
+        Testbank: res.Testbank,
+        Tweets: res.Tweets,
+      });
+      this.showTimer()
+    })
+  }
 });

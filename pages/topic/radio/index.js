@@ -1,4 +1,4 @@
-import { geTopic, geTopicOne, getAnswer, getShareId, repractice } from '../../../services/topic';
+import { geTopic, geTopicOne, getAnswer, getShareId, repractice,correction } from '../../../services/topic';
 import { collect } from '../../../services/course';
 const app = getApp();
 var touchDot = 0; //触摸时的原点
@@ -8,7 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    errorShow:false,
     radio: '',
+    errorRadio:0,
     topicInfo: {},
     subjectId: '',
     questionId: '',
@@ -284,4 +286,42 @@ Page({
     }
   },
   // 处理滑动结束
+  // 显示纠错功能
+  showError:function(){
+    this.setData({
+      errorShow:!this.data.errorShow
+    })
+  },
+  changeError:function(event){
+    this.setData({
+      errorRadio: event.detail,
+    });
+  },
+  submitError:function(){
+    correction({
+      questionId:this.data.topicInfo.id,
+      type:this.data.errorRadio
+    }).then(res=>{
+      wx.showToast({
+        title: '提交成功',
+        icon: 'none',
+        duration: 1500,
+        mask: true,
+      });
+      this.setData({
+        errorShow:!this.data.errorShow
+      })
+    }).catch(()=>{
+      wx.showToast({
+        title: '请稍后再试',
+        icon: 'none',
+        duration: 1500,
+        mask: true,
+      });
+      this.setData({
+        errorShow:!this.data.errorShow
+      })
+    })
+  
+  }
 });

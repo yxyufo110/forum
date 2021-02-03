@@ -57,3 +57,10 @@
   display: flex;
   justify-content: space-between;
 }
+.timer {
+  color: #3b78f5;
+  font-size: 15px;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}

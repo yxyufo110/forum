@@ -1,7 +1,7 @@
 {
   "usingComponents": {
-    "van-radio": "../miniprogram_npm/@vant/weapp/radio/index",
-    "van-radio-group": "../miniprogram_npm/@vant/weapp/radio-group/index",
+    "van-radio": "../../miniprogram_npm/@vant/weapp/radio/index",
+    "van-radio-group": "../../miniprogram_npm/@vant/weapp/radio-group/index",
     "my-home-nav-bar": "../../components/my-home-nav-bar/index"
   }
 }

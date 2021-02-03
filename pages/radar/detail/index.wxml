@@ -1,0 +1,7 @@
+<my-home-nav-bar title="测试报告" />
+<view class="box">
+  <view class="title">语文</view>
+  <view class="t1">恭喜您超过了80%的同学</view>
+  <view class="t2">今日做题数量：68题</view>
+  <view class="t3">今日准确率：50%</view>
+</view>
