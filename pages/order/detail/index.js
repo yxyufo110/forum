@@ -24,7 +24,8 @@ Page({
       linkedCode: this.data.oneOrder.subjectId,
       payType: this.data.oneOrder.payType,
     }).then((res) => {
-      if (this.data.payType === 'Wechat') {
+      console.log(res)
+      if (this.data.oneOrder.payType === 'Wechat') {
         wx.requestPayment({
           timeStamp: res.timeStamp,
           nonceStr: res.nonce_str,

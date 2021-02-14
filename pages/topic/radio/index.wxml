@@ -24,7 +24,7 @@
 				<view class="topicBox">
 					<!-- 题目 -->
 					<view class="topic">
-						<rich-text style="font-size:{{fontSize}}" nodes="{{m2.dealImg(topicInfo.stem)}}" />
+						{{topicInfo.number}}.<rich-text style="font-size:{{fontSize}}" nodes="{{m2.dealImg(topicInfo.stem)}}" />
 					</view>
 					<!-- 单选 -->
 					<view class="options" wx:if="{{!isMultiple}}">

@@ -100,8 +100,17 @@ export function updateNav(data) {
 }
 export function getRadar(data) {
   return request({
-    url: `/itembank/stu/question/practice/statistics/radar`,
+    url: `/itembank/stu/question/practice/statistics`,
     method: 'get',
     data: data,
   });
 }
+
+export function getRadarOne(data) {
+  return request({
+    url: `/itembank/stu/question/practice/statistics/subject`,
+    method: 'get',
+    data: data,
+  });
+}
+

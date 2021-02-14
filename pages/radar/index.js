@@ -1,25 +1,28 @@
 import { getRadar } from '../../services/user';
-import wxCharts from '../../utils/charts';
 var app = getApp();
-var daulineChart = null;
-var yuelineChart = null;
+
 Page({
   /**
    * 页面的初始数据
    */
-  data: {},
+  data: {
+    list:[]
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // getRadar({ categoryId: app.globalData.subject.id }).then((res) => {
-    //   this.getMothElectro(res);
-    // });
+    getRadar({ categoryId: app.globalData.subject.id }).then((res) => {
+        this.setData({
+          list:res
+        })
+        console.log(this.data.list)
+    });
   },
-  goDetail:function(){
+  goDetail:function(e){
     wx.navigateTo({
-      url: '/pages/radar/detail/index',
+      url: '/pages/radar/detail/index?id=' + e.currentTarget.dataset.id,
     })
   },
   // getMothElectro: function (list) {

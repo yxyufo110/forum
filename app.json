@@ -47,7 +47,8 @@
     "pages/pk/radio/index",
     "pages/pk/final/index",
     "pages/course/lookAndTest/index",
-    "pages/radar/detail/index"
+    "pages/radar/detail/index",
+    "pages/mockExam/error/index"
   ],
   "permission": {
     "scope.userLocation": {

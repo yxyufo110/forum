@@ -33,7 +33,7 @@ Component({
         wx.login({
           success: (lres) => {
             wx.request({
-              url: `http://139.186.36.207:8443/student/stu/student/login/${lres.code}`,
+              url: `http://manager.yuandong-edu.com:8443/student/stu/student/login/${lres.code}`,
               method: 'post',
               success: function (lres2) {
                 wx.setStorageSync('Authorization', lres2.header.Authorization);

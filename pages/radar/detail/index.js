@@ -1,18 +1,23 @@
 // pages/radar/detail/index.js
+import { getRadarOne } from '../../../services/user';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+     oneData:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    getRadarOne({ subjectId: options.id }).then((res) => {
+      this.setData({
+        oneData:res
+      })
+  });
   },
 
   /**

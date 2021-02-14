@@ -1,0 +1,56 @@
+<!-- 函数 -->
+<wxs module="m1">
+	var isIn = function(a,b) {
+		if(a && b) {
+				return b.indexOf(a) >= 0
+		}
+	};
+	module.exports.isIn = isIn;
+</wxs>
+<wxs module="m2">
+	var dealImg = function (a) {
+		if (a) {
+			return a.replace(getRegExp('<img', 'gi'), '<img class="rich-img" ')
+		}
+	}; module.exports.dealImg = dealImg; </wxs>
+<my-home-nav-bar/>
+<scroll-view scroll-y="true" style="height:calc(100vh - 113px)">
+	<view style="padding-bottom:70px;min-height:100vh" class="content" wx:if="{{topicInfo}}">
+		<view class="title">
+			<text>（{{topicInfo.typeDesc}}）{{topicInfo.subjectName}}{{topicInfo.chapter}}</text>
+		</view>
+		<view class="topicBox">
+			<!-- 题目 -->
+			<view class="topic">
+				<rich-text style="font-size:{{fontSize}}" nodes="{{m2.dealImg(topicInfo.stem)}}" />
+			</view>
+			<!-- 单选 -->
+			<view class="options" wx:if="{{!isMultiple}}">
+				<van-radio-group value="{{ radio }}">
+					<van-radio use-icon-slot name="{{item.number}}" wx:for="{{topicInfo.answers}}">
+						<rich-text style="font-size:{{fontSize}}" nodes="{{m2.dealImg(item.answer)}}" />
+						<view class="radioIcon {{m1.isIn(item.number,radio) ? 'checked' :''}} {{item.status}}" slot="icon">{{item.number}}</view>
+					</van-radio>
+				</van-radio-group>
+			</view>
+			<!-- 多选 -->
+			<view class="options" wx:if="{{isMultiple}}">
+				<van-checkbox-group value="{{ radio }}" >
+					<van-checkbox use-icon-slot name="{{item.number}}" wx:for="{{topicInfo.answers}}">
+						<rich-text style="font-size:{{fontSize}}" nodes="{{m2.dealImg(item.answer)}}" />
+						<view class="radioIcon {{m1.isIn(item.number,radio) ? 'checked' :''}} {{item.status}}" slot="icon">{{item.number}}</view>
+					</van-checkbox>
+				</van-checkbox-group>
+			
+			</view>
+		</view>
+		<!-- 解析 -->
+		<view style="font-size:{{fontSize}}" class="analysis" wx:if="{{topicInfo.analysis && topicInfo.latestAnswers}}">
+					解析：
+					<rich-text style="font-size:{{fontSize}}" nodes="{{m2.dealImg(topicInfo.analysis)}}" />
+				</view>
+	</view>
+</scroll-view>
+<!-- 空题页面 -->
+
+

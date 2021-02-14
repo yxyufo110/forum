@@ -48,6 +48,13 @@ Page({
       });
     }
   },
+  goError:function(e) {
+    if (!this.data.pkId) {
+      wx.navigateTo({
+        url: `/pages/mockExam/error/index?examineId=${this.data.examineId}&questionId=${e.currentTarget.dataset.id}`,
+      });
+    } 
+  },
   onShareAppMessage: function () {
     return {
       title: '分享考试',

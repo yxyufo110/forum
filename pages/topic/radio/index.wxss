@@ -25,6 +25,8 @@
 .topic {
   font-size: 15px;
   color: #000000;
+  display: flex;
+  flex-wrap: wrap;
 }
 .van-radio,
 .van-checkbox {

@@ -7,7 +7,6 @@
 		 bindtap="goTopic"
 		 class="item {{item.answer.length>0 ? 'checked' :''}}"
 		 wx:if="{{!showScore}}"
-		 bindtap="goMockDetail"
 		>
 			{{index + 1}}
 		</view>
@@ -16,7 +15,7 @@
 		 wx:for="{{cardInfo}}"
 		 class="item {{item.valid ? 'right' :'error'}}"
 		 wx:if="{{showScore}}"
-		 bindtap="goMockDetail"
+		 bindtap="goError"
 		>
 			{{index + 1}}
 		</view>

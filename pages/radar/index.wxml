@@ -1,19 +1,19 @@
 <my-home-nav-bar title="测试报告" />
 <view class="box">
-  <view class="item" bindtap="goDetail">
+  <view class="item" data-id="{{item.subjectId}}" bindtap="goDetail" wx:for="{{list}}" wx:key="index"> 
     <view class="top">
-      <view class="title">语文</view>
+      <view class="title">{{item.subjectName}}</view>
       <view class="desc">准确率</view>
     </view>
     <view class="bottom">
       <view class="process">
         <view class="count">
-          完成第1/500
+          完成第{{practiced}}/{{item.total}}
         </view>
         <van-progress show-pivot="{{false}}" percentage="25" />
       </view>
       <view class="cril">
-        60%
+        {{item.accuracy * 100}}%
       </view>
     </view>
   </view>
