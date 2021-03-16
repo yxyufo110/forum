@@ -7,7 +7,7 @@
     您已是会员用户，学习方向为:
   </view>
   <view class="item">-{{confirmInfo.province}}</view>
-  <view class="item">-{{confirmInfo.importDataCategory.parentName}}</view>
+  <view class="item">-{{confirmInfo.area}}</view>
   <view class="item">-{{confirmInfo.importDataCategory.title}}</view>
   <view class="bottom"> 
     <van-button

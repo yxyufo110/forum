@@ -9,7 +9,7 @@ Page({
     wx.login({
       success: (res) => {
         wx.request({
-          url: `http://manager.yuandong-edu.com:8443/student/stu/student/login/${res.code}`,
+          url: `https://gateway.yuandong-edu.com/student/stu/student/login/${res.code}`,
           method: 'post',
           success: function (res2) {
             wx.setStorageSync('Authorization', res2.header.Authorization);
@@ -30,7 +30,8 @@ Page({
               wx.redirectTo({
                 url: '/pages/login/index',
               });
-            } else if (!res2.data.area) {
+            
+            } else if (!res2.data.city) {
               wx.redirectTo({
                 url: '/pages/getLocation/index',
               });

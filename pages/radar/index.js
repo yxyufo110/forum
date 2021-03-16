@@ -15,7 +15,10 @@ Page({
   onLoad: function (options) {
     getRadar({ categoryId: app.globalData.subject.id }).then((res) => {
         this.setData({
-          list:res
+          list:res.map(i=>({
+            ...i,
+            progress:i.accuracy.toFixed(2) * 100
+          }))
         })
         console.log(this.data.list)
     });

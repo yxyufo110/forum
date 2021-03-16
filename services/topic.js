@@ -72,7 +72,7 @@ export function repractice(data) {
 }
 export function correction(data) {
   return request({
-    url: `/student/stu/share/test-bank`,
+    url: `/itembank/stu/question/correction`,
     method: 'post',
     data: data,
   });

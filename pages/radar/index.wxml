@@ -8,12 +8,12 @@
     <view class="bottom">
       <view class="process">
         <view class="count">
-          完成第{{practiced}}/{{item.total}}
+          完成第{{item.practiced}}/{{item.total}}
         </view>
         <van-progress show-pivot="{{false}}" percentage="25" />
       </view>
       <view class="cril">
-        {{item.accuracy * 100}}%
+        {{item.progress}}%
       </view>
     </view>
   </view>

@@ -24,7 +24,7 @@
 				<view class="topicBox">
 					<!-- 题目 -->
 					<view class="topic">
-						{{topicInfo.number}}.<rich-text style="font-size:{{fontSize}}" nodes="{{m2.dealImg(topicInfo.stem)}}" />
+						<rich-text style="font-size:{{fontSize}}" nodes="{{m2.dealImg(topicInfo.number + '.'+ topicInfo.stem)}}" />
 					</view>
 					<!-- 单选 -->
 					<view class="options" wx:if="{{!isMultiple}}">
@@ -55,7 +55,7 @@
 
 				<!-- 纠错 -->
 				<view wx:if="{{topicInfo}}" class="reportError" bindtap="showError">纠错</view>
-				<van-popup show="{{ errorShow }}" round position="bottom" custom-style="height: 180px;" bind:close="showError">
+				<van-popup show="{{ errorShow }}" round position="bottom" custom-style="height: 280px;" bind:close="showError" >
 					<view class="error-title">请选择错误类型</view>
 					<van-radio-group style="display: flex;justify-content: space-around;font-size:12px" value="{{ errorRadio }}"
 						bind:change="changeError">

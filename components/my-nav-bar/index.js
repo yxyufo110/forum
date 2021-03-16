@@ -33,7 +33,7 @@ Component({
         wx.login({
           success: (lres) => {
             wx.request({
-              url: `http://manager.yuandong-edu.com:8443/student/stu/student/login/${lres.code}`,
+              url: `https://gateway.yuandong-edu.com/student/stu/student/login/${lres.code}`,
               method: 'post',
               success: function (lres2) {
                 wx.setStorageSync('Authorization', lres2.header.Authorization);
@@ -51,7 +51,7 @@ Component({
           },
         });
       }
-      if (app.globalData.userInfo && !app.globalData.userInfo.area) {
+     if (app.globalData.userInfo && !app.globalData.userInfo.area) {
         wx.redirectTo({
           url: '/pages/getLocation/index',
         });

@@ -1,6 +1,6 @@
 // request.js
 const app = getApp();
-const baseUrl = 'http://manager.yuandong-edu.com:8443';
+const baseUrl = 'https://gateway.yuandong-edu.com';
 const request = (options) => {
   let newOptions = options;
   return new Promise((resolve, reject) => {

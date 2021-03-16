@@ -29,6 +29,7 @@
   bottom: 49px;
   right: 0;
   color: #717175;
+  background: #ffffff;
 }
 .like {
   display: flex;
