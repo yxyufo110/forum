@@ -2,5 +2,6 @@
   <van-tabbar-item icon="icon iconfont icontiku1">题库</van-tabbar-item>
   <van-tabbar-item icon="icon iconfont iconkecheng1">课程</van-tabbar-item>
   <van-tabbar-item icon="icon iconfont iconkefu1">客服</van-tabbar-item>
+  <van-tabbar-item icon="icon iconfont iconzixun">咨讯</van-tabbar-item>
   <van-tabbar-item icon="icon iconfont icongeren1">个人</van-tabbar-item>
 </van-tabbar>

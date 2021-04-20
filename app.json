@@ -48,7 +48,9 @@
     "pages/pk/final/index",
     "pages/course/lookAndTest/index",
     "pages/radar/detail/index",
-    "pages/mockExam/error/index"
+    "pages/mockExam/error/index",
+    "pages/news/index",
+    "pages/news/detail/index"
   ],
   "permission": {
     "scope.userLocation": {
@@ -79,6 +81,10 @@
       {
         "pagePath": "pages/customerService/index",
         "text": "客服"
+      },
+      {
+        "pagePath": "pages/news/index",
+        "text": "资讯"
       },
       {
         "pagePath": "pages/user/index",

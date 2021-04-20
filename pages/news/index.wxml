@@ -1,0 +1,39 @@
+<my-nav-bar title="资讯" showLeft="{{false}}" showTabs="{{false}}" />
+<scroll-view scroll-y="true" bindscrolltolower="searchMore"
+  style="height:{{isIPX ? 'calc(100vh - 114px - 44pt)' : 'calc(100vh - 114px)'}}">
+  <view style="padding:20px 4%">
+    <view wx:for="{{info}}" >
+    <view class="box" wx:for="{{item}}" wx:for-item="citem"  bindtap="gonews"  data-id="{{citem.id}}">
+      <view class="left">
+        <image class="leftImg" src="{{citem.cover}}" />
+      </view>
+      <view class="right">
+        <view class="r1">
+          <text class="title">{{citem.title}}</text>
+          <text class="arrow">></text>
+        </view>
+        <view class="teacher">
+          <text>作者：{{citem.label}}</text>
+        </view>
+        <view class="bottom">
+          <text class="time">
+            {{citem.createdDate}}
+          </text>
+          <view class="opt" catchtap="noPop">
+				<!-- <van-button class="shareBtn" open-type="share" custom-style="border:none;padding:0;height:auto">
+					<image class="cardIcon" src="../../static/images/share.png" />
+				</van-button> -->
+				<image style="margin-left: 5pt;" class="cardIcon" src="../../static/images/fire.png" />
+				<text class="count">{{citem.clickVolume}}</text>
+			</view>
+        </view>
+      </view>
+     
+    </view>
+
+  </view>
+  </view>
+  
+
+
+</scroll-view>
