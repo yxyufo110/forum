@@ -1,0 +1,61 @@
+.label-box {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 7px 0px #D7E4FF;
+  padding: 16px 13px 13px 13px;
+}
+.label {
+  display: flex;
+  justify-content: space-between;
+}
+.left {
+  display: flex;
+}
+.avatar {
+  width: 45px;
+  height: 45px;
+  margin-right: 14px;
+}
+.desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.name {
+  font-size: 15px;
+  font-weight: 500;
+  color: #000000;
+}
+.teacher {
+  font-size: 12px;
+font-weight: 400;
+color: #999999
+}
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.share {
+  width: 16px;
+  height: 16px;
+}
+.time {
+  font-size: 12px;
+font-weight: 400;
+color: #999999;
+}
+.title {
+  font-size: 14px;
+font-weight: 500;
+color: #999999;
+
+margin-top: 28px;
+margin-right: 12px;
+}
+.title-box {
+  display: flex;
+}
+.active {
+  color: #333333;
+}

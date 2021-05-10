@@ -9,6 +9,7 @@
  picture-in-picture-mode="{{['push', 'pop']}}"
  bindenterpictureinpicture='bindVideoEnterPictureInPicture'
  bindleavepictureinpicture='bindVideoLeavePictureInPicture'
+ duration="{{oneData.time}}"
  class="video"
  title="{{oneData.name}}"
  poster="{{oneData.cover}}"

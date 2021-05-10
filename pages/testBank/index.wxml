@@ -63,6 +63,7 @@
 			 practiced="{{item.practiced}}"
 			 total="{{item.total}}"
 			 wx:for="{{list}}"
+			 cover="{{item.cover}}"
 			 bindtap="gosubj"
 			/>
 

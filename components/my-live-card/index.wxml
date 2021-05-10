@@ -1,0 +1,53 @@
+<!-- 函数 -->
+<wxs module="m1">
+	var dealTime = function (a) {
+		if (a) {
+			return a.split(' ')[1]
+		}
+	};
+
+	module.exports.dealTime = dealTime;
+</wxs>
+<wxs module="m2">
+	var isNow = function (a,b) {
+		if (a == 0) {
+			return '今'
+		} else {
+      return b
+    }
+	};
+
+	module.exports.isNow = isNow;
+</wxs>
+<view class="box">
+<view class="time-line">
+  <view class="line-item" wx:for="{{value}}" bindtap="checkDay" data-index="{{index}}">
+    <view wx:if="{{index == checkIndex}}" class="active">{{m2.isNow(index,item.date)}}</view>
+    <view wx:if="{{index != checkIndex}}" class="normal">{{m2.isNow(index,item.date)}}</view>
+    <view wx:if="{{item.lives[0] && index != checkIndex}}" class="circle"></view>
+  </view>
+</view>
+
+  <view class="content">
+    <view bindtap="goPlay" data-item="{{item}}" class="content-item" wx:if="{{value[checkIndex].lives[0]}}" wx:for="{{value[checkIndex].lives}}">
+      <view class="type">
+        <view class="type-item yellow">付费</view>
+        <view class="type-item red">会员</view>
+      </view>
+      <view class="desc">
+        <view class="left">
+          <view class="title">{{item.name}}</view>
+          <view class="sub-title">直播时间：{{m1.dealTime(item.beginTime)}} - {{m1.dealTime(item.endTime)}}</view>
+        </view>
+        <view class="right">
+          <image src="{{item.avatar}}" class="atv"></image>
+          <view class="name">{{item.teacher}}</view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{!value[checkIndex].lives[0]}}" class="none">
+      今日暂无直播<text class="record" wx:if="{{showRecord}}" bindtap="goRecord">点击查看录播~</text>
+    </view>
+  </view>
+</view>
+<view class="tips">*上课时间以实际课程安排为准</view>

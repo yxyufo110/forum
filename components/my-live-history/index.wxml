@@ -1,0 +1,34 @@
+<view class="box">
+  <view class="content">
+    <view class="content-item">
+      <view class="type">
+        <view class="type-item yellow">付费</view>
+        <view class="type-item red">会员</view>
+      </view>
+      <view class="desc">
+        <view class="left">
+          <view class="title">成人高考-语文考前辅导</view>
+          <view class="sub-title">直播时间：19 : 30 - 20: 30</view>
+        </view>
+        <view class="right">
+          <image src="https://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eoflicicfVhziaHoqLN7JFBn1LicZdPiaOMXevJz3z0DuGuILD2AyiaRKFHJLe3U1FibOeYGSeiafnayxtZcA/132" class="atv"></image>
+          <view class="name">张三</view>
+        </view>
+      </view>
+    </view>
+    <view class="opt">
+        <view class="opt-item">
+          <image src="../../static/images/live.png" class="itemImg" />
+          <text>125425次</text>
+        </view>
+        <view class="opt-item center">
+          <image src="../../static/images/live2.png" class="itemImg" />
+          <text>125425次</text>
+        </view>
+        <view class="opt-item">
+          <image src="../../static/images/live3.png" class="itemImg" />
+          <text>125425次</text>
+        </view>
+      </view>
+  </view>
+</view>

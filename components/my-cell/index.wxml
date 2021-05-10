@@ -1,5 +1,5 @@
 <view class="box">
-	<image class="coverImg" src="../../static/images/course_left.png" />
+	<image class="coverImg" src="{{cover || '../../static/images/course_left.png'}}" />
 	<view class="content">
 		<view class="title">{{ title }}</view>
 		<text class="speed">

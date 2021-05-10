@@ -27,6 +27,7 @@ Page({
         bannerList: res,
       });
     });
+    
   },
   goBanner: function (e) {
     wx.navigateTo({
@@ -79,6 +80,7 @@ Page({
         likeList: res,
       });
     });
+
   },
   onShareAppMessage: function () {
     return {

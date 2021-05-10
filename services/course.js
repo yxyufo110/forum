@@ -65,3 +65,32 @@ export function getQuestionLog(data) {
     data: data,
   });
 }
+export function liveList(data) {
+  return request({
+    url: `/live/stu/live/lives/${data}`,
+    method: 'get',
+  });
+}
+export function weekLive(data) {
+  return request({
+    url: `/live/stu/live/week-live`,
+    method: 'get',
+    data: data,
+  });
+}
+// 回放
+
+export function replay(data) {
+  return request({
+    url: `/live/stu/replay/page`,
+    method: 'get',
+    data: data,
+  });
+}
+// 直播详情
+export function playRoom(data) {
+  return request({
+    url: `/live/stu/live/${data}`,
+    method: 'get',
+  });
+}
