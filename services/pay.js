@@ -12,6 +12,13 @@ export function payOrder(data) {
     data: data,
   });
 }
+export function payLive(data) {
+  return request({
+    url: `/student/stu/order/live`,
+    method: 'post',
+    data: data,
+  });
+}
 export function rePay(data) {
   return request({
     url: `/student/stu/order/repay/${data.id}`,

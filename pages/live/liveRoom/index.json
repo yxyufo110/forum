@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "my-home-nav-bar": "../../../components/my-home-nav-bar/index"
-  
+    "my-home-nav-bar": "../../../components/my-home-nav-bar/index",
+    "van-field": "../../../miniprogram_npm/@vant/weapp/field/index",
+    "van-dialog": "../../../miniprogram_npm/@vant/weapp/dialog/index"
   }
 }

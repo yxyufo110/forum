@@ -10,13 +10,45 @@
       </view>
     </view>
     <view class="right">
-      <image class="share" src="../../../static/images/share.png" />
+      <van-button class="shareBtn" open-type="share" custom-style="border:none;padding:0;height:auto">
+        <image class="share" src="../../../static/images/share.png" />
+				</van-button>
       <view class="time">{{time}}</view>
     </view>
   </view>
   <view class="title-box">
       <view class="title {{active == 0 ? 'active' : ''}}" bindtap="change" data-index="0">直播简介</view>
-      <view class="title {{active == 1 ? 'active' : ''}}" bindtap="change" data-index="1">弹幕区</view>
+      <view wx:if="{{!type}}" class="title {{active == 1 ? 'active' : ''}}" bindtap="change" data-index="1">弹幕区</view>
   </view>
-
 </view>
+
+<rich-text nodes="{{introduction}}" wx:if="{{active == 0}}"/>
+<view wx:if="{{active == 1}}"> 
+  <view class="message-box" >
+    <scroll-view class="message" scroll-y>
+        <view class="message-item" wx:for="{{messageList}}">
+          <view class="name">
+            {{item.sendName}}：
+          </view>
+          <view class="mess">
+            {{item.msg}}
+          </view>
+        </view>
+    </scroll-view>
+  </view>
+  <view class="input-box">
+        <van-field
+          value="{{ message }}"
+          type="textarea"
+          placeholder="发个弹幕~"
+          border="{{ false }}"
+          bind:change="changeMessage"
+      >
+    </van-field>
+    <view class="submit" bindtap="submit">发送</view>
+</view>
+</view>
+
+
+
+<van-dialog id="van-dialog" />

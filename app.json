@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/live/liveRoom/index",
     "pages/live/index",
-    "pages/index/index",
     "pages/radar/index",
     "pages/user/share/index",
     "pages/order/index",

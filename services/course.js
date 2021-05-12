@@ -94,3 +94,9 @@ export function playRoom(data) {
     method: 'get',
   });
 }
+export function rePlayRoom(data) {
+  return request({
+    url: `/live/stu/replay/${data}`,
+    method: 'get',
+  });
+}

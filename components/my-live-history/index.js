@@ -1,6 +1,6 @@
 Component({
   properties: {
-    data: Array,
+    data: Object,
   },
 
   /**
@@ -14,6 +14,15 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    goRePlay() {
+      wx.navigateTo({
+        url: `/pages/live/liveRoom/index?id=${this.data.data.id}&type=replay`,
+      })
+    }
+  },
+  lifetimes:{
+    attached() {
+      console.log(this.data.data)
+    }
   }
 })

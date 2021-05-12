@@ -59,3 +59,67 @@ margin-right: 12px;
 .active {
   color: #333333;
 }
+.input-box {
+  height: 44px;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+}
+.van-cell {
+  background: transparent !important;
+  width: calc(100vw - 100px) !important;
+}
+.van-field__body{
+  height: 21px !important;
+  line-height: 21px !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  color: #FFFFFF !important;
+  margin:0 13px !important;
+  background: #000000 !important;
+  border-radius: 11px;
+  opacity: 0.6 !important;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.van-field__input {
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  color: #FFFFFF !important;
+}
+.message-box {
+  height: 375px;
+}
+.message {
+  height: 375px;
+}
+.message-item {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-top: 10px;
+}
+.name {
+  white-space: nowrap;
+  color: #999999;
+  font-size: 12px;
+  margin-right: 10px;
+}
+.mess {
+  font-size: 12px;
+  font-weight: 400;
+  color:#333333
+}
+.submit {
+  color: #FFFFFF;
+  font-size: 12px;
+  width: 80px ;
+  text-align: center;
+  height: 44px;
+  line-height: 44px;
+}
+rich-text .rich-img {
+  width: 100%;
+  height: auto;
+}

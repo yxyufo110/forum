@@ -19,6 +19,19 @@
 
 	module.exports.isNow = isNow;
 </wxs>
+<wxs module="m3">
+	var isIn = function (a,b) {
+		if(a && b) {
+      if (a.indexOf(b) >= 0) {
+        return true
+      } else {
+        return false
+      }
+    }
+	};
+
+	module.exports.isIn = isIn;
+</wxs>
 <view class="box">
 <view class="time-line">
   <view class="line-item" wx:for="{{value}}" bindtap="checkDay" data-index="{{index}}">
@@ -31,8 +44,10 @@
   <view class="content">
     <view bindtap="goPlay" data-item="{{item}}" class="content-item" wx:if="{{value[checkIndex].lives[0]}}" wx:for="{{value[checkIndex].lives}}">
       <view class="type">
-        <view class="type-item yellow">付费</view>
-        <view class="type-item red">会员</view>
+        <view class="type-item yellow" wx:if="{{m3.isIn(item.mode,'Toll')}}">付费</view>
+        <view class="type-item red"  wx:if="{{m3.isIn(item.mode,'VIP')}}">会员</view>
+        <view class="type-item blue"  wx:if="{{m3.isIn(item.mode,'Free')}}">免费</view>
+        
       </view>
       <view class="desc">
         <view class="left">

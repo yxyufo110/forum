@@ -1,6 +1,6 @@
 <my-home-nav-bar/>
 <view class="title">直播日历</view>
-<my-live-card wx:if="{{list[0]}}" value="{{list}}"></my-live-card>
+<my-live-card  value="{{list}}"></my-live-card>
 <view class="title" style="margin-top:25px">录播回放</view>
 <scroll-view bindscrolltolower="searchMore" scroll-y="true" style="max-height:800px">
   <view wx:for="{{info}}">

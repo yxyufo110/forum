@@ -22,9 +22,10 @@ Component({
       })
     },
     goRecord() {
-      wx.navigateTo({
-        url: `/pages/live/index`,
-      });
+    
+      this.triggerEvent(
+        'goRecord'
+      );
     },
     goPlay(e) {
       wx.navigateTo({

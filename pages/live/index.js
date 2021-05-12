@@ -27,7 +27,7 @@ Page({
           })
     })
     replay({
-      categoryId:e.categoryId 
+      // categoryId:e.categoryId 
     }).then(res=>{
       this.setData({
         ['info[0]']: res.content,
@@ -39,7 +39,7 @@ Page({
   },
   searchMore: function () {
     if (this.data.hasNextPage) {
-      replay({ page: this.data.pageNumber, size: 10 }).then((res) => {
+      replay({ page: this.data.pageNumber, size: 10,categoryId:this.data.categoryId }).then((res) => {
         this.setData({
           [`info[${res.number + 1}]`]: res.content,
           pageNumber: res.number + 1,

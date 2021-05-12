@@ -1,5 +1,6 @@
 import { queryALl, queryLike, getShareId } from '../../services/course';
 import { getBanners } from '../../services/dict';
+import { weekLive } from '../../services/course';
 const app = getApp();
 Page({
   data: {
@@ -10,6 +11,7 @@ Page({
     categoryId: '',
     likeList: [],
     bannerList: [],
+    list:[]
   },
   onLoad() {
     if (app.globalData.isIPX) {
@@ -75,6 +77,16 @@ Page({
         categoryId: e.detail.id,
       });
     });
+    weekLive({
+      categoryId:e.detail.id 
+    }).then(res=>{
+          this.setData({
+            list: res.map(i=>({
+              ...i,
+              date:i.date.split('-')[2]
+            }))
+          })
+    })
     queryLike(e.detail.id).then((res) => {
       this.setData({
         likeList: res,
@@ -88,4 +100,9 @@ Page({
       path: `/pages/index/index?id=${this.data.shareId}&redirectUrl=/pages/course/index`,
     };
   },
+  goRecord() {
+    wx.navigateTo({
+      url: `/pages/live/index?categoryId=${this.data.categoryId}`,
+    });
+  }
 });
