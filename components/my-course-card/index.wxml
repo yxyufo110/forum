@@ -1,6 +1,6 @@
 <view class="box">
 	<view class="left">
-		<image class="leftImg" src="{{cover}}" />
+		<image class="leftImg" src="{{cover}}" mode="widthFix"/>
 	</view>
 	<view class="right">
 		<view class="r1">

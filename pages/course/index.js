@@ -36,18 +36,6 @@ Page({
       url: `/pages/banner/index?id=${e.currentTarget.dataset.id}`,
     });
   },
-  searchMore: function () {
-    if (this.data.hasNextPage) {
-      queryALl({ page: this.data.pageNumber, size: 10 }).then((res) => {
-        this.setData({
-          [`info[${res.number + 1}]`]: res.content,
-          pageNumber: res.number + 1,
-          hasNextPage: res.number + 1 >= res.totalPages ? false : true,
-          categoryId: this.data.categoryId,
-        });
-      });
-    }
-  },
   goDetail: function (e) {
     wx.navigateTo({
       url: `/pages/course/detail/index?id=${e.currentTarget.dataset.id}`,
@@ -69,7 +57,7 @@ Page({
       });
     });
     app.globalData.subject = e.detail;
-    queryALl({ page: 0, size: 10, categoryId: e.detail.id }).then((res) => {
+    queryALl({ page: 0, size: 999, categoryId: e.detail.id }).then((res) => {
       this.setData({
         ['info[0]']: res.content,
         pageNumber: res.number + 1,

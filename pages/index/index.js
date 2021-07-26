@@ -1,5 +1,5 @@
 //index.js
-import { backShare, backPk } from '../../services/user';
+import { backShare, backPk,backCode } from '../../services/user';
 //获取应用实例
 const app = getApp();
 
@@ -14,6 +14,9 @@ Page({
           success: function (res2) {
             wx.setStorageSync('Authorization', res2.header.Authorization);
             app.globalData.userInfo = res2.data;
+            if(e.scene) {
+              backCode(e.scene)
+            }
             if (e.id) {
               backShare({ shareId: e.id });
             }

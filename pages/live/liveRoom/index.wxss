@@ -69,7 +69,6 @@ margin-right: 12px;
 }
 .van-cell {
   background: transparent !important;
-  width: calc(100vw - 100px) !important;
 }
 .van-field__body{
   height: 21px !important;
@@ -89,12 +88,7 @@ margin-right: 12px;
   font-weight: 400 !important;
   color: #FFFFFF !important;
 }
-.message-box {
-  height: 375px;
-}
-.message {
-  height: 375px;
-}
+
 .message-item {
   display: flex;
   flex-wrap: nowrap;

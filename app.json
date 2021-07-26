@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/news/list/index",
     "pages/live/liveRoom/index",
     "pages/live/index",
     "pages/radar/index",
@@ -85,7 +86,7 @@
         "text": "客服"
       },
       {
-        "pagePath": "pages/news/index",
+        "pagePath": "pages/news/list/index",
         "text": "资讯"
       },
       {

@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "my-home-nav-bar": "../../components/my-home-nav-bar/index"
+  }
 }

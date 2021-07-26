@@ -22,7 +22,7 @@ Component({
           break;
         case 3:
           wx.switchTab({
-            url: `/pages/news/index`,
+            url: `/pages/news/list/index`,
           });
           break;
         case 4:

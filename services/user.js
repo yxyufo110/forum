@@ -105,12 +105,24 @@ export function getRadar(data) {
     data: data,
   });
 }
+export function backCode(data) {
+  return request({
+    url: `/student/stu/share/qrCode/${data}`,
+    method: 'POST',
+  });
+}
 
 export function getRadarOne(data) {
   return request({
     url: `/itembank/stu/question/practice/statistics/subject`,
     method: 'get',
     data: data,
+  });
+}
+export function getQrCode() {
+  return request({
+    url: `/student/stu/share/qrCode`,
+    method: 'get',
   });
 }
 

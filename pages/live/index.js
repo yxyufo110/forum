@@ -27,7 +27,7 @@ Page({
           })
     })
     replay({
-      // categoryId:e.categoryId 
+      categoryId:e.categoryId 
     }).then(res=>{
       this.setData({
         ['info[0]']: res.content,

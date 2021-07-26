@@ -1,4 +1,4 @@
-import { playRoom,rePlayRoom } from '../../../services/course';
+import { playRoom,rePlayRoom,getUrl } from '../../../services/course';
 var socketOpen = false
 var socketMsgQueue = []
 import Dialog from '../../../miniprogram_npm/@vant/weapp/dialog/dialog';
@@ -15,7 +15,10 @@ Page({
       message: '',
       messageList: [],
       introduction:'',
-      type:''
+      type:'',
+      rePalyValue:{},
+      vodUrl:'',
+      vodId:''
   },
 
   /**
@@ -34,8 +37,15 @@ Page({
     let currentPage = pages[pages.length-1];
       if(currentPage.options.type) {
         rePlayRoom(currentPage.options.id).then(res=>{
+          getUrl(res.chapters[0].id).then(xx=>{
+            this.setData({
+              vodUrl:xx.vodUrl,
+              vodId:res.chapters[0].id
+            })
+          })
           this.setData({
             value:res.live,
+            rePalyValue:res,
             roomId: currentPage.options.id,
             time: res.live.beginTime.split(' ')[0],
             introduction:res.live.introduction ? res.live.introduction.replace(/\<img/gi, '<img class="rich-img" ') : ''
@@ -77,7 +87,7 @@ Page({
       //创建一个 WebSocket 连接；
       //一个微信小程序同时只能有一个 WebSocket 连接，如果当前已存在一个 WebSocket 连接，会自动关闭该连接，并重新创建一个 WebSocket 连接。
       wx.connectSocket({
-        url: `ws://129.28.187.237/ws/${this.data.roomId}/${wx.getStorageSync('Authorization')}`
+        url: `wss://manager.yuandong-edu.com/ws/${this.data.roomId}/${wx.getStorageSync('Authorization')}`
       })
       //监听WebSocket错误
       wx.onSocketError(function (res) {
@@ -114,18 +124,31 @@ Page({
       wx.closeSocket()
     }
   },
-  error(e) {
-    console.log(e)
-  },
+  
   change(e) {
     this.setData({
       active:e.currentTarget.dataset.index
     })
   },
+  onChangeChapter(e) {
+    getUrl(e.currentTarget.dataset.id).then(res=>{
+      this.setData({
+        vodUrl:res.vodUrl,
+        vodId:e.currentTarget.dataset.id
+      })
+    })
+    
+  },
   changeMessage(e) {
     this.setData({
       message:e.detail
     })
+  },
+  error(e){
+    console.error('live-player error:', e.detail.errMsg)
+  },
+  statechange(e) {
+    console.log('live-player code:', e.detail.code)
   },
   submit(e) {
     this.sendSocketMessage(this.data.message)

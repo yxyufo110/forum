@@ -53,8 +53,8 @@
   font-size: 15px;
 }
 .itemArrow {
-  font-size: 15pt;
-  color: #b0b0b0;
+  font-size: 14px;
+  color: #999999;
   margin-left: auto;
 }
 .van-button__text {

@@ -42,9 +42,9 @@
 				<view class="item">
 					<image src="../../static/images/tel.png" class="itemImg" />
 					<view class="itemTitle">
-						{{userInfo && userInfo.phoneNum ? '更新手机号' : '绑定手机号'}} 
+						{{userInfo && userInfo.phoneNum ? '更新号码' : '绑定号码'}} 
 					</view>
-					<view class="itemArrow">
+					<view class="itemArrow" style="font-size:15px">
 						{{ userInfo && userInfo.phoneNum}}
 						<van-icon name="arrow" />
 					</view>
@@ -102,8 +102,28 @@
 					<van-icon name="arrow" />
 				</view>
 			</view>
+			<view class="item" bindtap="share">
+				<image src="../../static/images/my8.png" class="itemImg" />
+				<view class="itemTitle">
+					邀请朋友
+				</view>
+				<view class="itemArrow">
+					{{userInfo && userInfo.invitations || 0}}人
+					<van-icon name="arrow" />
+				</view>
+			</view>
 		</view>
 
 	</view>
+	<van-dialog
+  use-slot
+  show="{{ show }}"
+  show-cancel-button
+  bind:close="onClose"
+	bind:confirm="onConfirm"
+	confirmButtonText="保存到相册"
+>
+  <image src="{{imgUrl}}" style="width:100%;height:260px"/>
+</van-dialog>
 </scroll-view>
 

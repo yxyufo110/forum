@@ -10,6 +10,7 @@ Page({
     pageNumber: 0, // 当前页码
     hasNextPage: false, // 是否有下一页
     info: [[]],
+    name:'',
   },
 
   /**
@@ -21,24 +22,23 @@ Page({
         isIPX: true,
       });
     }
-    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
-      this.getTabBar().setData({
-        active: 3,
-      });
-    }
-    queryList({ page: this.data.pageNumber, size: 10 }).then((res) => {
+   this.setData({
+     name:options.name
+   })
+    queryList({ page: this.data.pageNumber, size: 10,classification:options.name }).then((res) => {
       this.setData({
         [`info[0]`]: res.content,
         pageNumber: res.number + 1,
         hasNextPage: res.number + 1 >= res.totalPages ? false : true,
         categoryId: this.data.categoryId,
+        
       });
     });
   },
 
   searchMore: function () {
     if (this.data.hasNextPage) {
-      queryList({ page: this.data.pageNumber, size: 10 }).then((res) => {
+      queryList({ page: this.data.pageNumber, size: 10,classification:this.data.name }).then((res) => {
         this.setData({
           [`info[${res.number + 1}]`]: res.content,
           pageNumber: res.number + 1,

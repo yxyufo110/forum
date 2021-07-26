@@ -33,7 +33,6 @@
 		<view class="title">直播日历</view>
 		<my-live-card  bindgoRecord="goRecord" showRecord value="{{list}}"></my-live-card>
 		<view class="title">我的专业好课</view>
-		<scroll-view bindscrolltolower="searchMore" scroll-y="true" style="max-height:350px">
 			<view class="myCourseBox">
 				<view wx:for="{{info}}">
 					<my-course-card
@@ -49,7 +48,6 @@
 					/>
 				</view>
 			</view>
-		</scroll-view>
 	</view>
 
 	<view style="padding-bottom: 20px;">

@@ -1,11 +1,12 @@
 <my-home-nav-bar/>
-<video   src="http://live.yuandong-edu.com/live/22222.m3u8?txSecret=c8c1cd1ff6b845ae20b7d295c359bd54&txTime=60967DC2" autoplay on style="width: 100%; height: 209px;" binderror="error" enable-progress-gesture="false" />
+<video   src="{{type ? vodUrl : value.pullUrl}}" autoplay  style="width: 100%; height: 209px;" binderror="error" enable-progress-gesture="false" />
+<!-- <live-player   src="{{type ? rePalyValue.chapters[0].vodUrl : value.pullUrl}}" mode="live" autoplay style="width: 100%; height: 209px;" binderror="error" bindstatechange="statechange"/> -->
 <view class="label-box"> 
   <view class="label">
       <view class="left">
       <image src="{{value.avatar}}" class="avatar"></image>
       <view class="desc">
-        <view class="name">{{value.name}}</view>
+        <view class="name">{{type ? rePalyValue.name : value.name}}</view>
         <view class="teacher">主讲人{{value.teacher}}</view>
       </view>
     </view>
@@ -19,13 +20,14 @@
   <view class="title-box">
       <view class="title {{active == 0 ? 'active' : ''}}" bindtap="change" data-index="0">直播简介</view>
       <view wx:if="{{!type}}" class="title {{active == 1 ? 'active' : ''}}" bindtap="change" data-index="1">弹幕区</view>
+      <view wx:if="{{type}}" class="title {{active == 2 ? 'active' : ''}}" bindtap="change" data-index="2">章节选择</view>
   </view>
 </view>
 
 <rich-text nodes="{{introduction}}" wx:if="{{active == 0}}"/>
 <view wx:if="{{active == 1}}"> 
   <view class="message-box" >
-    <scroll-view class="message" scroll-y>
+    <scroll-view class="message" scroll-y style="height:calc(100vh - 398px)">
         <view class="message-item" wx:for="{{messageList}}">
           <view class="name">
             {{item.sendName}}：
@@ -48,6 +50,22 @@
     <view class="submit" bindtap="submit">发送</view>
 </view>
 </view>
+<!-- 章节选择 -->
+<scroll-view scroll-y="true" style="height:calc(100vh - 88px - 209px - 120px - 44pt)">
+  <van-cell
+wx:if="{{active == 2}}"
+			 bindtap="onChangeChapter"
+			 wx:for="{{rePalyValue.chapters}}"
+			 data-id="{{item.id}}"
+			 is-link
+			>
+			<view slot="title">
+				<view wx:if="{{item.id == vodId}}" class="van-cell-text" style="color:#3875F4">{{item.name}}</view>
+				<view wx:if="{{item.id != vodId}}" class="van-cell-text">{{item.name}}</view>
+  </view>
+		</van-cell>
+</scroll-view>
+
 
 
 

@@ -1,6 +1,6 @@
-<my-nav-bar title="资讯" showLeft="{{false}}" showTabs="{{false}}" />
+<my-home-nav-bar title="资讯"/>
 <scroll-view scroll-y="true" bindscrolltolower="searchMore"
-  style="height:{{isIPX ? 'calc(100vh - 114px - 44pt)' : 'calc(100vh - 114px)'}}">
+  style="height:{{isIPX ? 'calc(100vh - 64px - 44pt)' : 'calc(100vh - 64px)'}}">
   <view style="padding:20px 4%">
     <view wx:for="{{info}}" >
     <view class="box" wx:for="{{item}}" wx:for-item="citem"  bindtap="gonews"  data-id="{{citem.id}}">
@@ -13,7 +13,7 @@
           <text class="arrow">></text>
         </view>
         <view class="teacher">
-          <text>作者：{{citem.label}}</text>
+          <text>作者：考粉驿站</text>
         </view>
         <view class="bottom">
           <text class="time">

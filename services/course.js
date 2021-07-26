@@ -94,6 +94,14 @@ export function playRoom(data) {
     method: 'get',
   });
 }
+// 播放回放
+export function getUrl(data) {
+  return request({
+    url: `/live/stu/replay/chapter/${data}`,
+    method: 'get',
+  });
+}
+
 export function rePlayRoom(data) {
   return request({
     url: `/live/stu/replay/${data}`,
