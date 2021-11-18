@@ -1,0 +1,38 @@
+
+<view class="box">
+  <van-dialog id="van-dialog" 
+  use-slot
+  title="赞赏码"
+  show="{{ show }}"
+  bind:confirm="pinkMe"
+>
+    <image show-menu-by-longpress class="pink" src="../../static/images/pink.jpeg"></image>
+  </van-dialog>
+  <image src="../../static/images/bg.png" class="bg"></image>
+  <button class="uBtn" wx:if="{{!hasUserInfo}}" type="primary" bindgetuserinfo="getUserInfo" open-type="getUserInfo">获取信息</button>
+  <view class="content" wx:if="{{hasUserInfo}}">
+    <view class="icon-box">
+      <image class="icon" src="../../static/images/message.png"></image>
+    </view>
+    <image class="atv"  src="{{userInfo.avatar}}"></image>
+    <text class="name">{{userInfo.userName}}</text>
+    <van-transition duration="600" name="slide-left" show="{{ show1 }}">
+      <view class="item">来到日记<text class="num">{{cData.registrationDays}}</text>天</view>
+    </van-transition>
+    <van-transition duration="600" name="slide-left" show="{{ show2 }}">
+      <view class="item">共发日记<text class="num">{{cData.diaryCount}}</text>次</view>
+    </van-transition>
+    <van-transition duration="600" name="slide-left" show="{{ show3 }}">
+      <view class="item">本周记录<text class="num">{{cData.weekCount}}</text>天</view>
+    </van-transition>
+    <van-transition duration="600" name="slide-left" show="{{ show4 }}">
+      <view class="item">本周心情 <image class="fel" wx:for="{{cData.weekFeelings}}" src="../../static/images/{{item}}.png"></image></view>
+    </van-transition>
+    <van-transition duration="600" name="fade" show="{{ show5 }}">
+      <view class="btn" bindtap="pinkMe">
+        <image class="dog" src="../../static/images/dog.png"></image>
+        <text class="btn-desc">立即投喂开发者一口狗粮</text>
+      </view>
+    </van-transition>
+  </view>
+</view>

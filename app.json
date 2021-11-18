@@ -1,59 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/news/list/index",
-    "pages/live/liveRoom/index",
-    "pages/live/index",
-    "pages/radar/index",
-    "pages/user/share/index",
-    "pages/order/index",
-    "pages/order/detail/index",
-    "pages/login/index",
-    "pages/login/confirm/index",
-    "pages/checkType/index",
-    "pages/user/index",
-    "pages/user/record/index",
-    "pages/topic/draw/index",
-    "pages/user/collect/index",
-    "pages/needPhone/index",
-    "pages/user/walet/index",
-    "pages/user/walet/popList/index",
-    "pages/user/walet/used/index",
-    "pages/user/walet/popUp/index",
-    "pages/pay/index",
-    "pages/testBank/index",
-    "pages/pk/index",
-    "pages/course/index",
-    "pages/topic/card/index",
-    "pages/user/notice/index",
-    "pages/topic/radio/index",
-    "pages/user/edit/index",
-    "pages/getLocation/index",
-    "pages/checkDirection/index",
-    "pages/course/detail/index",
-    "pages/searchProfession/index",
-    "pages/customerService/index",
-    "pages/user/notice/details/index",
-    "pages/topic/checkSubjects/index",
-    "pages/topic/checkChapter/index",
-    "pages/banner/index",
-    "pages/mockExam/index",
-    "pages/mockExam/rules/index",
-    "pages/mockExam/radio/index",
-    "pages/mockExam/card/index",
-    "pages/mockExam/final/index",
-    "pages/errorQuestion/checkChapter/index",
-    "pages/errorQuestion/radio/index",
-    "pages/errorQuestion/card/index",
-    "pages/pk/sbuject/index",
-    "pages/pk/rules/index",
-    "pages/pk/radio/index",
-    "pages/pk/final/index",
-    "pages/course/lookAndTest/index",
-    "pages/radar/detail/index",
-    "pages/mockExam/error/index",
-    "pages/news/index",
-    "pages/news/detail/index"
+    "pages/add/index",
+    "pages/me/index"
   ],
   "permission": {
     "scope.userLocation": {
@@ -64,36 +13,7 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black",
-    "navigationStyle": "custom"
-  },
-  "tabBar": {
-    "custom": true,
-    "color": "#000000",
-    "selectedColor": "#000000",
-    "backgroundColor": "#000000",
-    "list": [
-      {
-        "pagePath": "pages/testBank/index",
-        "text": "题库"
-      },
-      {
-        "pagePath": "pages/course/index",
-        "text": "课程"
-      },
-      {
-        "pagePath": "pages/customerService/index",
-        "text": "客服"
-      },
-      {
-        "pagePath": "pages/news/list/index",
-        "text": "资讯"
-      },
-      {
-        "pagePath": "pages/user/index",
-        "text": "个人"
-      }
-    ]
+    "navigationBarTextStyle": "black"
   },
   "usingComponents": {
     "van-tabbar": "@vant/weapp/tabbar/index",

@@ -1,128 +1,37 @@
 import request from '../utils/request';
+export function getList(data) {
+  return request({
+    url: `/diary/diaries`,
+    method: 'get',
+    data: data,
+  });
+}
+export function add(data) {
+  return request({
+    url: `/diary`,
+    method: 'post',
+    data: data,
+  });
+}
+export function getUser(data) {
+  return request({
+    url: `/wechat/current`,
+    method: 'post',
+    data: data,
+  });
+}
 export function updateUsr(data) {
   return request({
-    url: `/student/stu/student/update`,
-    method: 'post',
-    data: data,
-  });
-}
-export function updateSubject(data) {
-  return request({
-    url: `/student/stu/student/category/${data}`,
-    method: 'post',
-  });
-}
-export function getUserInfos() {
-  return request({
-    url: `/student/stu/student/current`,
-    method: 'get',
-  });
-}
-export function getNotice(data) {
-  return request({
-    url: `/student/stu/notice/page`,
-    method: 'get',
-    data: data,
-  });
-}
-export function red(id) {
-  return request({
-    url: `/student/stu/notice/read/${id}`,
+    url: `/wechat/user`,
     method: 'put',
-  });
-}
-export function getNoticeOne(id) {
-  return request({
-    url: `/student/stu/notice/${id}`,
-    method: 'get',
-  });
-}
-
-export function getNav() {
-  return request({
-    url: `/itembank/stu/navigation`,
-    method: 'get',
-  });
-}
-
-export function getShareList(data) {
-  return request({
-    url: `/student/stu/share/list`,
-    method: 'get',
-    data:data
-  });
-}
-export function backShare(data) {
-  return request({
-    url: `/student/stu/share/callback/${data.shareId}`,
-    method: 'post',
     data: data,
   });
 }
-export function backPk(data) {
+export function statistics(data) {
   return request({
-    url: `/student/stu/pk/click/${data.pkId}`,
-    method: 'post',
-    data: data,
-  });
-}
-
-export function shareCount() {
-  return request({
-    url: `/student/stu/share/statistics`,
-    method: 'get',
-  });
-}
-export function getPkList() {
-  return request({
-    url: `/student/stu/pk/list`,
-    method: 'get',
-  });
-}
-export function getTeacher() {
-  return request({
-    url: `/itembank/stu/grade/teachers`,
-    method: 'get',
-  });
-}
-export function lyOut() {
-  return request({
-    url: `/student/stu/login/log`,
-    method: 'post',
-  });
-}
-
-export function updateNav(data) {
-  return request({
-    url: `/student/stu/student/category/self/${data}`,
-    method: 'post',
-  });
-}
-export function getRadar(data) {
-  return request({
-    url: `/itembank/stu/question/practice/statistics`,
+    url: `/diary/statistics`,
     method: 'get',
     data: data,
-  });
-}
-export function backCode(data) {
-  return request({
-    url: `/student/stu/share/qrCode/${data}`,
-    method: 'POST',
-  });
-}
-
-export function getRadarOne(data) {
-  return request({
-    url: `/itembank/stu/question/practice/statistics/subject`,
-    method: 'get',
-    data: data,
-  });
-}
-export function getQrCode() {
-  return request({
-    url: `/student/stu/share/qrCode`,
-    method: 'get',
   });
 }
 

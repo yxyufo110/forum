@@ -1,0 +1,65 @@
+.item {
+  display: flex;
+  padding-bottom: 20rpx;
+  margin-bottom: 20rpx;
+  align-items: center;
+  border-bottom: 1px dashed #31303F;
+}
+.title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #32303F;
+  margin-right: 44rpx;
+  width: 100rpx;
+}
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.radio {
+  width: 80rpx;
+  text-align: center;
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #A8A8A8;
+  margin-right: 25rpx;
+  margin-top: 15rpx;
+  border: 1px solid #ffffff;
+}
+.checked{
+  border: 1px solid #34D8B1;
+
+}
+.r-icon {
+  width: 60rpx;
+  height: 60rpx;
+}
+.box {
+  padding: 30rpx;
+}
+.btn {
+  width: 400rpx;
+  height: 84rpx;
+  text-align: center;
+  line-height: 84rpx;
+  position: relative;
+  margin-top: 160rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+.dog {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 90;
+  left: 0;
+  top: 0;
+}
+.btn-desc {
+  position: absolute;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}

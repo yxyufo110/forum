@@ -1,0 +1,92 @@
+.box {
+  height: 100vh;
+}
+.bg {
+  width: 100%;
+  height: 100%;
+}
+.uBtn {
+  position: absolute;
+  z-index: 9;
+  top: 80rpx;
+  left: 225rpx;
+  width: 300rpx;
+}
+.content {
+  position: absolute;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.icon-box {
+  width: 100%;
+}
+.icon {
+  width: 56rpx;
+  height: 56rpx;
+  float: right;
+  margin-right: 52rpx;
+  margin-top: 40rpx;
+}
+.atv {
+  width: 100rpx;
+  height: 100rpx;
+  margin-top: 40rpx;
+  margin-bottom: 20rpx;
+  border-radius: 100rpx;
+}
+.name {
+  font-size: 32rpx;
+font-weight: 400;
+color: #FFFFFF;
+margin-bottom: 92rpx;
+}
+.item {
+  font-size: 36rpx;
+font-weight: 400;
+color: #FFFFFF;
+margin-bottom: 22rpx;
+display: flex;
+align-items: center;
+flex-wrap: wrap;
+}
+.num {
+  font-size: 48rpx;
+  font-weight: 600;
+  color: #5AFFD7;
+  margin: 0 15rpx;
+}
+.btn {
+  width: 400rpx;
+  height: 84rpx;
+  text-align: center;
+  line-height: 84rpx;
+  position: relative;
+  margin-top: 160rpx;
+}
+.dog {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 90;
+  left: 0;
+  top: 0;
+}
+.btn-desc {
+  position: absolute;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.fel {
+  width: 80rpx;
+  height: 80rpx;
+  margin-left: 10rpx;
+}

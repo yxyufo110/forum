@@ -1,5 +1,0 @@
-{
-  "usingComponents": {
-    "van-search": "../../miniprogram_npm/@vant/weapp/search/index"
-  }
-}

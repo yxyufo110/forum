@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "my-home-nav-bar": "../../../components/my-home-nav-bar/index",
-    "van-calendar": "../../../miniprogram_npm/@vant/weapp/calendar/index"
-  }
-}

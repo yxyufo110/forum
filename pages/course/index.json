@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "my-course-card": "../../components/my-course-card/index",
-    "my-live-card": "../../components/my-live-card/index"
-  }
-}

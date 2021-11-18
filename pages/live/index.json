@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "my-home-nav-bar": "../../components/my-home-nav-bar/index",
-    "my-live-card": "../../components/my-live-card/index",
-    "my-live-history": "../../components/my-live-history/index"
-  }
-}

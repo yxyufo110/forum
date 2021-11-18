@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "my-home-nav-bar": "../../../components/my-home-nav-bar/index",
-    "my-topic-bottom": "../../../components/my-topic-bottom/index"
-  }
-}

@@ -1,6 +1,6 @@
 // request.js
 const app = getApp();
-const baseUrl = 'https://gateway.yuandong-edu.com';
+const baseUrl = 'https://diary.mecyn.com';
 const request = (options) => {
   let newOptions = options;
   return new Promise((resolve, reject) => {
@@ -9,10 +9,10 @@ const request = (options) => {
       options.data = JSON.stringify(data);
     }
     const Authorization = wx.getStorageSync('Authorization');
-    wx.showLoading({
-      title: '加载中',
-      mask: true,
-    });
+    // wx.showLoading({
+    //   title: '加载中',
+    //   mask: true,
+    // });
     wx.request({
       header: { 'Content-Type': 'application/json', Authorization: Authorization },
       ...options,
@@ -23,10 +23,10 @@ const request = (options) => {
           wx.login({
             success: (lres) => {
               wx.request({
-                url: `${baseUrl}/student/stu/student/login/${lres.code}`,
+                url: `${baseUrl}/wechat/login/${lres.code}`,
                 method: 'post',
                 success: function (lres2) {
-                  wx.setStorageSync('Authorization', lres2.header.Authorization);
+                  wx.setStorageSync('Authorization', lres2.data);
                   app.globalData.userInfo = lres2.data;
                   if (newOptions.data && newOptions.method !== 'get') {
                     newOptions.data = JSON.parse(newOptions.data);
@@ -50,24 +50,14 @@ const request = (options) => {
               });
             },
           });
-          wx.hideLoading();
+          // wx.hideLoading();
         } else {
-          wx.hideLoading();
+          // wx.hideLoading();
           if (res.header.Authorization) {
             wx.setStorageSync('Authorization', res.header.Authorization);
           }
           if (res.statusCode === 200) {
-            if (res.data.restriction === 'Guest' && res.data.subjectId) {
-              wx.navigateTo({
-                url: `/pages/needPhone/index?subjectId=${res.data.subjectId}`,
-              });
-            } else if (res.data.restriction === 'ExperienceStudent' && res.data.subjectId) {
-              wx.navigateTo({
-                url: `/pages/needPhone/index?subjectId=${res.data.subjectId}&pop=true`,
-              });
-            } else {
-              resolve(res.data);
-            }
+            resolve(res.data);
           } else {
             wx.showToast({
               title: res.data.title,
@@ -79,7 +69,7 @@ const request = (options) => {
         }
       },
       fail: function (res) {
-        wx.hideLoading();
+        // wx.hideLoading();
         wx.showToast({
           title: res.data.title,
           icon: 'none',

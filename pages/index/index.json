@@ -1,5 +1,7 @@
 {
+  "navigationBarTitleText": "语音日记",
   "usingComponents": {
-    "van-loading": "../../miniprogram_npm/@vant/weapp/loading/index"
+    "van-calendar": "../../miniprogram_npm/@vant/weapp/calendar/index"
+
   }
 }

@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "my-home-nav-bar": "../../../components/my-home-nav-bar/index",
-    "van-divider": "../../miniprogram_npm/@vant/weapp/divider/index"
-  }
-}

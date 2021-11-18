@@ -1,4 +1,49 @@
-<view class="login">
-	<van-loading color="#1989fa" />
+<view>
+  <view class="timer" bindtap="close">
+  {{value}}
+    <image  class="down" src="../../static/images/down.png"></image>
+  </view>
+  <view class="content">
+    <view class="list" wx:for="{{list}}"> 
+    <view class="left">
+      <view class="day">{{item.week}}</view>
+      <view class="{{item.recordingId ? 'circle' :'none'}}"></view>
+      <view class="cell"></view>
+    </view>
+    <view class="right" wx:if="{{item.recordingId}}">
+      <view class="item">
+        <text class="title">心情</text>
+        <image class="t-icon" src="../../static/images/{{item.feelings[0]}}.png"></image>
+        <text class="t-timer">2021/11/12</text>
+      </view>
+      <view class="item">
+        <text class="title">天气</text>
+        <image class="t-icon" src="../../static/images/{{item.weathers[0]}}.png"></image>
+      </view>
+      <view class="item">
+        <text class="title">语音</text>
+        <image wx:if="{{ldId != item.id}}" data-id="{{item.id}}" bindtap="play" class="vo-icon" src="../../static/images/vo.png"></image>
+        <image wx:if="{{ldId == item.id}}" data-id="{{item.id}}" bindtap="stop" class="vo-icon" src="../../static/images/ld.gif"></image>
+        <text class="t-min">{{(item.time.toFixed(2)/1000) || 0}}s</text>
+      </view>
+    </view>
+    <view class="right2"  wx:if="{{!item.recordingId}}">
+    什么也没有~
+    </view>
+  </view>
+  </view>
+  
+  <view class="bottom">
+    <view style="width: 100rpx;height: 100rpx;"></view>
+    <image bindtap="goAdd" class="add" src="../../static/images/add.png"></image>
+    <image bindtap="goMe" class="me" src="../../static/images/me.png"></image>
+  </view>
+  <!-- 日历 -->
+  <van-calendar
+  show="{{ show }}"
+  min-date="{{ minDate }}"
+  max-date="{{ maxDate }}"
+  bind:close="close"
+  bind:confirm="changeTime"
+/>
 </view>
-

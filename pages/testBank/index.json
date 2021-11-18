@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "van-grid": "../../miniprogram_npm/@vant/weapp/grid/index",
-    "van-grid-item": "../../miniprogram_npm/@vant/weapp/grid-item/index",
-    "my-cell": "../../components/my-cell/index"
-  }
-}
