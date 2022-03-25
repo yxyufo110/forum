@@ -6,10 +6,10 @@
   show="{{ show }}"
   bind:confirm="pinkMe"
 >
-    <image show-menu-by-longpress class="pink" src="../../static/images/pink.jpeg"></image>
+    <image mode="widthFix" show-menu-by-longpress class="pink" src="../../static/images/pink.jpeg"></image>
   </van-dialog>
   <image src="../../static/images/bg.png" class="bg"></image>
-  <button class="uBtn" wx:if="{{!hasUserInfo}}" type="primary" bindgetuserinfo="getUserInfo" open-type="getUserInfo">获取信息</button>
+  <button class="uBtn" wx:if="{{!hasUserInfo}}" type="primary" bindtap="getUserProfile" >获取信息</button>
   <view class="content" wx:if="{{hasUserInfo}}">
     <view class="icon-box">
       <image class="icon" src="../../static/images/message.png"></image>

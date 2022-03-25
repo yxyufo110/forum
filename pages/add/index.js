@@ -1,6 +1,7 @@
 // pages/add/index.js
 import { unix } from 'moment';
 import { add } from '../../services/user';
+const recorderManager = wx.getRecorderManager()
 let timer = null
 Page({
 
@@ -11,12 +12,13 @@ Page({
     isStart:false,
     vodFile:'',
     time:0,
-    xinList:'',
-    weList:''
+    xinList:'xin1',
+    weList:'we1'
   },
   onLoad: function (options) {
   },
   submit(){
+    recorderManager.stop()
     if(!this.data.xinList) {
       wx.showToast({
         title: '请选择心情',
@@ -46,11 +48,7 @@ Page({
       name: 'file',
       url: 'https://diary.mecyn.com/file',
       header: {
-        "Content-Type": "multipart/form-data",
         'Authorization': wx.getStorageSync('Authorization')
-      },
-      formData:{
-        file:this.data.vodFile.tempFilePath,
       },
       success:(res)=>{
         add({
@@ -107,21 +105,29 @@ Page({
       })
     },1000)
   },
+  onShareAppMessage: function () {
+    return {
+      title: '分享语音日记',
+      path: `/pages/index/index`,
+    };
+  },
+
 stop(){
-  const recorderManager = wx.getRecorderManager()
+ 
   recorderManager.onStop((e) => {
     wx.showToast({
       title: '录音结束',
       icon:'none'
     })
-    this.setData({
-      isStart:false,
-      vodFile:e,
-    })
-    console.log(e)
+  
     if(timer) {
       clearInterval(timer)
     }
+    this.setData({
+      isStart:false,
+      vodFile:e,
+      time:0
+    })
   })
   recorderManager.stop()
 },
@@ -139,7 +145,7 @@ stop(){
       this.countTime()
     })
     const options = {
-      duration: 60000,
+      duration: 600000,
       sampleRate: 8000,
       numberOfChannels: 1,
       encodeBitRate: 16000,

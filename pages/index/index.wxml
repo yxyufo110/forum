@@ -14,7 +14,7 @@
       <view class="item">
         <text class="title">心情</text>
         <image class="t-icon" src="../../static/images/{{item.feelings[0]}}.png"></image>
-        <text class="t-timer">2021/11/12</text>
+        <text class="t-timer">{{item.createdDate}}</text>
       </view>
       <view class="item">
         <text class="title">天气</text>
@@ -24,7 +24,7 @@
         <text class="title">语音</text>
         <image wx:if="{{ldId != item.id}}" data-id="{{item.id}}" bindtap="play" class="vo-icon" src="../../static/images/vo.png"></image>
         <image wx:if="{{ldId == item.id}}" data-id="{{item.id}}" bindtap="stop" class="vo-icon" src="../../static/images/ld.gif"></image>
-        <text class="t-min">{{(item.time.toFixed(2)/1000) || 0}}s</text>
+        <text class="t-min">{{item.time|| 0}}s</text>
       </view>
     </view>
     <view class="right2"  wx:if="{{!item.recordingId}}">

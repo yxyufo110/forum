@@ -17,7 +17,7 @@ Page({
   onShow(){
     getList().then(res=>{
       this.setData({
-        list:res.map(i=>({...i,createdDate:i.createdDate?i.createdDate.split(' ')[0]:''})),
+        list:res.map(i=>({...i,time:(i.time/1000).toFixed(0),createdDate:i.createdDate?i.createdDate.split(' ')[0]:''})),
         value:formatTime(new Date()).split(' ')[0],
       })
     })
@@ -44,7 +44,7 @@ Page({
       date: formatTime(e.detail).split(' ')[0].replace(/\//g,"-")
     }).then(res=>{
       this.setData({
-        list:res.map(i=>({...i,createdDate:i.createdDate?i.createdDate.split(' ')[0]:''})),
+        list:res.map(i=>({...i,time:(i.time/1000).toFixed(0),createdDate:i.createdDate?i.createdDate.split(' ')[0]:''})),
         value:formatTime(e.detail).split(' ')[0],
         show:false
       })
@@ -60,7 +60,12 @@ Page({
       url: '/pages/add/index',
     })
   },
-
+  onShareAppMessage: function () {
+    return {
+      title: '分享语音日记',
+      path: `/pages/index/index`,
+    };
+  },
 
   // 小程序音频播放 api
 
@@ -79,7 +84,7 @@ downloadFile(voiceUrl) {
           // 文件地址为手机本地
           filePath: `${wx.env.USER_DATA_PATH}/${new Date().getTime()}.mp3`,
           success: result => {
-            
+            console.log(result)
             if (result.errMsg == 'saveFile:ok') {
               this.registerAudioContext(result.savedFilePath)
             }
@@ -95,7 +100,14 @@ registerAudioContext(path) {
   innerAudioContext.src = path
   innerAudioContext.play()
   // 避开 IOS 端静音状态没法播放的问题
-  innerAudioContext.obeyMuteSwitch = false
+
+if (wx.setInnerAudioOption) {
+  wx.setInnerAudioOption({
+    obeyMuteSwitch: false,
+  })
+}else {
+  innerAudioContext.obeyMuteSwitch = false;
+}
   innerAudioContext.onEnded(res => {
     // isPlaying 记录是否在播放中
     this.setData({ ldId: '' })
@@ -108,9 +120,13 @@ registerAudioContext(path) {
     // 开始播放音频的回调
   })
   innerAudioContext.onStop(res => {
+  
     // 播放音频停止的回调
   })
-}
-
+},
+  onHide(){
+    this.setData({ ldId: '' })
+    innerAudioContext.stop()
+  }
   
 });
