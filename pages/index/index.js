@@ -29,7 +29,7 @@ Page({
   },
   play(e) {
    
-    this.downloadFile('https://diary.mecyn.com/diary/audio/'+e.currentTarget.dataset.id + '?authorization=' + wx.getStorageSync('Authorization'))
+    this.downloadFile('https://diary.becolorful.cn/diary/audio/'+e.currentTarget.dataset.id + '?authorization=' + wx.getStorageSync('Authorization'))
     this.setData({
       ldId:e.currentTarget.dataset.id
     })

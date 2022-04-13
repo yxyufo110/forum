@@ -46,7 +46,7 @@ Page({
     wx.uploadFile({
       filePath: this.data.vodFile.tempFilePath,
       name: 'file',
-      url: 'https://diary.mecyn.com/file',
+      url: 'https://diary.becolorful.cn/file',
       header: {
         'Authorization': wx.getStorageSync('Authorization')
       },
@@ -115,6 +115,7 @@ Page({
 stop(){
  
   recorderManager.onStop((e) => {
+    console.log(e)
     wx.showToast({
       title: '录音结束',
       icon:'none'
@@ -126,7 +127,6 @@ stop(){
     this.setData({
       isStart:false,
       vodFile:e,
-      time:0
     })
   })
   recorderManager.stop()
