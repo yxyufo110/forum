@@ -1,8 +1,10 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/detail/index",
+    "pages/me/index",
+    "pages/school/index",
     "pages/add/index",
-    "pages/me/index"
+    "pages/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -13,19 +15,24 @@
   "usingComponents": {
     "van-tabbar": "@vant/weapp/tabbar/index",
     "van-tabbar-item": "@vant/weapp/tabbar-item/index",
+    "my-editor": "./components/editor/editor",
     "van-icon": "@vant/weapp/icon/index",
     "van-tab": "@vant/weapp/tab/index",
     "van-tabs": "@vant/weapp/tabs/index",
     "van-nav-bar": "@vant/weapp/nav-bar/index",
     "van-row": "@vant/weapp/row/index",
     "van-col": "@vant/weapp/col/index",
-    "my-nav-bar": "/components/my-nav-bar/index",
     "van-button": "@vant/weapp/button/index",
     "van-popup": "@vant/weapp/popup/index",
     "van-cell": "@vant/weapp/cell/index",
     "van-cell-group": "@vant/weapp/cell-group/index",
     "van-collapse": "@vant/weapp/collapse/index",
-    "van-collapse-item": "@vant/weapp/collapse-item/index"
+    "van-collapse-item": "@vant/weapp/collapse-item/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "van-sticky": "@vant/weapp/sticky/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-sidebar": "@vant/weapp/sidebar/index",
+    "van-sidebar-item": "@vant/weapp/sidebar-item/index"
   },
   "sitemapLocation": "sitemap.json"
 }

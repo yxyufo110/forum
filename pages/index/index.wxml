@@ -1,49 +1,42 @@
-<view>
-  <view class="timer" bindtap="close">
-  {{value}}
-    <image  class="down" src="../../static/images/down.png"></image>
-  </view>
-  <view class="content">
-    <view class="list" wx:for="{{list}}"> 
-    <view class="left">
-      <view class="day">{{item.week}}</view>
-      <view class="{{item.recordingId ? 'circle' :'none'}}"></view>
-      <view class="cell"></view>
+<view class="box">
+  <van-nav-bar title="广场"  bind:click-left="onClickLeft">
+    <view slot="left" class="school">
+      {{userInfo.school||'请选择学校'}}
     </view>
-    <view class="right" wx:if="{{item.recordingId}}">
-      <view class="item">
-        <text class="title">心情</text>
-        <image class="t-icon" src="../../static/images/{{item.feelings[0]}}.png"></image>
-        <text class="t-timer">{{item.createdDate}}</text>
+  </van-nav-bar>
+  <scroll-view class="box-scroll" scroll-y="true" lower-threshold='30' bindscrolltolower="showMore">
+  <view wx:for="{{info}}">
+    <view class="item"  
+    wx:for="{{item}}"
+		 wx:for-item="citem" 
+     bindtap="goDetail"
+     data-id="{{citem.id}}"
+     >
+      <view class="left">
+        <view class="title">{{citem.title}}
+        </view>
+        <rich-text class="content" nodes="{{citem.content}}">
+        </rich-text>
+        <view class="local">{{citem.school || ''}} </view>
+        <view class="local">
+          <view class="hot"> <van-icon name="chat-o" style="margin-right:5px" />{{citem.reply}}</view>
+          <view class="hot"> <van-icon name="fire-o" style="margin-right:5px"/>{{citem.click}}</view></view>
       </view>
-      <view class="item">
-        <text class="title">天气</text>
-        <image class="t-icon" src="../../static/images/{{item.weathers[0]}}.png"></image>
-      </view>
-      <view class="item">
-        <text class="title">语音</text>
-        <image wx:if="{{ldId != item.id}}" data-id="{{item.id}}" bindtap="play" class="vo-icon" src="../../static/images/vo.png"></image>
-        <image wx:if="{{ldId == item.id}}" data-id="{{item.id}}" bindtap="stop" class="vo-icon" src="../../static/images/ld.gif"></image>
-        <text class="t-min">{{item.time|| 0}}s</text>
-      </view>
-    </view>
-    <view class="right2"  wx:if="{{!item.recordingId}}">
-    什么也没有~
+      <!-- <image src="https://pic3.zhimg.com/80/v2-5870a47106d0368f128dc1468084cc86_720w.png" class="right"></image> -->
     </view>
   </view>
-  </view>
+    <van-divider wx:if="{{!hasNextPage}}" dashed contentPosition="center">到底啦！</van-divider>
   
-  <view class="bottom">
-    <view style="width: 100rpx;height: 100rpx;"></view>
-    <image bindtap="goAdd" class="add" src="../../static/images/add.png"></image>
-    <image bindtap="goMe" class="me" src="../../static/images/me.png"></image>
-  </view>
-  <!-- 日历 -->
-  <van-calendar
-  show="{{ show }}"
-  min-date="{{ minDate }}"
-  max-date="{{ maxDate }}"
-  bind:close="close"
-  bind:confirm="changeTime"
-/>
+  </scroll-view>
+  <!-- 浮动按钮 -->
+  <view class="btns">
+    <van-icon
+		 name="icon iconfont iconsousuo"
+		/>
+    <van-icon name="add-o" bindtap="add"/>
+</view>
+  <van-tabbar active="{{ active }}" bind:change="onChange">
+    <van-tabbar-item icon="home-o">广场</van-tabbar-item>
+    <van-tabbar-item icon="friends-o">我的</van-tabbar-item>
+  </van-tabbar>
 </view>

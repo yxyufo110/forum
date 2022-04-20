@@ -1,79 +1,21 @@
-<wxs src="../../utils/util.wxs" module="tools" />
 <view class="box">
-  
-  <view class="item">
-    <view class="title">心情</view>
-    <view class="list">
-      <view class="radio {{xinList == 'xin1' ? 'checked' : ''}}" bindtap="checkXin" data-id="xin1">
-        <image class="r-icon" src="../../static/images/xin1.png"></image>
-        <text>开心</text>
-      </view>
-      <view class="radio {{xinList == 'xin2' ? 'checked' : ''}}" bindtap="checkXin" data-id="xin2">
-        <image class="r-icon" src="../../static/images/xin2.png"></image>
-        <text>惊喜</text>
-      </view>
-      <view class="radio {{xinList == 'xin3' ? 'checked' : ''}}" bindtap="checkXin" data-id="xin3">
-        <image class="r-icon" src="../../static/images/xin3.png"></image>
-        <text>平静</text>
-      </view>
-      <view class="radio {{xinList == 'xin4' ? 'checked' : ''}}" bindtap="checkXin" data-id="xin4">
-        <image class="r-icon" src="../../static/images/xin4.png"></image>
-        <text>难过</text>
-      </view>
-      <view class="radio {{xinList == 'xin5' ? 'checked' : ''}}" bindtap="checkXin" data-id="xin5">
-        <image class="r-icon" src="../../static/images/xin5.png"></image>
-        <text>心烦</text>
-      </view>
-      <view class="radio {{xinList == 'xin6' ? 'checked' : ''}}" bindtap="checkXin" data-id="xin6">
-        <image class="r-icon" src="../../static/images/xin6.png"></image>
-        <text>哭泣</text>
-      </view>
-    </view>
-  </view>
-  <view class="item">
-    <view class="title">天气</view>
-    <view class="list">
-      <view class="radio {{weList =='we1' ? 'checked' : ''}}" bindtap="checkWe" data-id="we1">
-        <image class="r-icon" src="../../static/images/we1.png"></image>
-        <text>晴天</text>
-      </view>
-      <view class="radio {{weList =='we2' ? 'checked' : ''}}" bindtap="checkWe" data-id="we2">
-        <image class="r-icon" src="../../static/images/we2.png"></image>
-        <text>阴天</text>
-      </view>
-      <view class="radio {{weList =='we3' ? 'checked' : ''}}" bindtap="checkWe" data-id="we3">
-        <image class="r-icon" src="../../static/images/we3.png"></image>
-        <text>多云</text>
-      </view>
-      <view class="radio {{weList =='we4' ? 'checked' : ''}}" bindtap="checkWe" data-id="we4">
-        <image class="r-icon" src="../../static/images/we4.png"></image>
-        <text>刮风</text>
-      </view>
-      <view class="radio {{weList =='we5' ? 'checked' : ''}}" bindtap="checkWe" data-id="we5">
-        <image class="r-icon" src="../../static/images/we5.png"></image>
-        <text>下雪</text>
-      </view>
-      <view class="radio {{weList =='we6' ? 'checked' : ''}}" bindtap="checkWe" data-id="we6">
-        <image class="r-icon" src="../../static/images/we6.png"></image>
-        <text>下雨</text>
-      </view>
-    </view>
-  </view>
-  <view class="item">
-    <view class="title">语音</view>
-    <view class="list">
-      <view class="radio" bindtap="start" wx:if="{{!isStart}}">
-        <image class="r-icon" src="../../static/images/start.png"></image>
-        <text>{{time || 0}}s</text>
-      </view>
-      <view class="radio" bindtap="stop" wx:if="{{isStart}}">
-        <image class="r-icon" src="../../static/images/stop.png"></image>
-        <text>{{time || 0}}s</text>
-      </view>
-    </view>
-  </view>
-  <view class="btn">
-<image class="dog" src="../../static/images/dog.png"></image>
-<text class="btn-desc" bindtap="submit">保存</text>
-</view>
+  <van-nav-bar
+  title="发帖"
+  left-text="返回"
+  left-arrow
+  bind:click-left="back"
+/>
+<van-cell-group>
+  <van-field
+    value="{{ title }}"
+    label="标题"
+    type="textarea"
+    placeholder="请输入标题"
+    autosize
+    bind:change="onChangeTitle"
+    border="{{ false }}"
+  />
+</van-cell-group>
+  <my-editor class="box-edit" bindonChange="onChange"></my-editor>
+  <van-button loading="{{loading}}" bind:click="submit" type="primary" block class="btn">提交</van-button>
 </view>

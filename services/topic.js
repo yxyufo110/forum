@@ -1,78 +1,43 @@
 import request from '../utils/request';
-export function geTopic(data) {
-  return request({
-    url: `/itembank/stu/question`,
-    method: 'get',
-    data: data,
-  });
-}
-export function geTopicOne(data) {
-  return request({
-    url: `/itembank/stu/question/${data.questionId}/detail`,
-    method: 'get',
-    data: {
-      chapter: data.chapter,
-    },
-  });
-}
-export function getAnswer(data) {
-  return request({
-    url: `/itembank/stu/question/practice`,
-    method: 'post',
-    data: data,
-  });
-}
-export function getCardList(data) {
-  return request({
-    url: `/itembank/stu/question/work-card`,
-    method: 'get',
-    data: data,
-  });
-}
-export function getShareId(data) {
-  return request({
-    url: `/student/stu/share/test-bank`,
-    method: 'post',
-    data: data,
-  });
-}
-export function topicIsCollect(data) {
-  return request({
-    url: `/student/stu/collect/judge/question/${data}`,
-    method: 'get',
-  });
-}
-export function cancelCollect(data) {
-  return request({
-    url: `/student/stu/collect/${data}/Question`,
-    method: 'delete',
-  });
-}
-export function errorCard(data) {
-  return request({
-    url: `/itembank/stu/problem-book/work-card`,
-    method: 'get',
-    data: data,
-  });
-}
 
-export function statistics(data) {
+export function addTopic(data) {
   return request({
-    url: `/itembank/stu/question/practice/statistics`,
+    url: `/topics`,
+    method: 'post',
+    data: data,
+  });
+}
+export function getTopic(data) {
+  return request({
+    url: `/topics`,
     method: 'get',
     data: data,
   });
 }
-export function repractice(data) {
+export function getSchool(data) {
   return request({
-    url: `/itembank/stu/question/re-practice?subjectId=${data.subjectId}&chapter=${data.chapter}`,
-    method: 'put',
+    url: `/school`,
+    method: 'get',
     data: data,
   });
 }
-export function correction(data) {
+export function getOne(data) {
   return request({
-    url: `/itembank/stu/question/correction`,
+    url: `/topics/${data}`,
+    method: 'get',
+  });
+}
+// 回复
+export function getOneReplay(data) {
+  return request({
+    url: `/reply/${data}?size=9999`,
+    method: 'get',
+  });
+}
+// 新增回复
+export function addReplay(data) {
+  return request({
+    url: `/reply`,
     method: 'post',
     data: data,
   });

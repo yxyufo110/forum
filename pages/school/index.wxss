@@ -1,0 +1,10 @@
+.content {
+  display: flex;
+}
+.list {
+  flex-grow: 1;
+}
+.scroll-box {
+  width: auto;
+  height: calc(100vh - 88px);
+}

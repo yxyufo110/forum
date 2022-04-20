@@ -1,8 +1,4 @@
 {
   "navigationBarTitleText": "我的",
-  "usingComponents": {
-    "van-transition": "../../miniprogram_npm/@vant/weapp/transition/index",
-    "van-dialog": "../../miniprogram_npm/@vant/weapp/dialog/index"
-  },
   "disableScroll": true
 }

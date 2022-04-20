@@ -1,19 +1,14 @@
 import {
   getUser,
   updateUsr,
-  statistics
 } from '../../services/user';
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    show1: false,
-    show2: false,
-    show3: false,
-    show4: false,
-    show5: false,
     userInfo: {},
     hasUserInfo: true,
     cData: {},
@@ -25,48 +20,28 @@ Page({
    */
   onLoad: function (options) {
     getUser().then(res => {
-      this.setData({
-        userInfo: res,
-        hasUserInfo: res.userName && res.avatar ? true : false,
-      });
-      if (res.userName && res.avatar) {
-        this.showText()
+      if(res.userName && res.avatar){
+        app.globalData.userInfo = res
+        wx.navigateTo({
+          url: '/pages/index/index',
+        })
+      } else {
+        this.setData({
+          hasUserInfo:false
+        })
       }
-    })
-    statistics().then(res => {
-      this.setData({
-        cData: res
-      })
+      // this.setData({
+      //   userInfo: res,
+      //   hasUserInfo: res.userName && res.avatar ? true : false,
+      // });
+      // if (res.userName && res.avatar) {
+      //   this.showText()
+      // }
     })
 
+
   },
-  showText() {
-    setTimeout(() => {
-      this.setData({
-        show1: true
-      })
-    }, 800)
-    setTimeout(() => {
-      this.setData({
-        show2: true
-      })
-    }, 1600)
-    setTimeout(() => {
-      this.setData({
-        show3: true
-      })
-    }, 2400)
-    setTimeout(() => {
-      this.setData({
-        show4: true
-      })
-    }, 3200)
-    setTimeout(() => {
-      this.setData({
-        show5: true
-      })
-    }, 4000)
-  },
+  
   getUserProfile(e) {
     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认
     // 开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
@@ -82,13 +57,10 @@ Page({
             sex: res.userInfo.gender
           };
           updateUsr(params).then((res) => {
-            this.setData({
-              userInfo: res,
-              hasUserInfo: true,
-            });
-            if (res.userName && res.avatar) {
-              this.showText()
-            }
+            app.globalData.userInfo = res
+            wx.navigateTo({
+              url: '/pages/index/index',
+            })
           });
         }
 

@@ -1,6 +1,6 @@
 // request.js
 const app = getApp();
-const baseUrl = 'https://diary.becolorful.cn';
+const baseUrl = 'https://diary.becolorful.cn/worker';
 const request = (options) => {
   let newOptions = options;
   return new Promise((resolve, reject) => {

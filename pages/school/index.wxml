@@ -1,0 +1,25 @@
+<van-nav-bar
+  title="选择学校"
+  left-text="返回"
+  left-arrow
+  bind:click-left="back"
+/>
+ 
+  <view class="content">
+    <scroll-view  class="scroll-box" scroll-y="true" lower-threshold='30' bindscrolltolower="showMore">
+    <van-sidebar active-key="{{ activeKey }}" bind:change="changeNav" style="float: left;">
+      <van-sidebar-item title="{{item[0].province}}" wx:for="{{schoolList}}"/>
+    </van-sidebar>
+  </scroll-view>
+  <scroll-view class="scroll-box"  scroll-y="true" lower-threshold='30' bindscrolltolower="showMore" style="  flex-grow: 1;">
+    <view class="list">
+      <van-cell-group>
+      <van-cell data-name="{{item.name}}" bind:click="updateSchool" title="{{item.city}}" value="{{item.name}}" wx:for="{{schoolList[activeKey]}}"/>
+      </van-cell-group>
+    </view>
+    </scroll-view>
+
+  </view>
+   
+ 
+

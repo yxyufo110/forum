@@ -1,0 +1,62 @@
+<van-nav-bar
+  title="详情"
+  left-text="返回"
+  left-arrow
+  bind:click-left="back"
+/>
+<!-- 标题 -->
+<view class="title">{{topicDetail.title}}</view>
+<rich-text nodes="{{topicDetail.content}}"></rich-text>
+<van-divider dashed/>
+<!-- 评论-回复-回复评论显示区域 -->  
+<view class="container">
+    <!-- 总共评论数 -->    
+    <view class="total">共{{replayList.length}}条评论</view>    
+    <!-- END -->
+    <!-- 评论框 -->    
+    <input confirm-type="send" class="container_inp" value="{{value}}" placeholder="{{ placeholder2 }}" placeholder-class="container_place" bindconfirm="bindconfirm"></input>    
+    <!-- END -->
+    <!-- 用户评论回复显示区域 -->    
+    <view class="container-item" wx:for="{{replayList}}" wx:for-item="list" wx:key="key">
+      <image class="item_img" src="{{list.user.avatar}}"></image>
+      <view class="item_right">
+        <view class="right_name">{{list.user.userName}}</view>
+        <view class="right_content">
+          <text class="right_content_txt" bindtap='replyComment' data-type="1" data-name='{{list.user.userName}}' data-cid='{{list.id}}' data-pid="{{list.parentId}}">{{list.content}}</text>
+          <text class="right_content_txt2">{{list.createdDate}}</text>
+          <!-- 回复评论 -->
+          <!-- 判断回复列表数据中的parentId和评论列表数据的id是否相等 相等就显示 不等就不显示 -->          
+          <view class="reply" wx:for="{{list.children}}" wx:for-item="list2" wx:key="list2" wx:if="{{list.children}}">
+            <image class="reply_img" src="{{list2.user.avatar}}"></image>
+            <view class="reply_right">
+              <view class="right_name">{{list2.user.userName}}</view>
+              <text wx:if="{{list2.parentUser.userName == ''}}" class="right_content_txt" bindtap='replyComment' data-type="2" data-name='{{list2.user.userName}}' data-cid='{{list2.id}}' data-pid="{{list2.parentId}}">{{list2.content}}</text>
+              <text wx:if="{{list2.parentUser.userName != ''}}" bindtap='replyComment' data-type="2" data-name='{{list2.user.userName}}' data-cid='{{list2.id}}' data-pid="{{list2.parentId}}" class="right_content_txt">回复 <text class="right_name">{{list2.parentUser.userName}}：</text>{{list2.content}}</text>
+              <text class="right_content_txt2">{{list2.createdDate}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>    
+    <!-- END -->
+    <!-- 结束 -->    
+    <view class="end">      
+      <text class="end_txt" space="nbsp">—  THE END  —</text>    
+    </view>    
+    <!-- END -->
+  </view>  
+  <!-- END -->
+  <!-- 底部评论 -->  
+  <view class="foot">
+    <view class="say">
+      <view class="flex">
+        <van-icon name="comment-o" class="say_img"/>
+        <input confirm-type="send" class="say_inp" placeholder="{{ placeholder }}" value="{{ comment_text }}" focus="{{ focus }}" bindblur="blur" bindconfirm="confirm"></input>
+      </view>
+    </view>
+    <van-icon class="foot_img" name="chat-o" style="margin-right:5px" />
+    <text class="foot_num">{{topicDetail.reply}}</text>
+    <van-icon class="foot_img2" name="fire-o" style="margin-right:5px"/>
+    <text class="foot_num">{{topicDetail.click}}</text>
+  </view>  
+  <!-- END -->
