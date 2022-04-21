@@ -1,1 +1,12 @@
-/* pages/msg/index.wxss */
+.box {
+  display: flex;
+  flex-direction:column;
+  height:100vh;
+  overflow:hidden;
+}
+.box-scroll {
+flex: 1;
+height: 1px;
+padding-bottom: calc(constant(safe-area-inset-bottom) + 50px) ; /*兼容 IOS<11.2*/
+padding-bottom: calc(env(safe-area-inset-bottom) + 50px); /*兼容 IOS>11.2*/
+}

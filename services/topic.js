@@ -43,9 +43,17 @@ export function addReplay(data) {
   });
 }
 // 我的消息
-export function getMsg() {
+export function getMsg(data) {
   return request({
     url: `/msg`,
     method: 'get',
+    data: data,
+  });
+}
+// 已读消息
+export function putMsg(id) {
+  return request({
+    url: `/msg/${id}`,
+    method: 'put',
   });
 }

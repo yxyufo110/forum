@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/user/index",
     "pages/me/index",
+    "pages/user/index",
     "pages/detail/index",
     "pages/school/index",
     "pages/add/index",
@@ -36,7 +36,8 @@
     "van-sidebar": "@vant/weapp/sidebar/index",
     "van-sidebar-item": "@vant/weapp/sidebar-item/index",
     "van-grid": "@vant/weapp/grid/index",
-    "van-grid-item": "@vant/weapp/grid-item/index"
+    "van-grid-item": "@vant/weapp/grid-item/index",
+    "van-tag": "@vant/weapp/tag/index"
   },
   "sitemapLocation": "sitemap.json"
 }

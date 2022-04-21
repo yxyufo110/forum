@@ -1,6 +1,21 @@
-<van-nav-bar
+
+<view class="box">
+  <van-nav-bar
   title="我的消息"
   left-text="返回"
   left-arrow
   bind:click-left="back"
 />
+<scroll-view class="box-scroll" scroll-y="true" lower-threshold='30' bindscrolltolower="showMore">
+  <van-cell-group>
+    <van-cell data-id="{{item.id}}" data-topicid="{{item.topicId}}" bind:click="goTopic" wx:for="{{list}}" is-link >
+  <view slot="title">
+    <view class="van-cell-text">{{item.msg}}</view>
+    <van-tag type="danger" wx:if="{{item.status=='New'}}">新</van-tag>
+  </view>
+  </van-cell>
+
+</van-cell-group>
+</scroll-view>
+
+</view>
