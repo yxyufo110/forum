@@ -75,8 +75,8 @@ Page({
   },
   onShareAppMessage: function () {
     return {
-      title: '分享语音日记',
-      path: `/pages/index/index`,
+      title: '分享',
+      path: `/pages/me/index`,
     };
   }
 

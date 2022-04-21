@@ -42,3 +42,10 @@ export function addReplay(data) {
     data: data,
   });
 }
+// 我的消息
+export function getMsg() {
+  return request({
+    url: `/msg`,
+    method: 'get',
+  });
+}

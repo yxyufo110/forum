@@ -37,19 +37,26 @@ Page({
       })
       wx.login({
         success: (lres) => {
-          console.log(lres)
           addTopic({
             content:this.data.content,
             title:this.data.title,
             accessCode:lres.code
           }).then(res=>{
+            this.setData({
+              loading:false
+            })
+            if(res && res.code == 500) {
+              wx.showToast({
+                title: '请检查敏感词汇！',
+                icon:'none'
+              })
+              return
+            }
             wx.showToast({
               title: '发帖成功',
               icon:'none'
             })
-            this.setData({
-              loading:false
-            })
+           
             wx.navigateBack()
           }).catch(()=>{
             this.setData({

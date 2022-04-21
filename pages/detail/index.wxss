@@ -1,4 +1,7 @@
 /* 评论-回复-回复评论显示区域 */
+.contentBox {
+  padding: 32rpx;
+}
 .container{  width: 718rpx;  margin-top: 39rpx;  padding-left: 32rpx;}
 .total{  font-size: 24rpx;  color: #999999;   margin-left: 1rpx;}
 .container_inp{  width: 661rpx;  height: 32rpx;  background-color: #F2F2F2;  border-radius: 8rpx;  padding: 17rpx 0rpx 15rpx 25rpx;  margin-top: 24rpx;  margin-bottom: 47rpx  ;}

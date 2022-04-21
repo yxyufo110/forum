@@ -5,8 +5,10 @@
   bind:click-left="back"
 />
 <!-- 标题 -->
-<view class="title">{{topicDetail.title}}</view>
-<rich-text nodes="{{topicDetail.content}}"></rich-text>
+<view class="contentBox">
+  <view class="title">{{topicDetail.title}}</view>
+<rich-text  nodes="{{topicDetail.content}}"></rich-text>
+</view>
 <van-divider dashed/>
 <!-- 评论-回复-回复评论显示区域 -->  
 <view class="container">

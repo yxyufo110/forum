@@ -35,7 +35,7 @@
 		/>
     <van-icon name="add-o" bindtap="add"/>
 </view>
-  <van-tabbar active="{{ active }}" bind:change="onChange">
+  <van-tabbar active="{{ active }}" bind:change="changeTab">
     <van-tabbar-item icon="home-o">广场</van-tabbar-item>
     <van-tabbar-item icon="friends-o">我的</van-tabbar-item>
   </van-tabbar>

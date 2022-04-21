@@ -1,10 +1,12 @@
 {
   "pages": [
-    "pages/detail/index",
+    "pages/user/index",
     "pages/me/index",
+    "pages/detail/index",
     "pages/school/index",
     "pages/add/index",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/msg/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -32,7 +34,9 @@
     "van-sticky": "@vant/weapp/sticky/index",
     "van-field": "@vant/weapp/field/index",
     "van-sidebar": "@vant/weapp/sidebar/index",
-    "van-sidebar-item": "@vant/weapp/sidebar-item/index"
+    "van-sidebar-item": "@vant/weapp/sidebar-item/index",
+    "van-grid": "@vant/weapp/grid/index",
+    "van-grid-item": "@vant/weapp/grid-item/index"
   },
   "sitemapLocation": "sitemap.json"
 }

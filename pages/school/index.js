@@ -53,7 +53,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '分享',
-      path: `/pages/index/me`,
+      path: `/pages/me/index`,
     };
   }
 

@@ -33,8 +33,14 @@ Page({
       });
     }
   },
-  onChange(event) {
+  changeTab(event) {
     // this.setData({ active: event.detail });
+    console.log(event.detail)
+    if(event.detail == 1) {
+      wx.redirectTo({
+        url: '/pages/user/index',
+      })
+    }
   },
   add(){
     wx.navigateTo({
@@ -44,7 +50,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '分享',
-      path: `/pages/index/me`,
+      path: `/pages/me/index`,
     };
   },
   goDetail(e){
