@@ -1,6 +1,7 @@
 // request.js
 const app = getApp();
-const baseUrl = 'https://diary.becolorful.cn/worker';
+const baseUrl = 'https://xxxxxx';
+// 接口地址
 const request = (options) => {
   let newOptions = options;
   return new Promise((resolve, reject) => {
